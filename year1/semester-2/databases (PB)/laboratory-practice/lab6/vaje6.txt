@@ -1,0 +1,116 @@
+----Jadralci:----
+----Naloga 1:----
+
+SELECT ime
+FROM coln c
+WHERE NOT EXISTS(
+     SELECT jid
+     FROM jadralec
+     WHERE jid NOT IN(
+          SELECT jid
+          FROM rezervacija
+          WHERE cid = c.cid))
+
+
+----Naloga 2:----
+
+SELECT *
+FROM coln c
+WHERE dolzina > 35
+AND c.barva = ALL (
+	SELECT barva
+    FROM coln
+    WHERE dolzina > 35
+)
+
+
+----Naloga 3:----
+
+SELECT IF(COUNT(DISTINCT barva)>1, 'Ne', 'Da') AS 'Enakost'
+FROM coln
+WHERE dolzina > 35;
+
+
+
+----Naloga 4:----
+
+SELECT r.cid, c.ime, COUNT(*) AS 'St rezervacij'
+FROM coln c INNER JOIN rezervacija r USING (cid)
+GROUP BY r.cid, c.ime
+ORDER BY COUNT(*) DESC;
+
+
+
+----Naloga 5:----
+
+SELECT j.jid, j.ime, COUNT(r.dan) AS 'St rezervacij'
+FROM rezervacija r RIGHT OUTER JOIN jadralec j USING(jid)
+GROUP BY j.jid, j.ime
+ORDER BY COUNT(r.dan) DESC, j.ime ASC;
+
+
+
+----Naloga 6:----
+
+HAVING COUNT(*) > ( 
+	SELECT AVG(rez.st)
+	FROM (SELECT COUNT(jid) AS 'st'
+		FROM rezervacija
+		GROUP BY jid) AS rez
+);
+
+
+
+----Travian:----
+----Naloga 1:----
+
+SELECT i.pid, COUNT(*)
+FROM igralec i INNER JOIN naselje n USING (pid)
+GROUP BY pid
+
+
+
+----Naloga 2:----
+
+SELECT a.aid, a.alliance, COUNT(*)
+FROM aliansa a INNER JOIN igralec i USING (aid)
+GROUP BY a.aid, a.alliance
+ORDER BY COUNT(*) DESC 
+
+
+
+----Naloga 3:----
+
+SELECT a.aid, a.alliance, COUNT(n.id), SUM(n.population)
+FROM aliansa a INNER JOIN igralec i USING (aid)
+INNER JOIN naselje n USING (pid)
+GROUP BY a.aid, a.alliance;
+
+
+
+----Naloga 4:----
+
+SELECT p.tid, p.tribe
+FROM pleme p INNER JOIN igralec i USING (tid)
+INNER JOIN naselje n USING (pid)
+GROUP BY p.tid, p.tribe
+ORDER BY SUM(n.population) DESC
+LIMIT 1
+
+
+
+----Naloga 5:----
+
+SELECT i.pid, i.player, AVG(n.population)
+FROM igralec i INNER JOIN naselje n USING (pid)
+GROUP BY i.pid, i.player
+HAVING COUNT(n.id) > 4
+
+
+
+----Naloga 6:----
+
+SELECT COUNT(*) AS '#naselji',SIGN(x),SIGN(y)
+FROM naselje
+WHERE x != 0 AND y != 0 #ker po definiciji kvadranti ne vsebujejo vrednosti nič
+GROUP BY x > 0, y > 0

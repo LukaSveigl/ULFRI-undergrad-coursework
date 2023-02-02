@@ -1,0 +1,42 @@
+#{Scope test 2 - should throw error}#
+
+typ integer = int;
+
+#{Create new scope}#
+fun main() : void = {
+    #{Create new scope}#
+    (
+        {
+        x = 1;
+        #{Create new scope}#
+        (
+            {
+            #{Should throw error here - calling function defined in nested scope}#
+            y = w(y);
+            #{Create new scope}#
+            (
+                {
+                x = x + w(x);
+                y = x * w(x);
+                }
+                where
+                    fun w(z : integer) : integer = z * 3;
+            );
+            #{Leave scope}#
+            }
+            where
+                typ number = integer;
+                var y : number;
+        );
+        #{Leave scope}#
+        }
+    where
+        var x : integer;
+    );
+    #{Leave scope}#
+};
+#{Leave scope}#
+
+#{Should output: (locations might vary)
+:-( [15.17-15.17] Semantic Error: 'w' is not declared.
+}#

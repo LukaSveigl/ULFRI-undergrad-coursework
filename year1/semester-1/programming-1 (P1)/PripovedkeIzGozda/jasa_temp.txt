@@ -1,0 +1,22 @@
+
+# def jasa(gozd):
+#     no_trees = sorted(list({(x, y) for y, g in enumerate(gozd) for x, _ in enumerate(g)} - vsa_drevesa(gozd)))
+#     allowed = []
+#     for x0, y0 in no_trees:
+#         for x1, y1 in no_trees:
+#             if ni_dreves(x0, y0, x1, y1, gozd):
+#                 allowed.append(((x0, y0), (x1, y1)))
+#     max_size = 0
+#     for (x0, y0), (x1, y1) in allowed:
+#         if x0 != x1 and y0 != y1:
+#             size = (abs(x0 - x1) + 1) * (abs(y0 - y1) + 1)
+#         elif x0 == x1 and y0 != y1:
+#             size = abs(y0 - y1) + 1
+#         elif x0 != x1 and y0 == y1:
+#             size = abs(x0 - x1) + 1
+#         else:
+#             size = 1
+#         if size > max_size:
+#             max_size = size
+#     print(max_size)
+#     return max_size

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Računalniška grafika - Domača naloga 3 - QuadTree</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            font-family: sans-serif;
+        }
+
+        .fullscreen {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .fullscreen>* {
+            width: 100%;
+            height: 100%;
+        }
+
+        .overlay {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay">
+        <input id="drawTree" type="checkbox" checked> Draw tree </br>
+        <input id="pointCount" type="number"> # of points </br>
+        <input id="capacity" type="number"> Tree capacity </br>
+        <input id="pointSpeed" type="number"> Point speed (max 3)</br>
+    </div>
+    <canvas id="canvas"></canvas>
+    <script type="module" src="Driver.js"></script>
+</body>
+
+</html>

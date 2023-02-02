@@ -1,0 +1,80 @@
+-------------Naloga 1:---------------
+
+          .text
+COUNTER:  .word 48000
+          .align
+          .global __start
+__start:
+          adr r0, COUNTER
+          mov r1, #0
+          mov r2, #500
+          
+          
+OUTER:    
+          ldr r3, [r0]
+INNER:
+            add r1, r1, #1
+          
+            subs r3, r3, #1
+            bne INNER
+          
+          @ Separator comment for inner and outer branch 
+          
+          subs r2, r2, #1
+          bne OUTER
+
+__end:    b __end 
+
+
+
+----------------Naloga 2:----------------
+
+
+          .text
+COUNTER:  .word 48000
+          .align
+          .global __start
+__start:
+          
+INFINITE:
+          adr r4, LED
+          adr r5, BUZZ
+          
+          mov r6, #1
+          
+          str r6, [r4]
+          str r6, [r5]
+          
+          bl WRITEOUT
+          bl DELAY
+          
+          mov r6, #0
+          
+          str r6, [r4]
+          str r6, [r5]
+          
+          bl WRITEOUT
+          bl DELAY
+
+          b INFINITE
+
+
+DELAY:
+          adr r0, COUNTER
+          mov r1, #0
+          mov r2, #500 
+OUTER:    
+            ldr r3, [r0]
+INNER:
+              add r1, r1, #1
+          
+              subs r3, r3, #1
+              bne INNER 
+          
+            subs r2, r2, #1
+            bne OUTER
+          
+          mov r15, r14
+
+__end:    b __end   
+  

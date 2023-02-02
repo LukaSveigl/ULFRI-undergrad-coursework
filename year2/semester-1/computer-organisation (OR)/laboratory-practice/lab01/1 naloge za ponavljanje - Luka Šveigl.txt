@@ -1,0 +1,478 @@
+----Naloga 1: a----
+
+          .text
+
+S1:       .byte 10  @ Inicializiramo 2 8-bitni spremenljivki     
+S2:       .byte 7
+
+          .align
+          .global __start
+__start:
+           ldrb r0, S1
+           
+           ldrb r1, S2
+           
+           cmp r0, r1     @ Primerjamo vrednosti podatkov
+           bhi FIRST_HIGHER
+           
+           sub r1, r1, r0
+           
+           b __end
+           
+FIRST_HIGHER:
+           sub r0, r0, r1
+          
+__end:    b __end   
+
+
+----Naloga 1: predznacena a----
+
+          .text
+
+S1:       .byte -10  @ Inicializiramo 2 8-bitni spremenljivki        
+S2:       .byte -7
+
+          .align
+          .global __start
+__start:
+           ldrsb r0, S1
+           
+           ldrsb r1, S2
+           
+           cmp r0, r1     @ Primerjamo vrednosti podatkov
+           bgt FIRST_HIGHER
+           
+           sub r1, r1, r0
+           
+           b __end
+           
+FIRST_HIGHER:
+           sub r0, r0, r1
+          
+__end:    b __end   
+
+
+
+----Naloga 1: b----
+
+
+          .text
+
+S1:       .byte 10   @ Inicializiramo 2 8-bitni spremenljivki        
+S2:       .byte 7
+
+          .align
+          .global __start
+__start:
+           ldrb r0, S1
+           
+           ldrb r1, S2
+           
+           cmp r0, r1     @ Primerjamo vrednosti podatkov
+           
+           subls r1, r1, r0
+           subhi r0, r0, r1
+          
+__end:    b __end    
+
+
+
+----Naloga 1: predznacena b----
+
+
+          .text
+
+S1:       .byte -10   @ Inicializiramo 2 8-bitni spremenljivki        
+S2:       .byte -7
+
+          .align
+          .global __start
+__start:
+           ldrsb r0, S1
+           
+           ldrsb r1, S2
+           
+           cmp r0, r1     @ Primerjamo vrednosti podatkov
+           
+           suble r1, r1, r0
+           subgt r0, r0, r1
+          
+__end:    b __end    
+
+
+
+----Naloga 2: a----
+
+
+          .text
+
+TABLE:    .byte 23,54,2,76,53,57,5,1,0,11   @ Inicializiramo tabelo spremenljivk
+          .align
+SIZE:     .byte 10
+
+          .align
+          .global __start
+__start:
+          mov r1, #53
+           
+          adr r0, TABLE @ Naslovimo tabelo
+          adr r3, SIZE  @ Naslovimo velikost tabele
+          ldrb r4, [r3]
+          
+LOOP:                   @ Oznaka zanke
+          ldrb r2, [r0]  @ Nalozimo vrednost iz zanke
+          cmp r2, r1    @ Primerjamo vrednosti
+          
+          sub r4, r4, #1  @ Zmanjsamo velikost zanke
+          
+          beq __end       @ Ce vrednost tabele = r1 koncamo program
+          
+          add r0, r0, #1  @ Premaknemo se na naslednji element v zanki
+          
+          cmp r4, #0
+          
+          beq __end     @ Ce pridemo do konca tabele koncamo program
+          b LOOP        @ Drugace skocimo nazaj v zanko
+   
+__end:    b __end 
+
+
+
+----Naloga 2: b----
+
+
+          .text
+
+TABLE:    .byte 23,54,2,76,53,57,5,1,0,11   @ Inicializiramo tabelo spremenljivk
+          .align
+SIZE:     .byte 10
+
+          .align
+          .global __start
+__start:
+          mov r1, #60
+           
+          adr r0, TABLE @ Naslovimo tabelo
+          adr r3, SIZE  @ Naslovimo velikost tabele
+          ldrb r4, [r3]
+          
+LOOP:                   @ Oznaka zanke
+          ldrb r2, [r0]  @ Nalozimo vrednost iz zanke
+          cmp r2, r1    @ Primerjamo vrednosti
+          
+          sub r4, r4, #1  @ Zmanjsamo velikost zanke
+          
+          bhi __end       @ Ce vrednost tabele > r1 koncamo program
+          
+          add r0, r0, #1  @ Premaknemo se na naslednji element v zanki
+          
+          cmp r4, #0
+          
+          beq __end     @ Ce pridemo do konca tabele koncamo program
+          b LOOP        @ Drugace skocimo nazaj v zanko
+   
+__end:    b __end  
+
+
+
+----Naloga 2: c----
+
+
+          .text
+
+TABLE:    .byte 23,54,2,76,53,57,5,1,0,11   @ Inicializiramo tabelo spremenljivk
+          .align
+SIZE:     .byte 10
+
+          .align
+          .global __start
+__start:
+          mov r1, #2
+           
+          adr r0, TABLE @ Naslovimo tabelo
+          adr r3, SIZE  @ Naslovimo velikost tabele
+          ldrb r4, [r3]
+          
+LOOP:                   @ Oznaka zanke
+          ldrb r2, [r0]  @ Nalozimo vrednost iz zanke
+          cmp r2, r1    @ Primerjamo vrednosti
+          
+          sub r4, r4, #1  @ Zmanjsamo velikost zanke
+          
+          blo __end       @ Ce vrednost tabele < r1 koncamo program
+          
+          add r0, r0, #1  @ Premaknemo se na naslednji element v zanki
+          
+          cmp r4, #0
+          
+          beq __end     @ Ce pridemo do konca tabele koncamo program
+          b LOOP        @ Drugace skocimo nazaj v zanko
+   
+__end:    b __end    
+
+
+
+----Naloga 2: predznacena a----
+
+
+          .text
+
+TABLE:    .byte 0,-5,2,-4,11,12,32,-10,-11,-22   @ Inicializiramo tabelo spremenljivk
+          .align
+SIZE:     .byte 10
+
+          .align
+          .global __start
+__start:
+          mov r1, #11
+           
+          adr r0, TABLE @ Naslovimo tabelo
+          adr r3, SIZE  @ Naslovimo velikost tabele
+          ldrsb r4, [r3]
+          
+LOOP:                   @ Oznaka zanke
+          ldrsb r2, [r0]  @ Nalozimo vrednost iz zanke
+          cmp r2, r1    @ Primerjamo vrednosti
+          
+          sub r4, r4, #1  @ Zmanjsamo velikost zanke
+          
+          beq __end       @ Ce vrednost tabele = r1 koncamo program
+          
+          add r0, r0, #1  @ Premaknemo se na naslednji element v zanki
+          
+          cmp r4, #0
+          
+          beq __end     @ Ce pridemo do konca tabele koncamo program
+          b LOOP        @ Drugace skocimo nazaj v zanko
+   
+__end:    b __end    
+
+
+
+----Naloga 2: predznacena b----
+
+
+          .text
+
+TABLE:    .byte 0,-5,2,-4,11,12,32,-10,-11,-22   @ Inicializiramo tabelo spremenljivk
+          .align
+SIZE:     .byte 10
+
+          .align
+          .global __start
+__start:
+          mov r1, #30
+           
+          adr r0, TABLE @ Naslovimo tabelo
+          adr r3, SIZE  @ Naslovimo velikost tabele
+          ldrsb r4, [r3]
+          
+LOOP:                   @ Oznaka zanke
+          ldrsb r2, [r0]  @ Nalozimo vrednost iz zanke
+          cmp r2, r1    @ Primerjamo vrednosti
+          
+          sub r4, r4, #1  @ Zmanjsamo velikost zanke
+          
+          bgt __end       @ Ce vrednost tabele > r1 koncamo program
+          
+          add r0, r0, #1  @ Premaknemo se na naslednji element v zanki
+          
+          cmp r4, #0
+          
+          beq __end     @ Ce pridemo do konca tabele koncamo program
+          b LOOP        @ Drugace skocimo nazaj v zanko
+   
+__end:    b __end 
+
+
+
+----Naloga 2: predznacena c----
+
+
+          .text
+
+TABLE:    .byte 0,-5,2,-4,11,12,32,-10,-11,-22   @ Inicializiramo tabelo spremenljivk
+          .align
+SIZE:     .byte 10
+
+          .align
+          .global __start
+__start:
+          mov r1, #-11
+           
+          adr r0, TABLE @ Naslovimo tabelo
+          adr r3, SIZE  @ Naslovimo velikost tabele
+          ldrsb r4, [r3]
+          
+LOOP:                   @ Oznaka zanke
+          ldrsb r2, [r0]  @ Nalozimo vrednost iz zanke
+          cmp r2, r1    @ Primerjamo vrednosti
+          
+          sub r4, r4, #1  @ Zmanjsamo velikost zanke
+          
+          blt __end       @ Ce vrednost tabele < r1 koncamo program
+          
+          add r0, r0, #1  @ Premaknemo se na naslednji element v zanki
+          
+          cmp r4, #0
+          
+          beq __end     @ Ce pridemo do konca tabele koncamo program
+          b LOOP        @ Drugace skocimo nazaj v zanko
+   
+__end:    b __end   
+
+
+
+----Naloga 3: a----
+
+
+          .text
+          
+          @ Inicializiramo tabelo spremenljivk
+TABLE:    .byte 1,100,255,24,88,31,56,192,155,224,48,0,128,99,147,177  
+ 
+          .align
+SIZE:     .byte 15
+
+          .align
+REZ:      .byte 0          
+          
+          .align
+          .global __start
+__start:
+          mov r5, #0    @ Stevec stevil, ki ustrezajo pogojem
+           
+          adr r0, TABLE @ Naslovimo tabelo
+          adr r3, SIZE  @ Naslovimo velikost tabele
+          ldrb r4, [r3]
+          
+LOOP:                   @ Oznaka zanke
+          ldrsb r1, [r0]
+          
+          cmp r1, #90
+          addgt r5, r5, #1  @ Povecamo stevec stevil 
+          
+          add r0, r0, #1  @ Premaknemo se na naslednji element tabele 
+          cmp r4, #0      @ Preverimo, ce je stevec zanke na koncu
+          
+          sub r4, r4, #1  @ Zmanjsamo stevec zanke
+          
+          bne LOOP        @ Ce nismo na koncu tabele, ponovimo zanko
+          
+          adr r6, REZ
+          strb r5, [r6]    @ Shranimo rezzultat v spremenljivko REZ
+   
+__end:    b __end 
+
+
+
+----Naloga 3: b----
+
+
+          .text
+          
+          @ Inicializiramo tabelo spremenljivk
+TABLE:    .byte 1,100,255,24,88,31,56,192,155,224,48,0,128,99,147,177  
+ 
+          .align
+SIZE:     .byte 15
+
+          .align
+REZ:      .byte 0          
+          
+          .align
+          .global __start
+__start:
+          mov r5, #0    @ Stevec stevil, ki ustrezajo pogojem
+           
+          adr r0, TABLE @ Naslovimo tabelo
+          adr r3, SIZE  @ Naslovimo velikost tabele
+          ldrb r4, [r3]
+          
+LOOP:                   @ Oznaka zanke
+          ldrb r1, [r0]
+          
+          cmp r1, #100
+          addhi r5, r5, #1  @ Povecamo stevec stevil 
+          
+          add r0, r0, #1  @ Premaknemo se na naslednji element tabele 
+          cmp r4, #0      @ Preverimo, ce je stevec zanke na koncu
+          
+          sub r4, r4, #1  @ Zmanjsamo stevec zanke
+          
+          bne LOOP        @ Ce nismo na koncu tabele, ponovimo zanko
+          
+          adr r6, REZ
+          strb r5, [r6]    @ Shranimo rezzultat v spremenljivko REZ
+   
+__end:    b __end 
+
+
+
+----Naloga 3: c----
+          .text
+          
+          @ Inicializiramo tabelo spremenljivk
+TABLE:    .byte 1,100,255,24,88,31,56,192,155,224,48,0,128,99,147,177  
+ 
+          .align
+SIZE:     .byte 15
+
+          .align
+REZ:      .byte 0          
+          
+          .align
+          .global __start
+__start:
+          mov r5, #0    @ Stevec stevil, ki ustrezajo pogojem
+           
+          adr r0, TABLE @ Naslovimo tabelo
+          adr r3, SIZE  @ Naslovimo velikost tabele
+          ldrb r4, [r3]
+          
+LOOP:                   @ Oznaka zanke
+          ldrb r1, [r0]
+          
+          cmp r1, #48   @ Preverimo, ali je element >= 48
+          bhs CHECK_48  @ Ce pogoj velja, skocimo na to oznako
+          
+          add r0, r0, #1  @ Premaknemo se na naslednji element tabele 
+          cmp r4, #0      @ Preverimo, ce je stevec zanke na koncu
+          
+          sub r4, r4, #1  @ Zmanjsamo stevec zanke
+          
+          bne LOOP        @ Ce nismo na koncu tabele, ponovimo zanko 
+          
+          adr r6, REZ
+          strb r5, [r6]    @ Shranimo rezzultat v spremenljivko REZ
+          
+          b __end
+          
+CHECK_48:
+          cmp r1, #57   @ Preverimo, ce element <= 57
+          bls CHECK_57  @ Ce pogoj velja, skocimo na to oznako
+          
+          @ Spodnji del dodamo za primer, ko r1 > 57
+          
+          add r0, r0, #1  @ Premaknemo se na naslednji element tabele 
+          cmp r4, #0      @ Preverimo, ce je stevec zanke na koncu
+          
+          sub r4, r4, #1  @ Zmanjsamo stevec zanke
+          
+          bne LOOP        @ Ce nismo na koncu tabele, ponovimo zanko
+          b __end                              
+          
+CHECK_57:
+
+          add r5, r5, #1  @ Povecamo stevec elementov
+
+          add r0, r0, #1  @ Premaknemo se na naslednji element tabele 
+          cmp r4, #0      @ Preverimo, ce je stevec zanke na koncu
+          
+          sub r4, r4, #1  @ Zmanjsamo stevec zanke
+          
+          bne LOOP        @ Ce nismo na koncu tabele, ponovimo zanko
+
+          b LOOP          @ Skocimo nazaj v zanko   
+   
+__end:    b __end 

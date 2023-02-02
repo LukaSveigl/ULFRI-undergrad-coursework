@@ -1,0 +1,20 @@
+var x : int;
+fun a (x : char) : void = {
+    x = 1;
+};
+
+#{ Should output: (locations might vary)
+  AstVarDecl(x) @(1.1-1.3)
+    AstAtomType(INT) @(1.9-1.11)
+  AstFunDecl(a) @(2.1-2.3)
+    {Pars}
+      AstParDecl(x) @(2.8-2.8)
+        AstAtomType(CHAR) @(2.12-2.15)
+    AstAtomType(VOID) @(2.20-2.23)
+    AstStmtExpr @(2.27-2.27)
+      {Stmts}
+          AstAssignStmt @(3.5-3.5)
+            AstNameExpr(x) @(3.5-3.5)
+              declaredAt: 2.8-2.8
+            AstConstExpr(INT,1) @(3.9-3.9)
+}#

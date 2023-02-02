@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.InternationalDriverController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-8.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" scaleX="0.66" scaleY="0.66">
+         <image>
+            <Image url="@../res/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="userIcon" fitHeight="64.0" fitWidth="64.0" layoutX="1189.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" scaleX="0.66" scaleY="0.66">
+         <image>
+            <Image url="@../res/User%20icon.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="265.0" layoutY="72.0" prefHeight="648.0" prefWidth="1015.0" style="-fx-background-color: F9F9F9;">
+         <children>
+            <AnchorPane fx:id="contentAnchorPane" layoutX="29.0" layoutY="28.0" prefHeight="592.0" prefWidth="956.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="21.0" layoutY="16.0" text="Parcels - Delivery Cargo Info" textFill="#aaaaaa">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutY="56.0" prefHeight="52.0" prefWidth="956.0" style="-fx-background-color: F5F5F5;">
+                     <children>
+                        <Label layoutX="25.0" layoutY="13.0" text="ID">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="132.0" layoutY="13.0" text="No. of Parcels">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="280.0" layoutY="13.0" text="Net weight">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="416.0" layoutY="13.0" text="Completed">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label fx:id="id1" layoutX="25.0" layoutY="132.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="n1" layoutX="133.0" layoutY="132.0" text="23">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w1" layoutX="282.0" layoutY="132.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id2" layoutX="25.0" layoutY="191.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="n2" layoutX="133.0" layoutY="191.0" text="14">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w2" layoutX="282.0" layoutY="191.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id3" layoutX="25.0" layoutY="248.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="n3" layoutX="133.0" layoutY="248.0" text="15">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w3" layoutX="282.0" layoutY="248.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id4" layoutX="25.0" layoutY="305.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="n4" layoutX="133.0" layoutY="305.0" text="11">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w4" layoutX="282.0" layoutY="305.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id5" layoutX="25.0" layoutY="361.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="n5" layoutX="133.0" layoutY="361.0" text="5">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w5" layoutX="282.0" layoutY="361.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id6" layoutX="25.0" layoutY="417.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="n6" layoutX="133.0" layoutY="417.0" text="15">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w6" layoutX="282.0" layoutY="417.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id7" layoutX="25.0" layoutY="472.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="n7" layoutX="133.0" layoutY="472.0" text="63">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w7" layoutX="282.0" layoutY="472.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="24.0" layoutY="542.0" mnemonicParsing="false" onAction="#switchPageLeft" style="-fx-border-width: 1.5px; -fx-border-color: #30A3FF; -fx-border-radius: 5px; -fx-background-color: none; -fx-cursor: hand;" text="◀">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="61.0" layoutY="542.0" mnemonicParsing="false" onAction="#switchPageRight" style="-fx-border-width: 1.5px; -fx-border-color: #30A3FF; -fx-border-radius: 5px; -fx-background-color: none; -fx-cursor: hand;" text="▶">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <CheckBox fx:id="c1" layoutX="418.0" layoutY="137.0" mnemonicParsing="false" onAction="#toggleCheckBox" />
+                  <CheckBox fx:id="c2" layoutX="418.0" layoutY="196.0" mnemonicParsing="false" onAction="#toggleCheckBox" />
+                  <CheckBox fx:id="c3" layoutX="418.0" layoutY="253.0" mnemonicParsing="false" onAction="#toggleCheckBox" />
+                  <CheckBox fx:id="c4" layoutX="418.0" layoutY="310.0" mnemonicParsing="false" onAction="#toggleCheckBox" />
+                  <CheckBox fx:id="c5" layoutX="418.0" layoutY="366.0" mnemonicParsing="false" onAction="#toggleCheckBox" />
+                  <CheckBox fx:id="c6" layoutX="418.0" layoutY="422.0" mnemonicParsing="false" onAction="#toggleCheckBox" />
+                  <CheckBox fx:id="c7" layoutX="418.0" layoutY="477.0" mnemonicParsing="false" onAction="#toggleCheckBox" />
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="handoverAnchorPane" layoutY="101.0" onMouseClicked="#handoverButton" prefHeight="52.0" prefWidth="265.0" style="-fx-cursor: hand;">
+         <children>
+            <SVGPath fx:id="dashboardIcon" content="M39.9647 24.1665C38.5193 23.7861 36.8203 23.5832 34.7916 23.5832C31.9768 23.5832 30.9372 24.2679 29.4917 25.3583C29.4157 25.409 29.3396 25.4851 29.2635 25.5612L26.8545 28.1224C24.8258 30.2525 21.1742 30.2778 19.1455 28.097L16.7365 25.5612C16.6604 25.4851 16.5843 25.409 16.5083 25.3583C15.0628 24.2679 14.0232 23.5832 11.2084 23.5832C9.17971 23.5832 7.48071 23.7861 6.03528 24.1665C-6.0459e-07 25.7894 0 30.5821 0 34.7916V37.1499C0 43.5149 -1.20918e-06 50.7166 13.5667 50.7166H32.4333C41.4355 50.7166 46 46.1521 46 37.1499V34.7916C46 30.5821 46 25.7894 39.9647 24.1665ZM28.9085 41.5877H17.0915C16.1279 41.5877 15.3418 40.8015 15.3418 39.8126C15.3418 38.8236 16.1279 38.0375 17.0915 38.0375H28.9085C29.8721 38.0375 30.6582 38.8236 30.6582 39.8126C30.6582 40.8015 29.8721 41.5877 28.9085 41.5877ZM24.6939 5.83242L26.3422 7.48071C27.0015 8.14002 28.0919 8.14002 28.7513 7.48071C29.4106 6.82139 29.4106 5.73098 28.7513 5.07166L24.1868 0.507167C24.0218 0.352019 23.8336 0.223671 23.6289 0.126791C23.4272 0.0458539 23.2123 0.00286913 22.9949 0C22.7667 0 22.5638 0.0507165 22.3356 0.126791C22.1487 0.206401 21.9771 0.317954 21.8284 0.45645C21.8031 0.481808 21.8031 0.481808 21.7777 0.481808L17.2132 5.07166C16.5539 5.73098 16.5539 6.82139 17.2132 7.48071C17.8725 8.14002 18.963 8.14002 19.6223 7.48071L21.2706 5.83242V10.1433H24.6939V5.83242Z" fill="#c2c2c2" layoutX="40.0" layoutY="2.0" scaleX="0.66" scaleY="0.66" />
+            <Label fx:id="dashboardLabel" layoutX="97.0" layoutY="13.0" style="-fx-font-weight: bold;" text="Handover" textFill="#c2c2c2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <SVGPath content="M41.2833 20.5909C41.1819 20.5402 41.0551 20.5149 40.9537 20.4895H40.9283C39.1279 20.0077 37.1246 19.7795 34.7916 19.7795C30.8864 19.7795 29.0352 20.9206 27.3616 22.1885C27.0066 22.4421 26.753 22.6957 26.4994 22.9493L24.0904 25.5105C23.8368 25.764 23.4311 25.9162 23 25.9162C22.8478 25.9162 22.2899 25.8908 21.9096 25.4851L19.4244 22.8732C19.1709 22.5942 18.8666 22.366 18.7905 22.3153C16.9647 20.9206 15.1135 19.7795 11.2083 19.7795C8.87538 19.7795 6.87207 20.0077 5.04627 20.4895C4.94484 20.5149 4.81805 20.5402 4.71661 20.5909C4.74197 15.5446 5.24914 10.1433 15.925 10.1433H21.301V17.9537C21.301 18.4043 21.48 18.8364 21.7986 19.1551C22.1172 19.4737 22.5494 19.6527 23 19.6527C23.4506 19.6527 23.8827 19.4737 24.2013 19.1551C24.52 18.8364 24.699 18.4043 24.699 17.9537V10.1433H30.0749C40.7508 10.1433 41.258 15.5446 41.2833 20.5909Z" fill="#c2c2c2" layoutX="40.0" layoutY="5.0" scaleX="0.66" scaleY="0.66" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="settingsAnchorPane" layoutY="270.0" onMouseClicked="#settingsButton" prefHeight="52.0" prefWidth="265.0" style="-fx-cursor: hand;">
+         <children>
+            <SVGPath fx:id="settingsIcon" content="M41.6092 15.3078C37.4483 15.3078 35.7471 12.3653 37.8161 8.75609C39.0115 6.66414 38.2988 3.99747 36.2069 2.80207L32.2299 0.52621C30.4138 -0.55425 28.069 0.0894285 26.9885 1.90552L26.7356 2.3423C24.6667 5.9515 21.2644 5.9515 19.1724 2.3423L18.9195 1.90552C18.6717 1.47099 18.34 1.09009 17.9436 0.78498C17.5472 0.479868 17.0941 0.256639 16.6106 0.128282C16.1271 -7.43174e-05 15.6229 -0.0309946 15.1274 0.0373208C14.6319 0.105636 14.1548 0.271823 13.7241 0.52621L9.74713 2.80207C7.65517 3.99747 6.94253 6.68713 8.13793 8.77908C10.2299 12.3653 8.52874 15.3078 4.36782 15.3078C1.97701 15.3078 0 17.2618 0 19.6756V23.7216C0 26.1124 1.95402 28.0894 4.36782 28.0894C8.52874 28.0894 10.2299 31.032 8.13793 34.6412C6.94253 36.7331 7.65517 39.3998 9.74713 40.5952L13.7241 42.871C15.5402 43.9515 17.8851 43.3078 18.9655 41.4917L19.2184 41.0549C21.2874 37.4457 24.6897 37.4457 26.7816 41.0549L27.0345 41.4917C28.1149 43.3078 30.4598 43.9515 32.2759 42.871L36.2529 40.5952C38.3448 39.3998 39.0575 36.7101 37.8621 34.6412C35.7701 31.032 37.4713 28.0894 41.6322 28.0894C44.023 28.0894 46 26.1354 46 23.7216V19.6756C45.9879 18.517 45.5208 17.4095 44.6993 16.5923C43.8778 15.7752 42.7679 15.3138 41.6092 15.3078ZM22.9885 29.1699C18.8736 29.1699 15.5172 25.8136 15.5172 21.6986C15.5172 17.5837 18.8736 14.2274 22.9885 14.2274C27.1034 14.2274 30.4598 17.5837 30.4598 21.6986C30.4598 25.8136 27.1034 29.1699 22.9885 29.1699Z" fill="#c2c2c2" layoutX="40.0" layoutY="2.0" scaleX="0.66" scaleY="0.66" />
+            <Label fx:id="settingsLabel" layoutX="97.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Settings" textFill="#c2c2c2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="30.0" layoutY="647.0" onMouseClicked="#signOutAnchorPaneButton" prefHeight="42.0" prefWidth="200.0" style="-fx-border-color: #30a3ff; -fx-border-radius: 5px; -fx-border-width: 1.5px; -fx-cursor: hand;">
+         <children>
+            <Label fx:id="signOutAnchorPane" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="180.0" style="-fx-font-weight: bold;" text="Sign Out" textFill="#30a3ff">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label fx:id="userFullName" layoutX="1092.0" layoutY="16.0" text="Jeff McJeff">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="1093.0" layoutY="39.0" text="Delivery Driver" />
+      <AnchorPane fx:id="parcelHandoverAnchorPane" layoutY="160.0" onMouseClicked="#parcelHandoverButton" prefHeight="52.0" prefWidth="265.0" style="-fx-cursor: hand;">
+         <children>
+            <SVGPath fx:id="settingsIcon1" content="M39.9647 24.1665C38.5193 23.7861 36.8203 23.5832 34.7916 23.5832C31.9768 23.5832 30.9372 24.2679 29.4917 25.3583C29.4157 25.409 29.3396 25.4851 29.2635 25.5612L26.8545 28.1224C24.8258 30.2525 21.1742 30.2778 19.1455 28.097L16.7365 25.5612C16.6604 25.4851 16.5843 25.409 16.5083 25.3583C15.0628 24.2679 14.0232 23.5832 11.2084 23.5832C9.17971 23.5832 7.48071 23.7861 6.03528 24.1665C-6.0459e-07 25.7894 0 30.5821 0 34.7916V37.1499C0 43.5149 -1.20918e-06 50.7166 13.5667 50.7166H32.4333C41.4355 50.7166 46 46.1521 46 37.1499V34.7916C46 30.5821 46 25.7894 39.9647 24.1665ZM28.9085 41.5877H17.0915C16.1279 41.5877 15.3418 40.8015 15.3418 39.8126C15.3418 38.8236 16.1279 38.0375 17.0915 38.0375H28.9085C29.8721 38.0375 30.6582 38.8236 30.6582 39.8126C30.6582 40.8015 29.8721 41.5877 28.9085 41.5877ZM24.6939 1.69901C24.6939 1.2484 24.5149 0.816254 24.1963 0.497628C23.8777 0.179002 23.4455 0 22.9949 0C22.5443 0 22.1122 0.179002 21.7935 0.497628C21.4749 0.816254 21.2959 1.2484 21.2959 1.69901V5.07166H24.7193V1.69901H24.6939Z" fill="#c2c2c2" layoutX="40.0" layoutY="1.0" scaleX="0.66" scaleY="0.66" />
+            <Label fx:id="settingsLabel1" layoutX="97.0" layoutY="12.0" style="-fx-font-weight: bold;" text="Parcel Handover" textFill="#c2c2c2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <SVGPath content="M41.2833 16.2802V20.5911C41.1819 20.5404 41.0551 20.515 40.9537 20.4896H40.9283C39.1279 20.0078 37.1246 19.7796 34.7916 19.7796C30.8864 19.7796 29.0352 20.9207 27.3616 22.1886C27.0066 22.4422 26.753 22.6958 26.4994 22.9494L24.0904 25.5106C23.8368 25.7642 23.4311 25.9163 23 25.9163C22.7984 25.9231 22.5975 25.8883 22.4099 25.8141C22.2224 25.74 22.052 25.628 21.9096 25.4852L19.4244 22.8733C19.1709 22.5944 18.8666 22.3662 18.7905 22.3154C16.9647 20.9207 15.1135 19.7796 11.2083 19.7796C8.87538 19.7796 6.87207 20.0078 5.04627 20.4896C4.94484 20.515 4.81805 20.5404 4.71661 20.5911V16.2802C4.71661 11.031 4.71661 5.07178 15.925 5.07178H21.301V13.8204L19.6527 12.1721C19.3284 11.8731 18.9014 11.7105 18.4603 11.7183C18.0193 11.726 17.5982 11.9035 17.2847 12.2137C16.9712 12.524 16.7893 12.9432 16.7769 13.3841C16.7646 13.8251 16.9226 14.2538 17.2183 14.5812L21.7828 19.1456C21.8081 19.171 21.8335 19.171 21.8335 19.1964C21.9856 19.3232 22.1631 19.4499 22.3407 19.526C22.5689 19.6021 22.7717 19.6528 23 19.6528C23.2282 19.6528 23.4311 19.6021 23.6593 19.526C23.8622 19.4499 24.0397 19.3232 24.2172 19.1456L28.7817 14.5812C29.0773 14.2538 29.2354 13.8251 29.223 13.3841C29.2106 12.9432 29.0288 12.524 28.7152 12.2137C28.4017 11.9035 27.9806 11.726 27.5396 11.7183C27.0986 11.7105 26.6715 11.8731 26.3473 12.1721L24.699 13.8204V5.07178H30.0749C41.2833 5.07178 41.2833 11.031 41.2833 16.2802Z" fill="#c2c2c2" layoutX="40.0" layoutY="5.0" scaleX="0.66" scaleY="0.66" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="settingsAnchorPane11" layoutY="216.0" onMouseClicked="#deliveryCargoInfoButton" prefHeight="52.0" prefWidth="265.0" style="-fx-cursor: hand; -fx-background-color: E4F2FD;">
+         <children>
+            <SVGPath fx:id="settingsIcon11" content="M25.875 24.334V28.888C25.875 29.6505 25.5721 30.3818 25.0329 30.9209C24.4938 31.4601 23.7625 31.763 23 31.763C22.2375 31.763 21.5062 31.4601 20.9671 30.9209C20.4279 30.3818 20.125 29.6505 20.125 28.888V24.334C19.297 23.828 18.653 23.092 18.193 22.218H2.3C1.035 22.218 0 23.253 0 24.518V32.637C0 40.02 5.98 46 13.363 46H32.614C40.02 46 46 40.02 46 32.637V24.518C46 23.253 44.965 22.218 43.7 22.218H27.807C27.347 23.092 26.703 23.828 25.875 24.334ZM32.637 0H13.363C5.98 0 0 5.98 0 13.363V16.468C0 17.733 1.035 18.768 2.3 18.768H17.641C17.7707 18.0174 18.0562 17.3023 18.4792 16.6688C18.9023 16.0353 19.4534 15.4976 20.097 15.0901C20.7406 14.6827 21.4625 14.4147 22.216 14.3035C22.9696 14.1922 23.7381 14.24 24.472 14.444C26.312 14.927 27.807 16.422 28.29 18.262C28.336 18.423 28.336 18.607 28.359 18.768H43.7C44.965 18.768 46 17.733 46 16.468V13.363C46 5.98 40.02 0 32.637 0ZM25.875 24.334V28.888C25.875 29.6505 25.5721 30.3818 25.0329 30.9209C24.4938 31.4601 23.7625 31.763 23 31.763C22.2375 31.763 21.5062 31.4601 20.9671 30.9209C20.4279 30.3818 20.125 29.6505 20.125 28.888V24.334C19.297 23.828 18.653 23.092 18.193 22.218H2.3C1.035 22.218 0 23.253 0 24.518V32.637C0 40.02 5.98 46 13.363 46H32.614C40.02 46 46 40.02 46 32.637V24.518C46 23.253 44.965 22.218 43.7 22.218H27.807C27.347 23.092 26.703 23.828 25.875 24.334ZM32.637 0H13.363C5.98 0 0 5.98 0 13.363V16.468C0 17.733 1.035 18.768 2.3 18.768H17.641C17.7707 18.0174 18.0562 17.3023 18.4792 16.6688C18.9023 16.0353 19.4534 15.4976 20.097 15.0901C20.7406 14.6827 21.4625 14.4147 22.216 14.3035C22.9696 14.1922 23.7381 14.24 24.472 14.444C26.312 14.927 27.807 16.422 28.29 18.262C28.336 18.423 28.336 18.607 28.359 18.768H43.7C44.965 18.768 46 17.733 46 16.468V13.363C46 5.98 40.02 0 32.637 0Z" fill="#30a3ff" layoutX="40.0" layoutY="2.0" scaleX="0.66" scaleY="0.66" />
+            <Label fx:id="deliveryCargoInfoAnchorPane" layoutX="97.0" layoutY="12.0" style="-fx-font-weight: bold;" text="Delivery Cargo Info" textFill="#30a3ff">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

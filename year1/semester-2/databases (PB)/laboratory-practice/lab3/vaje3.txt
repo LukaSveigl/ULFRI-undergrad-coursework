@@ -1,0 +1,88 @@
+----Naloga 1:-----
+
+SELECT sqrt( POWER( ABS(n.x - n2.x) , 2) + POWER( ABS(n.y - n2.y) , 2) ) AS 'Euclidean',
+ABS(n.x - n2.x) + ABS(n.y - n2.y) as 'Manhattan'
+FROM naselje n, naselje n2, igralec i
+WHERE n.pid = i.pid AND i.pid = n2.pid
+AND i.player = 'hinko'
+AND n.id != n2.id;
+
+----Naloga 2:-----
+
+SELECT DISTINCT MONTHNAME(r.dan) AS 'Mesec'
+FROM rezervacija r;
+
+----Naloga 3:-----
+
+SELECT i.player, n.village
+FROM igralec i, naselje n, aliansa a
+WHERE i.pid = n.pid AND i.aid = a.aid
+AND a.alliance LIKE '%™%';
+
+----Naloga 4:-----
+SELECT i.player
+FROM igralec i 
+WHERE i.player RLIKE '^[^a-z,0-9]*$';
+
+----Naloga 5:-----
+
+SELECT j.*, IF(rating IS NOT NULL, 'Da', 'Ne') AS 'Rangiran'
+FROM jadralec j;
+
+----Naloga 6:-----
+
+--Nal 2
+
+SELECT DISTINCT IF(c1.ime IS NOT NULL, "Da", "Ne") AS "Ali imata dva čolna enako ime?"
+FROM coln c1, coln c2
+WHERE (c1.cid != c2.cid) AND (c1.ime=c2.ime) AND c1.ime != "Elan";
+
+Vaje 2. del:
+
+----Naloga 1:-----
+
+SELECT a.alliance, n.village, n.x, n.y
+FROM aliansa a, igralec i, naselje n
+WHERE a.aid = i.aid AND i.pid = n.pid
+AND n.x BETWEEN -50 AND 50 AND n.y BETWEEN -50 AND 50;
+
+----Naloga 2:-----
+
+SELECT a.alliance, n.village, n.x, n.y
+FROM aliansa a, igralec i, naselje n
+WHERE a.aid = i.aid AND i.pid = n.pid
+AND NOT (n.x BETWEEN -50 AND 50 AND n.y BETWEEN -50 AND 50);
+
+----Naloga 3:-----
+
+SELECT i.player, i2.player
+FROM igralec i, igralec i2, naselje n, naselje n2
+WHERE i.pid = n.pid AND i2.pid = n2.pid
+AND i.pid > i2.pid
+AND ABS(n.population - n2.population) <= 100;
+
+----Naloga 4:-----
+
+SELECT j1.ime, j2.ime
+FROM jadralec j1, jadralec j2
+WHERE j1.jid > j2.jid
+AND j1.rating = j2.rating;
+
+----Naloga 5:-----
+
+SELECT j1.ime, j2.ime
+FROM jadralec j1, jadralec j2
+WHERE j1.jid > j2.jid
+AND j1.rating IS NULL 
+AND j2.rating IS NULL;
+
+----Naloga 6:-----
+
+SELECT i.player, i2.player, p.tribe
+FROM igralec i, igralec i2, pleme p, aliansa a
+WHERE i.tid = p.tid
+AND i2.tid = p.tid
+AND a.aid = i.aid
+AND a.aid = i2.aid
+AND i.pid > i2.pid
+AND a.alliance = "Nwm";

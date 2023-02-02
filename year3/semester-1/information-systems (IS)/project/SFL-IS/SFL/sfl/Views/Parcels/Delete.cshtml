@@ -1,0 +1,67 @@
+@model sfl.Models.Parcel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Parcel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Weight) g
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Height) cm
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Width)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Width) cm
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Depth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Depth) cm
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Parcel status")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ParcelStatus.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Recipient street")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RecipientStreet.CityCode),&nbsp
+            @Html.DisplayFor(model => model.RecipientStreet.StreetName)&nbsp;
+            @Html.DisplayFor(model => model.RecipientStreet.StreetNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Sender street")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SenderStreet.CityCode),&nbsp
+            @Html.DisplayFor(model => model.SenderStreet.StreetName)&nbsp;
+            @Html.DisplayFor(model => model.SenderStreet.StreetNumber)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,53 @@
+---------------Naloga 2:----------------
+
+
+           .text
+TABELA:   .hword 1, 5, -1, 8, -130, 1024, 10, 64, -80, 256
+VELIKOST_TABELE: .byte 10
+          .align
+          .global __start
+__start:
+           adr r1, VELIKOST_TABELE
+           ldrb r2, [r1]
+           sub r2, r2, #1
+           
+           mov r10, #-1
+
+LOOP:
+           mov r5, #0 @ stevec zamenjav
+           mov r6, #0 @ stevec elementov
+           adr r0, TABELA
+    INNER:    
+              mov r3, #0 @ absolutne vrednosti
+              mov r4, #0 
+            
+              ldrsh r7, [r0]
+            
+              cmp r7, #0
+              movgt r3, r7
+              mullt r3, r7, r10
+            
+              add r0, r0, #2
+            
+              ldrsh r8, [r0]
+            
+              cmp r8, #0
+              movgt r4, r8
+              mullt r4, r8, r10
+            
+              cmp r3, r4
+              strgth r7, [r0]
+              subgt r0, r0, #2
+              strgth r8, [r0]
+              addgt r5, r5, #1
+            
+              add r6, r6, #1
+   
+              cmp r6, r2
+              bne INNER 
+            
+           cmp r5, #0 
+           bne LOOP           
+
+
+__end:    b __end   

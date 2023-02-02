@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app>
+    <display-name>Welcome to SFL-API</display-name>
+    <description>
+        Welcome to SFL-API
+    </description>
+    
+
+
+   <servlet>
+        <servlet-name>GetSentParcels</servlet-name>
+        <servlet-class>GetSentParcelsJSONServlet</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>GetOrderedParcels</servlet-name>
+        <servlet-class>GetOrderedParcelsJSONServlet</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>GetLoginInfo</servlet-name>
+        <servlet-class>GetLoginInfoJSONServlet</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>GetUserFullName</servlet-name>
+        <servlet-class>GetUserFullNameJSONServlet</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>GetParcelHistory</servlet-name>
+        <servlet-class>GetParcelHistoryJSONServlet</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>CreateParcel</servlet-name>
+        <servlet-class>CreateParcelJSONServlet</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>RegisterUser</servlet-name>
+        <servlet-class>RegisterUserJSONServlet</servlet-class>
+   </servlet>
+
+   <servlet-mapping>
+        <servlet-name>RegisterUser</servlet-name>
+        <url-pattern>/registerUser</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+        <servlet-name>CreateParcel</servlet-name>
+        <url-pattern>/createParcel</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+        <servlet-name>GetParcelHistory</servlet-name>
+        <url-pattern>/getParcelHistory</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+        <servlet-name>GetUserFullName</servlet-name>
+        <url-pattern>/getUserFullName</url-pattern>
+   </servlet-mapping>
+
+
+   <servlet-mapping>
+        <servlet-name>GetLoginInfo</servlet-name>
+        <url-pattern>/getLoginInfo</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+        <servlet-name>GetOrderedParcels</servlet-name>
+        <url-pattern>/getOrderedParcels</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+        <servlet-name>GetSentParcels</servlet-name>
+        <url-pattern>/getSentParcels</url-pattern>
+   </servlet-mapping>
+
+
+</web-app>

@@ -1,0 +1,34 @@
+fun returnAnything() : ^int = ({
+    ret = new 5;
+    getAddr(ret, 0)^ = 27;
+    getAddr(ret, 1)^ = ('a' : int);
+    getAddr(ret, 2)^ = ('b' : int);
+    getAddr(ret, 3)^ = 4;
+    getAddr(ret, 4)^ = -1;
+    ret;
+}
+where
+    fun getAddr(ptr : ^int, offset : int) : ^int = {
+        ((ret : int) + (offset * 8) : ^int);
+    };
+);
+
+var ret : ^int;
+
+fun main() : void = {
+    ret = returnAnything();
+    putInt(((ret : int) + (0 * 8) : ^int)^);
+    putChar((((ret : int) + (1 * 8) : ^int)^ : char));
+    putChar((((ret : int) + (2 * 8) : ^int)^ : char));
+    putInt(((ret : int) + (3 * 8) : ^int)^);
+    putInt(((ret : int) + (4 * 8) : ^int)^);
+    putChar((10 : char));
+};
+
+#{ Forward declarations }#
+fun putChar(c : char) : void = none;
+fun getChar() : char = (0 : char);
+fun putInt(i : int) : void = none;
+fun getInt() : int = 0;
+fun randInt(min : int, max : int) : int = 0;
+fun exit(i : int) : void = none;

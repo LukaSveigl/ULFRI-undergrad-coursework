@@ -1,0 +1,26 @@
+fun a() : void = a();
+
+fun endl() : char = (10 : char);
+
+fun main() : void = ({
+    counter = 0;
+    condition = randInt(0, 15);
+    putInt(condition);
+    putChar(endl());
+    while (counter < condition) do
+        counter = counter + 1;
+        putInt(counter);
+        putChar(endl());
+    end;
+
+}
+where
+    var counter    : int;
+    var condition  : int;
+);
+
+fun putChar(c : char) : void = none;
+fun getChar() : char = (0 : char);
+fun putInt(i : int) : void = none;
+fun getInt() : int = 0;
+fun randInt(min : int, max : int) : int = 0;

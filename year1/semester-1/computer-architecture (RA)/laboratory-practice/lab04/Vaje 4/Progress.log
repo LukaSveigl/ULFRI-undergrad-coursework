@@ -1,0 +1,9 @@
+CONVERTING	G:\Documents\FRI\Racunalniška Arhitektura\Vaje 4\Debug\sample.elf
+LOADING	G:\Documents\FRI\Racunalniška Arhitektura\Vaje 4\Debug\sample.elf
+ANALYZING
+ANALYZING
+LOADING 	84 bytes
+VERIFYING
+	FILE: sample.elf  AREA: Virtual
+	Verifying 54h locations from 00h
+	Verify OK

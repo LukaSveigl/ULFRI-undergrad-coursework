@@ -1,0 +1,5 @@
+kvadrat:20
+krog:14
+pravokotnik:30:10
+krog:7
+pravokotnik:20:10

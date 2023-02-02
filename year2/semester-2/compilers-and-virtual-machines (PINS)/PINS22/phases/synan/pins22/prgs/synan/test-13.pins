@@ -1,0 +1,21 @@
+typ integer = int;
+typ character = char;
+typ pointerVoid = ^void;
+
+var arrOfPointers : [10]^character;
+
+fun main() : void = (
+    putChar(arrOfPointers[a(x)])
+    where
+        var x : integer;
+        fun a() : int = {
+            x = x + 1;
+            (putChar(arrOfPointers[b(y)])
+            where
+                var y : integer;
+                fun b() : int = {
+                    y = y + 1;
+                };
+            );
+        };
+    );

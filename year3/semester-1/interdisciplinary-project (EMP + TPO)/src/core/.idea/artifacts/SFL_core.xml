@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SFL_core">
+    <output-path>$PROJECT_DIR$/out/artifacts/SFL_core</output-path>
+    <root id="archive" name="core.jar">
+      <element id="module-output" name="core" />
+      <element id="library" level="project" name="jgrapht" />
+      <element id="library" level="project" name="mysql-connector-j-8.0.31" />
+    </root>
+  </artifact>
+</component>

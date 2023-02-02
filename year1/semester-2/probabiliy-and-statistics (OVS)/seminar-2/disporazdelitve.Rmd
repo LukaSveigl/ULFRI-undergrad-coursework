@@ -1,0 +1,121 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# Geometrijska porazdelitev
+## 1. Opis
+Geometrijska porazdelitev $\mathcal{G}(p)$ opisuje porazdelitev diskretne 
+slučajne spremenljivke $X$, ki predstavlja število slučajnih poskusov do (vključno) prve pojavitve izida A. Vsak poskus ima le dva možna izida: uspeh in neuspeh. Poskusi so 
+neodvisni in se izvajajo, dokler se ne zgodi prvi uspeh. Verjetnost 
+uspeha $p$ v vsakem poskusu je konstantna. 
+
+## 2. Verjetnostna funkcija  
+$$p(k)=P(X=k)=(1-p)^{k-1}p$$ in $$P(X \leq k)=1-(1-p)^k$$ za $$ k=1,2,...$$
+Geometrijska poradzelitev je odvisna od le enega parametra: verjetnost uspeha $p$.
+
+## 3. Pričakovana vrednost in disperzija
+$$E(X)=\frac{1}{p}, \ \ D(X)=\frac{1-p}{p^2}.$$ 
+
+## 4. Primer Geometrijske porazdelitve $\mathcal{G}(0.5)$
+Naj slučajna spremenljivka $X$ predstavlja število poskusov, dokler se ne 
+zgodi prvi uspeh, pri čemer je verjetnost uspeha enaka 0.5, 
+$X\sim\mathcal{G}(0.5)$. Njena verjetnostna funkcija je enaka
+$$p(k)=P(X=k)=(1-0.5)^{k-1}0.5=(0.5)^{k-1}0.5, k=1,2,...$$.
+
+Pričakovana vrednost in disperzija sta enaki $E(X)=\frac{1}{0.5}=2$ in 
+$D(X)=\frac{1-0.5}{0.5^2}= 2.$ Opazimo, da je disperzija enaka pričakovani verjetnosti.
+
+Poiščimo redke vrednosti izbrane Geometrijske porazdelitve. Zanima nas, za katero 
+$k$ je $P(X>k)\leq 0.001$. 
+Potem je $P(X\leq k)\geq 0.999$, oziroma $F(k)\geq 0.999$, kjer je $F$ funkcija 
+Geometrijske porazdelitve.
+
+Za funkcijo Geometrijske porazdelitve uporabljamo R funkcijo 
+\texttt{pgeom(k-1,0.5)}.
+<!-- za geometrijsko porazdelitev je k-1 prvi parameter funkcije pgeom. -->
+
+### Prvi način računanja redkih vrednosti (metoda poskusov)
+Za različne $k$ izračunamo \texttt{pgeom(k-1,0.5)}, dokler ni zadovoljeno 
+\texttt{pgeom(k-1,0.5)}$\geq 0.999$.
+```{r}
+k<-9
+pgeom(k-1,0.5)
+
+k<-10
+pgeom(k-1,0.5)
+```
+
+### Drugi način računanja redkih vrednosti (metoda kvantilov)
+Vrednost $k$ je $0.999$-kvantil Geometrijske porazdelitve, katerega dobimo z ukazom
+```{r}
+(k<-qgeom(0.999,0.5)+1)
+```
+
+<!-- +2 je dodano zaradi definicije Pascalove porazdelitve v R-ju, -->
+<!-- ne velja za Poissonovo, za geometrijsko porazdelitev je +1 -->
+
+Dobili smo, da se vrednosti večje od 10 pojavijo z zelo majhno verjetnostjo. 
+
+### Graf verjetnostne funkcije
+Narišimo graf verjetnostne funkcije Geometrijske porazdelitve. Na grafu z oranžno barvo označimo 
+pričakovano vrednost, ki je mera središčnosti porazdelitve, in z zeleno barvo 
+standardni odklon, ki je mera razpršenosti
+(pobarvan je pas od $E(X)-\sqrt{D(X)}$ do $E(X)+\sqrt{D(X)}$). Za verjetnostno funkcijo 
+Geometrijske porazdelitve uporabljamo R funkcijo \texttt{dgeom(k-1,0.5)}.
+<!-- za geometrijsko porazdelitev je k-1 prvi parameter funkcije dgeom. -->
+
+<!-- Osnovni graf -->
+<!-- k<-2:30 -->
+<!-- plot(k,dnbinom(k-2,2,0.3),type="h") -->
+
+
+```{r,out.width="80%"}
+k<-1:10
+par(las=1,mar=c(4,4,1,1))
+plot(k,dgeom(k-1,0.5),type="h",xlab="k",xlim=c(0,10),ylim=c(0,0.6),
+     ylab="p(k)",col="blue",lwd=2,axes=F)
+axis(1,pos=0,at=seq(0,10,by=1),tcl=-0.5)
+axis(2,pos=0,at=seq(0,0.6,by=0.1),tcl=-0.3)
+points(k,dgeom(k-1,0.5),pch=19)
+EX<-1/0.5
+abline(v=EX,col="orange",lty=2)
+sigma<-sqrt(0.5)/0.5
+segments(x0=EX-sigma,y0=0.6,x1=EX+sigma,y1=0.6,col="green",lty=3,lwd=2)
+```
+
+## 5. Primeri uporabe
+\begin{enumerate}
+\item[1.] Žan in Lara igrata poker, dokler Lara ne zmaga prvič. 
+Predpostavimo, da so igre pokerja neodvisne in, da je verjetnost, da Lara zmaga v 
+vsaki igri, enaka $0.4$. Število iger pokerja, dokler Lara ne zmaga prvič, ima 
+Geometrijsko porazdelitev $G(0.4)$. Lahko se posploši na vse vrste iger,
+katere se končajo, ko en od tekmovalcev ali timov zmaga prvič.
+\item[2.] Ginekolog želi prepričati en par, ki pričakuje svojega prvega otroka,
+za udeležbo v novem naravnem procesu rojstva dojenčka. 
+Naj bo $p=0.15$ verjetnost, da se par želi udeležiti. Število parov, ki jih 
+ginekolog sprašuje, dokler se ne udeleži en par, 
+ima Geometrijsko porazdelitev $G(0.15)$.
+\item[3.] Nek košarkar zadane prosti met z verjetnostjo $0.65$. Število poskusov, ki jih potrebuje, da prvič zadane prosti met, je porazdeljeno Geometrijsko, in sicer $G(0.65)$.
+\item[4.] Telefonske linije v nekem podjetju so zasedene $35\%$ časa. Predpostavimo, da so naši klici na to službo neodvisni. Število klicev, dokler se nam nekdo ne javi ima Geometrijsko porazdelitev $G(0.75)$.
+\item[5.] Pošten kovanec mečemo, dokler prvič ne pade cifra. Število metov kovanca je porazdeljeno Geometrijsko, in sicer $G(0.5)$.
+\item[6.] Proizvajalec računalnikov razpošilja računalnike pakirane posamezno, vsak v svoji škatli. V povprečju je $1\%$ računalnikov nepravilno sestavljenih. Prejemnik v podjetju odpira eno škatlo za drugo in testira računalnik iz škatle. Število računalnikov, ki jih testira, preden najde defektnega je porazdeljeno Geometrijsko $G(0.01)$.
+\item[7.] Ribič v ribniku lovi ribe. V ribniku je $20\%$ postrvi, vse ostalo pa so krapi in ščuke. Predpostavimo, da so ulovi med seboj neodvisni. Število ulovov, dokler ribič prvič ne ujame postrvi je porazdeljeno Geometrijsko $G(0.2)$.
+\item[8.] Janez je pozabil geslo za svoj e-poštni račun, zato se odloči, da ga bo poskusil uganiti. Verjetnost, da pravilno ugane geslo je $0.15$. Predpostavimo, da so poskusi neodvisni. Število poskusov, dokler Janez svojega gesla ne ugane ima Geometrijsko porazdelitev $G(0.15)$.
+\end{enumerate}
+
+## 6. Graf porazdelitvene funkcije
+
+Narišimo še graf porazdelitvene funkcije Geometrijske porazdelitve. Za porazdelitveno funkcijo 
+Geometrijske porazdelitve uporabljamo R funkcijo \texttt{pgeom(k-1,0.5)}.
+
+```{r,out.width="80%"}
+k<-0:15
+par(las=1,mar=c(4,4,1,1))
+plot(k,pgeom(k-1,0.5),type="s",xlab="x",xlim=c(0,15),ylim=c(0,1.5),
+     ylab="F(k)",col="blue",lwd=2,axes=F)
+axis(1,pos=0,at=seq(0,15,by=1),tcl=-0.5)
+axis(2,pos=0,at=seq(0,1.5,by=0.1),tcl=-0.3)
+```
+
+

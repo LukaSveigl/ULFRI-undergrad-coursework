@@ -1,0 +1,11 @@
+#{Name overlap test 2 - should throw error}#
+
+var x : int;
+
+fun x(x : int) : int = {
+    x = x + 1;
+};
+
+#{Should output: (locations might vary)
+:-( [5.1-5.3] Cannot redefine 'x' as a function.
+}#

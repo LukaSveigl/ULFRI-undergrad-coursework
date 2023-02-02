@@ -1,0 +1,275 @@
+----Naloga1:-----
+
+          .text
+          
+niz:      .byte -10,0,30,11,-20,32,-22,76,54,12
+
+          .align
+          .global __start
+__start:
+          mov r0, #10    @ Element counter
+          adr r1, niz
+          
+LOOP:
+          ldrsb r2, [r0]
+          
+          cmp r2, #niz   @ If element lower than first element
+          blt CHANGE
+          
+          add r1, r1, #1 @ Move to next element
+          
+          cmp r0, #0     @ Check if last element
+          sub r0, r0, #1 @ Decrement element counter
+          
+          bne LOOP
+          b DISPLAY
+          
+CHANGE:
+          mov r3, #niz   @ Move first element to r3
+          strb r2, niz   @ Replace first element with new minimum
+          strb r3, [r0]  @ Move third element in place of first
+          
+          add r1, r1, #1 @ Move to next element
+          cmp r0, #0     @ Check if last element
+          sub r0, r0, #1 @ Decrement element counter
+          bne LOOP
+
+DISPLAY:                 @ Used to watch register 6
+          adr r5, niz
+          ldrb r6, [r5]
+
+__end:    b __end  
+
+
+
+----Naloga 2: a----
+
+          .text
+
+tabela:   .byte 1,100,255,24,88,31,56,192,155,224,48,0,128,99,147,177
+          .align
+rez:      .byte 0
+          .align
+          .global __start
+__start:
+           mov r0, #0       @ Counter of el. that match criteria
+           mov r1, #16      @ Counter of el.
+           
+           adr r2, tabela
+           
+LOOP:
+           ldrb r3, [r2]
+           add r2, r2, #1   @ Move to next element
+           
+           and r4, r3, #16  @ Mark needed bits: 16 = 10000, 4th bit set
+           cmp r4, #16      @ Compare
+           addeq r0, r0, #1
+           
+           subs r1, r1, #1
+           bne LOOP
+           
+           adr r5, rez
+           strb r0, [r5]    @ Store result
+
+__end:    b __end
+
+
+
+----Naloga 2: b----
+
+
+          .text
+
+tabela:   .byte 1,100,255,24,88,31,56,192,155,224,48,0,128,99,147,177
+          .align
+rez:      .byte 0
+          .align
+          .global __start
+__start:
+           mov r0, #0       @ Counter of el. that match criteria
+           mov r1, #16      @ Counter of el.
+           
+           adr r2, tabela
+           
+LOOP:
+           ldrb r3, [r2]
+           add r2, r2, #1   @ Move to next element
+           
+           and r4, r3, #193 @ Mark needed bits: 193 = 11000001, 7th, 6th, 0th bit set
+           cmp r4, #1       @ Compare
+           addeq r0, r0, #1
+           
+           subs r1, r1, #1
+           bne LOOP
+           
+           adr r5, rez
+           strb r0, [r5]    @ Store result
+
+__end:    b __end
+
+
+
+----Naloga 2: c----
+
+
+          .text
+
+tabela:   .byte 1,100,255,24,88,31,56,192,155,224,48,0,128,99,147,177
+          .align
+rez:      .byte 0
+          .align
+          .global __start
+__start:
+           mov r0, #0       @ Counter of el. that match criteria
+           mov r1, #16      @ Counter of el.
+           
+           adr r2, tabela
+           
+LOOP:
+           ldrb r3, [r2]
+           add r2, r2, #1   @ Move to next element
+           
+           and r4, r3, #7   @ Mark needed bits: 7 = 111, 0th, 1st, 2nd bits set
+           cmp r4, #0       @ Compare
+           addeq r0, r0, #1
+           
+           subs r1, r1, #1
+           bne LOOP
+           
+           adr r5, rez
+           strb r0, [r5]    @ Store result
+
+__end:    b __end
+
+
+
+----Naloga 2: d----
+
+
+          .text
+
+tabela:   .byte 1,100,255,24,88,31,56,192,155,224,48,0,128,99,147,177
+          .align
+rez:      .byte 0
+          .align
+          .global __start
+__start:
+           mov r0, #0       @ Counter of el. that match criteria
+           mov r1, #16      @ Counter of el.
+           
+           adr r2, tabela
+           
+LOOP:
+           ldrb r3, [r2]
+           add r2, r2, #1   @ Move to next element
+           
+           and r4, r3, #15  @ Mark needed bits: 15 = 1111, 0th, 1st, 2nd, 3rd bits set
+           cmp r4, #8       @ Compare
+           addeq r0, r0, #1
+           
+           subs r1, r1, #1
+           bne LOOP
+           
+           adr r5, rez
+           strb r0, [r5]    @ Store result
+
+__end:    b __end
+
+
+
+----Naloga 3:----
+
+
+          .text
+
+S1:       .byte 123
+
+          .align
+          .global __start
+__start:
+           adr r0, S1
+           ldrb r1, [r0]
+           
+           
+           
+           and r1, r1, #63 @ Clear bits 7 and 6: 63 = 00111111
+           
+           
+           orr r1, r1, #52 @ Set bits 5, 4 and 2: 52 = 00110100
+           
+           
+           
+           @ Invert bits 0 and 3 without eor
+           
+           @ Invert 0
+           
+           tst r1, #1
+           andne r1, r1, #254 @ Clear bit 0 if set
+           orreq r1, r1, #1   @ Set bit 0 if clear
+           
+           @ Invert 3
+           
+           tst r1, #8
+           andne r1, r1, #247 @ Clear bit 3 if set
+           orreq r1, r1, #8   @ Set bit 3 if clear
+           
+           @ Code for inverting 2 bits is shorter this way, instead of comparing both
+           @ variables, as we would need 4 compares (bit0 = 1, bit3 = 1; bit0 = 0, bit3 = 1;
+           @ bit0 = 1, bit3 = 0; bit0 = 0, bit3 = 0)
+           
+           
+        
+           tst r1, #32        @ Check if bit 5 is set
+           bne JUMP1
+           
+           
+LOOPBACK1:           
+ 
+           and r2, r1, #36    @ Mark bits 2 and 5
+           cmp r2, #32        @ Check if bit 5 is set and bit 2 is clear: 32 = 100000
+           beq JUMP2
+           b __end
+                   
+           
+JUMP1:     
+           mov r8, #1         @ Random command to jump to
+           b LOOPBACK1        @ Jump back to program
+           
+JUMP2:    
+           mov r9, #1         @ Random command to jump to
+           
+           
+           
+__end:    b __end
+
+
+
+----Naloga 4:----
+
+
+          .text
+
+niz:      .ascii "OR: petek 12-14"  @ testni niz
+
+          .byte 0                   @ zakljucna nicla
+
+          .align
+          .global __start
+__start:
+
+          adr r0, niz
+          
+LOOP:     
+          ldrb r1, [r0]
+          cmp r1, #0        @ If end of string
+          beq __end
+          
+          cmp r1, #'a'
+          subhs r1, r1, #32 @ Reduce code of character if lowercase
+          strb r1, [r0]     @ Store character 
+          
+          add r0, r0, #1    @ Move to next element
+          
+          b LOOP 
+        
+__end:    b __end

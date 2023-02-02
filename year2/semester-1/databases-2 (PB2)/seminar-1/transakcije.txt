@@ -1,0 +1,10 @@
+Stranka opravi nakup
+Zaposleni naroči artikel pri dobavitelju
+Ob sprejetju dobavnice zaposleni posodobi zalogo artikla v poslovalnici
+Zaposleni preveri zalogo artikla v poslovalnici
+Zaposleni pogleda dobavitelja artikla
+Zaposleni posodobi cene izdelkov
+Zaposleni doda novega dobavitelja
+Zaposleni doda nov artikel
+Stranka pregleda katalog artiklov v poslovalnici
+Vodja poslovalnice doda novega zaposlenega

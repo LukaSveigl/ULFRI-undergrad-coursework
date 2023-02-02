@@ -1,0 +1,226 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+# Življenjska doba avtomobilskih gum
+## 1. Opis podatkov in raziskovalne domneve
+Želimo preveriti trditev, da nova metoda izdelave avtomobilskih gum vpliva na njihovo življenjsko dobo. 
+
+Zamislili smo si, da bomo izmerili življenjsko dobo avtomobilskih gum, narejenih po novi metodi, in življenjsko dobo avtomobilskih gum, narejenih po stari metodi (kontrolna skupina).
+
+Zbrali smo vzorec $25$ avtomobilskih gum, narejenih po novi metodi in $25$ avtomobilskih gum, narejenih po stari metodi. Podatke smo zapisali v dokument, ki ima dva stolpca.
+
+\begin{enumerate}
+\item $metoda$	je nominalna spremenljivka (faktor), ki ima vrednosti "1" in "2", ki opisuje 
+pripadnost skupini.
+\item $zdoba$ je numerična zvezna spremenljivka, ki predstavlja življenjsko dobo avtomobilskih gum, merjeno v 1000 kilometrih.
+\end{enumerate}
+
+Baza podatkov se imenuje \emph{avgume.csv}. Najprej bomo prebrali podatke v R s pomočjo 
+funkcije \emph{read.csv}, in zatem pogledali strukturo podatkov.
+
+```{r}
+zivdoba<-read.csv("G:\\Documents\\Temp\\avgume.csv", header=TRUE)
+str(zivdoba)
+
+```
+Obstaja več načinov za razdelitev podatkov na dva numerična vektorja, ki vsebujeta vrednosti življenjskih dob vsake skupine. Lahko uporabimo funkcijo \emph{split}, s katero bomo dobili listo teh vektorjev. 
+
+```{r}
+zivdoba1<-split(zivdoba$zdoba, zivdoba$metoda)
+zivdoba1
+
+```
+
+Vektor \emph{zivdoba1\$1} predstavlja življenjsko dobo avtomobilsih gum, narejenih po novi metodi in vektor \emph{zivdoba1\$2} življenjsko dobo gum, narejenih po stari metodi. 
+
+## 2. Grafični prikaz podatkov -- histogram in škatla z brki
+
+Podatke lahko grafično predstavimo s pomočjo histograma gostote (funkcija \emph{hist}) in škatle z brki (funkcija \emph{boxplot}).
+
+```{r,fig.align="center"}
+par(mfrow=c(2,2),las=1,cex=1.1,mar=c(2,3,3,3))
+hist(zivdoba1$`1`,freq=FALSE,ylim=c(0,0.2), main="Življ. doba (N. metoda)",xlab="",ylab="")
+
+hist(zivdoba1$`2`,freq=FALSE,ylim=c(0,0.1),main="Življ. doba (S. metoda)",xlab="",ylab="")
+
+boxplot(zivdoba1$`1`,horizontal=TRUE,ylim=c(56,68))
+
+boxplot(zivdoba1$`2`,horizontal=TRUE,ylim=c(45,70))
+
+```
+
+Funkcija \emph{par} omogoča postavljanje različnih nastavitev na grafih, preko velikega števila parametrov: \emph{mfrow=c(2,2)} nastavlja risanje 4 grafov na eni sliki (grafi v dveh vrsticah in dveh stolpcih),
+različice parametra \emph{cex} povečanje simbolov, teksta, osi, itn., \emph{mar} pa prostor na robu, izražen s številom
+vrstic (privzeta vrednost je \emph{mar=c(5.1,4.1,4.1,2.1)} za spodnji, levi, zgornji in desni rob grafa).
+
+Parameter \emph{main} služi za definiranje naziva grafa, \emph{xlab} in \emph{ylab} pa za nazive na $x$ in $y$ osi,
+ter \emph{xlim} in \emph{ylim} za postavljanje mej na oseh.
+
+Histogram gostote smo predstavili s pomočjo parametra \emph{freq=FALSE}. Na ta način ploščina
+vsakega pravokotnika histograma predstavlja relativno frekvenco razreda. Skupna ploščina
+histograma gostote je 1 in je primeren za primerjanje skupin in risanje pričakovane gostote porazdelitve.
+
+Izbrali smo horizontalno škatlo z brki (privzeta vrednost je vertikalna), da bi lahko primerjali obliko porazdelitve
+s histogramom. Zaradi rotacije škatle z brki se \emph{ylim} nanaša na meje na $x$-osi. Meje na $x$-oseh histograma in škatle z brki so za iste podatke enake.
+
+
+## 3. Opisna statistika
+
+Zdaj bomo izračunali opisno statistiko za dobljene podatke -- povzetek s petimi števili (minimum, maksimum, prvi in tretji kvartil, mediano), vzorčno povprečje in popravljeni vzorčni standardni odklon. Potem pa bomo interpretirali grafe skupaj z opisno statistiko. Za prikaz opisne statistike lahko uporabimo funkciji \emph{summary}
+in \emph{sd}.
+
+```{r}
+summary(zivdoba1$`1`)
+sd(zivdoba1$`1`)
+
+summary(zivdoba1$`2`)
+sd(zivdoba1$`2`)
+
+```
+
+## 4. Interpretacija grafov in opisne statistike
+
+Poglejmo opisno statistiko, histogram in škatlo z brki za življenjsko dobo avtomobilskih gum. Za oba vzorca sta vrednosti vzorčne mediane in vzorčnega povprečja blizu. Porazdelitev življenjske dobe gum, narejenih po novi metodi zgleda asimetrična, zato moramo preveriti, ali je asimetrija zanemarljiva.
+
+```{r warning=FALSE}
+library(e1071)
+skewness(zivdoba1$`1`)
+
+```
+Kot vidimo, je asimetrija porazdelitve življenjske dobe gum, narejenih po novi metodi zanemarljiva, za porazdelitev življenjske dobe gum, narejenih po stari metodi pa lahko iz histograma in škatle z brki razberemo, da je približno simetrična.
+
+Ker sta obe porazdelitvi življenjske dobe gum simetrični ali zelo blago asimetrični, lahko izberemo povprečno vrednost kot dobrega predstavnika centralne vrednosti porazdelitve, kar pomeni, da bomo primerjali življenjsko dobo dveh skupin s pomočjo njihovih vzorčnih povprečij.
+
+
+## 5. Definiranje ničelne in alternativne domneve
+
+Zdaj lahko definiramo ničelno domnevo kot $H_0: \mu_X=\mu_Y$ (povprečna vrednost življenjske dobe gum, narejenih po novi metodi, je enaka povprečni vrednosti življenjske dobe gum, narejenih po stari metodi) proti alternativi domnevi  $H_1:\mu_X>\mu_Y$ (povprečna vrednost življenjske dobe gum, narejenih po novi metodi, je večja kot povprečna vrednost življenjske dobe gum, narejenih po stari metodi).
+
+
+## 6. Preverjanje predpostavke t-testa za neodvisna vzorca o normalnosti porazdelitev
+Preden uporabimo t-test za testiranje ničelne domneve, moramo preveriti, ali je predpostavka njegove uporabe izpolnjena: normalnost porazdelitve življenjskih dob avtomobilskih gum obeh populacij. 
+
+Na osnovi oblike histograma (kot zvon) lahko zaključimo, da sta obe porazdelitvi življenjske dobe gum normalni, kar bomo še preverili s Shapiro-Wilkovim testom normalnosti (funkcija \emph{shapiro.test}).  Ničelna domneva tega testa je, da je porazdelitev slučajne spremenljivke normalna, proti alternativni domnevi, 
+da ni normalna.
+
+```{r}
+shapiro.test(zivdoba1$`1`)
+
+shapiro.test(zivdoba1$`2`)
+
+```
+
+Na osnovi rezultatov Shapiro-Wilkovega testa (nova metoda: testna statistika $W = 0.976$, p-vrednost $p= 0.7882>0.05$; stara metoda: 
+testna statistika $W=0.969$, p-vrednost $p=0.6197>0.05$), lahko zaključimo, da ima življenjska doba obeh skupin gum (vsaj) približno normalno porazdelitev. Odstopanja vzorčnih porazdelitev od normalne porazdelitve niso
+statistično pomembna.
+
+
+## 7. Testiranje enakosti varianc dveh populacij
+Na osnovi normalnosti porazdelitev lahko uporabimo t-test za neodvisna vzorca za testiranje ničelne domneve. Vprašanje je edino, kateri t-test bomo uporabili: standardni t-test za neodvisna vzorca, ki predpostavlja enakost varianc dveh populacij, ali Welchov t-test, ki se lahko uporabi pri neenakih variancah.  
+
+Za testiranje enakosti varianc dveh populacij bomo uporabili Levenov test (funkcija \emph{levene.test}) v paketu \emph{lawstat}). Ničelna domneva tega testa je, da sta varianci dveh populacij enaki, proti alternativni domnevi, 
+da nista enaki.
+
+```{r warning=FALSE}
+library(lawstat)
+levene.test(zivdoba$zdoba,zivdoba$metoda,location="mean")
+
+```
+
+Na osnovi rezultata Levenovega testa (testna statistika $W=6.1855$, p-vrednost $p=0.01641<0.05$), lahko zaključimo, da varianci življenjskih dob avtomobilskih gum obeh populacij nista približno enaki. 
+
+Zaradi neenakosti varianc moramo uporabiti Welchov t-test za neodvisna vzorca za testiranje ničelne domneve o  enakosti povprečnih vrednosti življenjskih dob gum.
+
+
+
+## 8. Rezultati t-testa za neodvisna vzorca in njihova interpretacija
+
+Za Welchov t-test lahko uporabimo funkcijo \emph{t.test}. 
+
+```{r}
+t.test(zivdoba1$`1`,zivdoba1$`2`,var.equal=FALSE,alternative="greater")
+```
+
+
+V t-testu smo označili, da varianci življenjskih dob gum obeh populacij nista enaki (\emph{var.equal=FALSE}) in smer razlike v alternativni domnevi \emph{alternative="greater"}). 
+
+Zaključek lahko napišemo na naslednji način. Na osnovi dobljenih rezultatov Welchovega t-testa ($t = 3.7487$, $df = 34.832$, $p = 0.0003224<0.05$), zavrnemo 
+ničelno domnevo, oziroma potrdimo alternativno domnevo, da je življenjska doba avtomobilskih gum, narejenih po novi metodi večja od življenjske dobe gum, narejenih po stari metodi, za dano stopnjo značilnosti $\alpha=0.05$ in dobljena vzorca. Potrdili smo našo raziskovalno domnevo, da nova metoda proizvodnje avtomobilskih gum vpliva na povečanje njihove življenjske dobe.
+
+
+
+## 9. Dodatek: računanje kritične vrednosti in $p$-vrednosti testa
+
+### Računanje kritične vrednosti
+
+Za alternativno domnevo $H_1:\mu_X>\mu_Y$ je kritično območje $K$ oblike $K: T\geq c$, oziroma $K=[c, \infty)$. Ploščina pod krivuljo gostote od $-\infty$ do $c$ je enaka $0.95$. Kritično območje je pobarvano sivo na naslednji sliki.
+
+```{r,fig.align="center",out.width="70%"}
+source("G:\\Documents\\Temp\\tdftails.R")
+plottdf.rtail(df=34.832,alpha=0.05)
+  
+```
+
+Kritično vrednost $c$ izračunamo v R-ju kot $0.95$-kvantil Studentove porazdelitve s $34.832$ prostostnimi stopnjami
+
+```{r}
+(c<-qt(0.95, 34.832))
+```
+
+Potem je kritično območje $K=[1.689, \infty)$. 
+
+Vrednost testne statistike $t=3.7487\in K=[1.689, \infty)$, oziroma vrednost testne statistike pade v kritično območje, zato zavrnemo ničelno domnevo. 
+
+
+### Računanje $p$-vrednosti
+
+V R-ju se odločitev o  nulti domnevi naredi na osnovi $p$-vrednosti testa, ne na osnovi kritične vrednosti. Za izbrano alternativno domnevo je $p$-vrednost enaka $$p-\text{vrednost}=P(T\geq 3.7487)$$ in predstavlja ploščino pod krivuljo gostote od $\infty$ do vrednosti testne statistike $3.7487$.
+Na naslednji sliki je prikazana Studentova porazdelitev s $34.832$ prostostnimi stopnjami, vrednost testne statistike in kritično območje. 
+
+```{r,fig.align="center",out.width="70%"}
+plottdf.rtail(df=34.832,alpha=0.05,ind=TRUE,t=3.7487)
+  
+```
+Izračunajmo $p$-vrednost v R-ju 
+
+```{r}
+1-pt(3.7487,34.832)
+```
+P-vrednost je manjša od $\alpha=0.05$, kar pomeni, da vrednost testne statistike pade v kritično območje, zato zavrnemo ničelno domnevo. Pridemo do enakih zaključkov, kot v primeru računanja kritične vrednosti.
+
+
+
+
+
+<!-- Seminarske naloge z alternativno domnevo $H_1:\mu_X>\mu_Y$ (povsod navesti -->
+<!-- konkretno vrednost df in vrednost testne statistike t, R kodo dati pod blok kode ```{r}  ```) -->
+<!-- Kritično območje $K$ je oblike $K: T\geq c$, oziroma $K=[c,\infty)$. Ploščina pod krivuljo gostote od $-\infty$ do $c$ je enaka $0.95$.  -->
+<!-- Kritično območje na grafu -->
+<!-- plottdf.rtail(df=...,alpha=0.05) -->
+
+<!-- Kritično vrednost $c$ izračunamo v R-ju kot $0.95$-kvantil Studentove porazdelitve z df=... prostostnimi stopnjami-->
+<!-- (c<-qt(0.95, df=...)) -->
+
+<!-- Potem je kritično območje $K=[c=...,\infty)$ (zamenjati konkretno vrednost $c$). -->
+
+<!-- Vrednost testne statistike $t=..\in K=[c=...,\infty)$, oziroma vrednost testne statistike pade v kritično območje, zato zavrnemo  ničelno domnevo.  -->
+
+<!-- V R-ju se odločitev o  nulti domnevi naredi na osnovi $p$-vrednosti testa, ne na osnovi kritične vrednosti. Za izbrano alternativno domnevo, je  -->
+<!-- $$p-\text{vrednost}=P(T\geq t=...)$$ -->
+<!-- Na naslednji sliki je prikazana Studentova porazdelitev s df=... prostostnimi stopnjami, vrednost testne statistike in kritično območje.  -->
+<!-- plottdf.rtail(df=...,alpha=0.05,ind=TRUE,t=...) -->
+
+<!-- Izračunajmo $p$-vrednost v R-ju -->
+<!-- 1-pt(t=...,df=...) -->
+
+
+<!-- P-vrednost je manjša od $\alpha=0.05$, kar pomeni, da vrednost testne statistike pade v kritično območje, zato zavrnemo  ničelno domnevo. Pridemo do enakih zaključkov kot v primeru računanja kritične vrednosti. -->
+
+
+
+
+

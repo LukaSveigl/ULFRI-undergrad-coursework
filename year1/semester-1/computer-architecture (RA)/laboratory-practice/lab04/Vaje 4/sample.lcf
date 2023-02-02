@@ -1,0 +1,98 @@
+ENTRY(__asyst_start)
+
+INPUT(& &)
+
+MEMORY
+{
+  MEM_RAM0 : ORIGIN = 0x00000000, LENGTH = 0x00001000
+  MEM_RAM1 : ORIGIN = 0x00300000, LENGTH = 0x00001000
+}
+
+__ASYST_STACK_TOP = 0x00001000-8;
+__ASYST_HEAP_SIZE = 0;
+
+SECTIONS
+{
+  .text : 
+  {
+    __ASYST_TEXT_START = .;     /* executable code */
+    *(.startup)
+    *(.text)                   
+    *(.text.*)
+    *(.init)                    
+    *(.fini)                        
+    *(.gnu.linkonce.t*)
+    __ASYST_TEXT_END = .;
+    
+    . = ALIGN(4);
+    __ASYST_CTOR_START = .;    /* constructors */   
+    *(.ctors)
+    __ASYST_CTOR_END = .;
+    
+    . = ALIGN(4);
+    __ASYST_DTOR_START = .;    /* destructors */
+    *(.dtors)
+    __ASYST_DTOR_END = .;
+    
+  } > MEM_RAM0
+  
+  .gcc_except_table : 
+  { 
+    *(.gcc_except_table)
+     
+  } > MEM_RAM0
+  
+  .rodata :
+  {
+    *(.rodata)                  /* read-only data */
+    *(.rodata.*)     
+    *(.rdata)                   
+    *(.rdata.*)                  
+    *(.glue_7) 
+    *(.glue_7t) 
+    *(.gnu.linkonce.r*)
+    *(.eh_frame)
+    *(.got2)
+    
+  } > MEM_RAM0
+
+  .data : AT(__ASYST_DATA_LOAD)
+  {
+    __ASYST_DATA_START  = .;    /* start of the data */
+    *(.data)
+    *(.data.*)
+    *(.gnu.linkonce.d*)
+    __ASYST_DATA_END  = .;      /* end of the data */
+    
+  } > MEM_RAM0
+  
+ .initdata (NOLOAD): 
+  {
+    __ASYST_DATA_LOAD = .;
+    . += SIZEOF(.data);
+      
+  } > MEM_RAM0
+  
+  .bss (NOLOAD) :
+  {
+    __ASYST_BSS_START = .;       /* start of the bss */
+    *(.bss) 
+    *(.bss.*)
+    *(.sbss)   
+    *(.sbss.*)
+    *(COMMON)          
+    *(.gnu.linkonce.b*)          
+    __ASYST_BSS_END = .;         /* end of the bss */
+    
+  } > MEM_RAM0
+  
+  .heap (NOLOAD) :
+  {
+    __ASYST_HEAP_START  = .;     /* start of the heap */
+    . += __ASYST_HEAP_SIZE;
+      
+  } > MEM_RAM0 
+
+  end = . ;
+}
+

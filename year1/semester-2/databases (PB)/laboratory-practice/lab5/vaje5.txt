@@ -1,0 +1,76 @@
+-----Jadralci:-----
+-----Naloga 1:-----
+
+SELECT c.ime
+FROM coln c
+WHERE c.ime IN 
+(SELECT c2.ime
+FROM coln c2
+WHERE c.cid != c2.cid
+);
+
+
+-----Naloga 2:-----
+
+SELECT c.cid
+FROM coln c JOIN rezervacija r USING(cid) JOIN jadralec j USING(jid)
+WHERE dolzina > 35 AND starost < 40;
+
+
+-----Naloga 3:-----
+
+SELECT *
+FROM jadralec j 
+LEFT OUTER JOIN rezervacija r
+USING (jid)
+ORDER BY jid;
+
+
+-----Naloga 4:-----
+
+SELECT *
+FROM jadralec JOIN rezervacija USING(jid)
+UNION
+SELECT *, NULL AS cid, NULL AS dan
+FROM jadralec
+WHERE jid NOT IN(
+	SELECT jid
+        FROM rezervacija)
+ORDER BY jid
+
+
+-----Travian:-----
+-----Naloga 1:-----
+
+SELECT i.player
+FROM igralec i 
+INNER JOIN aliansa a
+USING(aid)
+WHERE a.alliance IN ('GVERILA', 'IPERIT', '*!NFS!*', 
+	'PaX™', 'MGP I', '-MGP-', 'sladoled', 'CYANIDE', 
+	'*!NFS!*2', 'SVN', 'MGP', 'ANTHRAX', 'Uporniki', 
+	'MGP A', 'GVERIL4', 'LEGEND', 'LUDI DDT', 'T•W', 'G.R.™');
+	
+	
+-----Naloga 2:-----
+
+SELECT DISTINCT i.player
+FROM igralec i INNER JOIN naselje n USING(pid)
+WHERE POW(n.x, 2) + POW(n.y, 2) BETWEEN 400 AND 2500;
+
+
+-----Naloga 3:-----
+
+SELECT pid, player
+FROM igralec JOIN naselje USING(pid)
+WHERE x >= 0 AND y >= 0 AND pid IN(
+	SELECT pid
+	FROM igralec JOIN naselje USING(pid)
+	WHERE x >= 0 AND y < 0 AND pid IN(
+		SELECT pid
+		FROM igralec JOIN naselje USING(pid)
+		WHERE x < 0 AND y >= 0 AND pid IN(
+			SELECT pid
+			FROM igralec JOIN naselje USING(pid)
+			WHERE x < 0 AND y < 0)));
+

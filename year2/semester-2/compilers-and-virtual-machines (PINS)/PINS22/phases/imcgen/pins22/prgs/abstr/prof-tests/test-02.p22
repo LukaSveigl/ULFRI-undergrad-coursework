@@ -1,0 +1,2 @@
+typ number=int;
+fun main(argc:int):void = { if i>0 then while i>0 do i = i-1; main(i); end; end; none; };

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app>
+    <display-name>Welcome to SFL-API</display-name>
+    <description>
+        Welcome to SFL-API
+    </description>
+    
+   <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+   </servlet>
+
+    <servlet>
+        <servlet-name>Jobs</servlet-name>
+        <servlet-class>JobsServlet</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>Employees</servlet-name>
+        <servlet-class>EmployeesServlet</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>Statistics</servlet-name>
+        <servlet-class>StatisticsServlet</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>JobsUpdate</servlet-name>
+        <servlet-class>JobsUpdateServlet</servlet-class>
+   </servlet>
+
+   <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+        <servlet-name>Jobs</servlet-name>
+        <url-pattern>/jobs</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+        <servlet-name>Employees</servlet-name>
+        <url-pattern>/employees</url-pattern>
+   </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Statistics</servlet-name>
+        <url-pattern>/statistics</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>JobsUpdate</servlet-name>
+        <url-pattern>/jobsupdate</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,153 @@
+-------------Naloga 1:----------------
+
+          .text
+TABELA:   .space 8
+          .align
+          .global __start
+__start:
+          adr r0, TABELA
+          mov r1, #8 @counter
+          mov r2, #0xFF   
+            
+LOOP:
+          strb r2, [r0]
+          add r0, r0, #1 @naslednji naslov(bajt)
+
+          subs r1, r1, #1
+          bne LOOP
+
+__end:    b __end  
+
+--------------Naloga 2:-------------
+
+Nepredznačena, 16-bit rezultat:
+
+          .text
+REZULTAT: .hword 0
+          .align
+TABELA:   .byte 1,100,255,24,88,31,56,192,155,224 
+          .align
+          .global __start
+__start:
+          adr r0, TABELA
+          mov r1, #10 @counter
+          mov r2, #0 @vsota         
+            
+LOOP:
+          ldrb r3, [r0]
+          add r2, r2, r3
+          add r0, r0, #1 @naslednji naslov(bajt)
+
+          subs r1, r1, #1
+          bne LOOP
+
+          adr r0, REZULTAT
+          strh r2, [r0]
+__end:    b __end   
+
+
+
+Nepredznačena, 32-bit rezultat:
+
+          .text
+REZULTAT: .word 0
+          .align
+TABELA:   .hword 1,100,255,24,88,31,56,192,155,224 
+          .align
+          .global __start
+__start:
+          adr r0, TABELA
+          mov r1, #10 @counter
+          mov r2, #0 @vsota         
+            
+LOOP:
+          ldrh r3, [r0]
+          add r2, r2, r3
+          add r0, r0, #2 @naslednji naslov(bajt)
+
+          subs r1, r1, #1
+          bne LOOP
+
+          adr r0, REZULTAT
+          str r2, [r0]
+__end:    b __end   
+
+
+--------------Naloga 3:-------------
+
+          .text
+TABELA:   .byte 192,155,224,48,0,128,99,147,177,100 
+          .align
+          .global __start
+__start:
+          adr r0, TABELA
+          mov r1, #0  @counter vecjih od 100
+          mov r2, #10 @counter      
+            
+LOOP:
+          ldrsb r3, [r0]
+          cmp r3, #100
+          addgt r1, r1, #1
+          
+          add r0, r0, #1 @naslednji naslov(bajt)
+          subs r2, r2, #1
+          
+          bne LOOP
+__end:    b __end   
+
+
+--------------Naloga 4:-----------------
+
+          .text
+STRING:   .asciz "Zunaj je mraz, sneg in poledica."
+          .align
+          .global __start
+__start:
+          adr r0, STRING
+          mov r1, #0    @ counter of spaces
+          mov r2, #' '  @ character or character code (space = 0x20)      
+            
+LOOP:
+          ldrb r3, [r0]
+          
+          cmp r3, #0  @ if end of string
+          beq __end   @ if end goto end of program
+          
+          cmp r3, r2 @ space found
+          addeq r1, r1, #1
+          
+          add r0, r0, #1 @ next address(byte)   
+          b LOOP
+          
+__end:    b __end  
+
+
+---------------Naloga 5:------------
+
+          .text
+TABELA:   .hword 1,100,-255,24,-88,31,56,192,155,-224,0,101,-199,47
+          .align
+          .global __start
+__start:
+          adr r0, TABELA
+          mov r1, #14 @ counter of elements
+          mov r2, #0  
+            
+LOOP:
+          ldrsh r3, [r0]
+          
+          cmp r3, #-100
+          bge CHANGE
+          b CONTINUE
+           
+CHANGE:
+          cmp r3, #100
+          strlth r2, [r0]   
+
+CONTINUE:
+          add r0, r0, #2  
+ 
+          subs r1, r1, #1   
+          bne LOOP
+          
+__end:    b __end   

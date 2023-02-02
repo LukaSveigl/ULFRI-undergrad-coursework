@@ -1,0 +1,156 @@
+fun main(args : [10]int) : void = {
+    args = bubbleSort(args);
+};
+
+var i : int;
+var j : int;
+var temp : int;
+
+fun bubbleSort(arr : [10]int) : [10]int = {
+    i = 0;
+    j = 0;
+    temp = 0;
+
+    while (i < 10) do
+        while (j < 10) do
+            if (arr[i] > arr[j]) then
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            end;
+            j = j + 1;
+        end;
+        i = i + 1;
+        j = 0;
+    end;
+
+    arr;
+};
+
+#{Should output: (locations might vary)
+  AstFunDecl(main) @(1.1-1.3)
+    {Pars}
+      AstParDecl(args) @(1.10-1.13)
+        AstArrType @(1.17-1.17)
+          AstAtomType(INT) @(1.21-1.23)
+          AstConstExpr(INT,10) @(1.18-1.19)
+    AstAtomType(VOID) @(1.28-1.31)
+    AstStmtExpr @(1.35-1.35)
+      {Stmts}
+          AstAssignStmt @(2.5-2.8)
+            AstNameExpr(args) @(2.5-2.8)
+              declaredAt: 1.10-1.13
+            AstCallExpr(bubbleSort) @(2.12-2.21)
+              declaredAt: 9.1-9.3
+              {Args}
+                AstNameExpr(args) @(2.23-2.26)
+                  declaredAt: 1.10-1.13
+  AstVarDecl(i) @(5.1-5.3)
+    AstAtomType(INT) @(5.9-5.11)
+  AstVarDecl(j) @(6.1-6.3)
+    AstAtomType(INT) @(6.9-6.11)
+  AstVarDecl(temp) @(7.1-7.3)
+    AstAtomType(INT) @(7.12-7.14)
+  AstFunDecl(bubbleSort) @(9.1-9.3)
+    {Pars}
+      AstParDecl(arr) @(9.16-9.18)
+        AstArrType @(9.22-9.22)
+          AstAtomType(INT) @(9.26-9.28)
+          AstConstExpr(INT,10) @(9.23-9.24)
+    AstArrType @(9.33-9.33)
+      AstAtomType(INT) @(9.37-9.39)
+      AstConstExpr(INT,10) @(9.34-9.35)
+    AstStmtExpr @(9.43-9.43)
+      {Stmts}
+          AstAssignStmt @(10.5-10.5)
+            AstNameExpr(i) @(10.5-10.5)
+              declaredAt: 5.1-5.3
+            AstConstExpr(INT,0) @(10.9-10.9)
+          AstAssignStmt @(11.5-11.5)
+            AstNameExpr(j) @(11.5-11.5)
+              declaredAt: 6.1-6.3
+            AstConstExpr(INT,0) @(11.9-11.9)
+          AstAssignStmt @(12.5-12.8)
+            AstNameExpr(temp) @(12.5-12.8)
+              declaredAt: 7.1-7.3
+            AstConstExpr(INT,0) @(12.12-12.12)
+          AstWhileStmt @(14.5-14.9)
+            AstBinExpr(LTH) @(14.14-14.14)
+              AstNameExpr(i) @(14.12-14.12)
+                declaredAt: 5.1-5.3
+              AstConstExpr(INT,10) @(14.16-14.17)
+            AstExprStmt @(15.9-15.13)
+              AstStmtExpr @(15.9-15.13)
+                {Stmts}
+                    AstWhileStmt @(15.9-15.13)
+                      AstBinExpr(LTH) @(15.18-15.18)
+                        AstNameExpr(j) @(15.16-15.16)
+                          declaredAt: 6.1-6.3
+                        AstConstExpr(INT,10) @(15.20-15.21)
+                      AstExprStmt @(16.13-16.14)
+                        AstStmtExpr @(16.13-16.14)
+                          {Stmts}
+                              AstIfStmt @(16.13-16.14)
+                                AstBinExpr(GTH) @(16.24-16.24)
+                                  AstBinExpr(ARR) @(16.20-16.20)
+                                    AstNameExpr(arr) @(16.17-16.19)
+                                      declaredAt: 9.16-9.18
+                                    AstNameExpr(i) @(16.21-16.21)
+                                      declaredAt: 5.1-5.3
+                                  AstBinExpr(ARR) @(16.29-16.29)
+                                    AstNameExpr(arr) @(16.26-16.28)
+                                      declaredAt: 9.16-9.18
+                                    AstNameExpr(j) @(16.30-16.30)
+                                      declaredAt: 6.1-6.3
+                                AstExprStmt @(17.17-17.20)
+                                  AstStmtExpr @(17.17-17.20)
+                                    {Stmts}
+                                        AstAssignStmt @(17.17-17.20)
+                                          AstNameExpr(temp) @(17.17-17.20)
+                                            declaredAt: 7.1-7.3
+                                          AstBinExpr(ARR) @(17.27-17.27)
+                                            AstNameExpr(arr) @(17.24-17.26)
+                                              declaredAt: 9.16-9.18
+                                            AstNameExpr(i) @(17.28-17.28)
+                                              declaredAt: 5.1-5.3
+                                        AstAssignStmt @(18.20-18.20)
+                                          AstBinExpr(ARR) @(18.20-18.20)
+                                            AstNameExpr(arr) @(18.17-18.19)
+                                              declaredAt: 9.16-9.18
+                                            AstNameExpr(i) @(18.21-18.21)
+                                              declaredAt: 5.1-5.3
+                                          AstBinExpr(ARR) @(18.29-18.29)
+                                            AstNameExpr(arr) @(18.26-18.28)
+                                              declaredAt: 9.16-9.18
+                                            AstNameExpr(j) @(18.30-18.30)
+                                              declaredAt: 6.1-6.3
+                                        AstAssignStmt @(19.20-19.20)
+                                          AstBinExpr(ARR) @(19.20-19.20)
+                                            AstNameExpr(arr) @(19.17-19.19)
+                                              declaredAt: 9.16-9.18
+                                            AstNameExpr(j) @(19.21-19.21)
+                                              declaredAt: 6.1-6.3
+                                          AstNameExpr(temp) @(19.26-19.29)
+                                            declaredAt: 7.1-7.3
+                              AstAssignStmt @(21.13-21.13)
+                                AstNameExpr(j) @(21.13-21.13)
+                                  declaredAt: 6.1-6.3
+                                AstBinExpr(ADD) @(21.19-21.19)
+                                  AstNameExpr(j) @(21.17-21.17)
+                                    declaredAt: 6.1-6.3
+                                  AstConstExpr(INT,1) @(21.21-21.21)
+                    AstAssignStmt @(23.9-23.9)
+                      AstNameExpr(i) @(23.9-23.9)
+                        declaredAt: 5.1-5.3
+                      AstBinExpr(ADD) @(23.15-23.15)
+                        AstNameExpr(i) @(23.13-23.13)
+                          declaredAt: 5.1-5.3
+                        AstConstExpr(INT,1) @(23.17-23.17)
+                    AstAssignStmt @(24.9-24.9)
+                      AstNameExpr(j) @(24.9-24.9)
+                        declaredAt: 6.1-6.3
+                      AstConstExpr(INT,0) @(24.13-24.13)
+          AstExprStmt @(27.5-27.7)
+            AstNameExpr(arr) @(27.5-27.7)
+              declaredAt: 9.16-9.18
+}#

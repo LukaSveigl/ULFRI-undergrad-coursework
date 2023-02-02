@@ -1,0 +1,222 @@
+typ int_ptr = ^int;
+typ char_ptr = ^char;
+typ char_ptr2 = char_ptr;
+
+fun main(a: int, b: int, c: int): int = {
+  chr = get_char('b');
+  num^ = nums[2] - 4;
+  add(num^, 3);
+};
+
+fun get_char(x: char): char_ptr = (x : char_ptr);
+
+var chr: char_ptr2;
+var num: int_ptr;
+var nums: [5]int;
+
+fun add(a: int, b: int): int = a + b;
+
+#{Should output: (locations might vary)
+  AstTypDecl(int_ptr) @(1.1-1.3)
+    declaresType:
+      Name(int_ptr)
+      Ptr
+        Int
+    AstPtrType @(1.15-1.15)
+      describesType:
+        Ptr
+          Int
+      AstAtomType(INT) @(1.16-1.18)
+        describesType:
+          Int
+  AstTypDecl(char_ptr) @(2.1-2.3)
+    declaresType:
+      Name(char_ptr)
+      Ptr
+        Char
+    AstPtrType @(2.16-2.16)
+      describesType:
+        Ptr
+          Char
+      AstAtomType(CHAR) @(2.17-2.20)
+        describesType:
+          Char
+  AstTypDecl(char_ptr2) @(3.1-3.3)
+    declaresType:
+      Name(char_ptr2)
+      Ptr
+        Char
+    AstTypeName(char_ptr) @(3.17-3.24)
+      declaredAt: 2.1-2.3
+      describesType:
+        Ptr
+          Char
+  AstFunDecl(main) @(5.1-5.3)
+      Frame(_main,40=16+0+24,T0,T1,1)
+    {Pars}
+      AstParDecl(a) @(5.10-5.10)
+          RelAccess(8,8,2)
+        AstAtomType(INT) @(5.13-5.15)
+          describesType:
+            Int
+      AstParDecl(b) @(5.16-5.16)
+          RelAccess(8,16,2)
+        AstAtomType(INT) @(5.21-5.23)
+          describesType:
+            Int
+      AstParDecl(c) @(5.24-5.24)
+          RelAccess(8,24,2)
+        AstAtomType(INT) @(5.29-5.31)
+          describesType:
+            Int
+    AstAtomType(INT) @(5.35-5.37)
+      describesType:
+        Int
+    AstStmtExpr @(5.41-5.41)
+      exprOfType:
+        Int
+      {Stmts}
+          AstAssignStmt @(6.3-6.5)
+            stmtOfType:
+              Void
+            AstNameExpr(chr) @(6.3-6.5)
+              declaredAt: 13.1-13.3
+              exprOfType:
+                Ptr
+                  Char
+            AstCallExpr(get_char) @(6.9-6.16)
+              declaredAt: 11.1-11.3
+              exprOfType:
+                Ptr
+                  Char
+              {Args}
+                AstConstExpr(CHAR,'b') @(6.18-6.20)
+                  exprOfType:
+                    Char
+          AstAssignStmt @(7.6-7.6)
+            stmtOfType:
+              Void
+            AstPstExpr(PTR) @(7.6-7.6)
+              exprOfType:
+                Int
+              AstNameExpr(num) @(7.3-7.5)
+                declaredAt: 14.1-14.3
+                exprOfType:
+                  Ptr
+                    Int
+            AstBinExpr(SUB) @(7.18-7.18)
+              exprOfType:
+                Int
+              AstBinExpr(ARR) @(7.14-7.14)
+                exprOfType:
+                  Int
+                AstNameExpr(nums) @(7.10-7.13)
+                  declaredAt: 15.1-15.3
+                  exprOfType:
+                    Arr(5)
+                      Int
+                AstConstExpr(INT,2) @(7.15-7.15)
+                  exprOfType:
+                    Int
+              AstConstExpr(INT,4) @(7.20-7.20)
+                exprOfType:
+                  Int
+          AstExprStmt @(8.3-8.5)
+            stmtOfType:
+              Int
+            AstCallExpr(add) @(8.3-8.5)
+              declaredAt: 17.1-17.3
+              exprOfType:
+                Int
+              {Args}
+                AstPstExpr(PTR) @(8.10-8.10)
+                  exprOfType:
+                    Int
+                  AstNameExpr(num) @(8.7-8.9)
+                    declaredAt: 14.1-14.3
+                    exprOfType:
+                      Ptr
+                        Int
+                AstConstExpr(INT,3) @(8.13-8.13)
+                  exprOfType:
+                    Int
+  AstFunDecl(get_char) @(11.1-11.3)
+      Frame(_get_char,16=16+0+0,T2,T3,1)
+    {Pars}
+      AstParDecl(x) @(11.14-11.14)
+          RelAccess(8,8,2)
+        AstAtomType(CHAR) @(11.17-11.20)
+          describesType:
+            Char
+    AstTypeName(char_ptr) @(11.24-11.31)
+      declaredAt: 2.1-2.3
+      describesType:
+        Ptr
+          Char
+    AstCastExpr @(11.38-11.38)
+      exprOfType:
+        Ptr
+          Char
+      AstNameExpr(x) @(11.36-11.36)
+        declaredAt: 11.14-11.14
+        exprOfType:
+          Char
+      AstTypeName(char_ptr) @(11.40-11.47)
+        declaredAt: 2.1-2.3
+        describesType:
+          Ptr
+            Char
+  AstVarDecl(chr) @(13.1-13.3)
+      AbsAccess(8,_chr)
+    AstTypeName(char_ptr2) @(13.10-13.18)
+      declaredAt: 3.1-3.3
+      describesType:
+        Ptr
+          Char
+  AstVarDecl(num) @(14.1-14.3)
+      AbsAccess(8,_num)
+    AstTypeName(int_ptr) @(14.10-14.16)
+      declaredAt: 1.1-1.3
+      describesType:
+        Ptr
+          Int
+  AstVarDecl(nums) @(15.1-15.3)
+      AbsAccess(40,_nums)
+    AstArrType @(15.11-15.11)
+      describesType:
+        Arr(5)
+          Int
+      AstAtomType(INT) @(15.14-15.16)
+        describesType:
+          Int
+      AstConstExpr(INT,5) @(15.12-15.12)
+        exprOfType:
+          Int
+  AstFunDecl(add) @(17.1-17.3)
+      Frame(_add,16=16+0+0,T4,T5,1)
+    {Pars}
+      AstParDecl(a) @(17.9-17.9)
+          RelAccess(8,8,2)
+        AstAtomType(INT) @(17.12-17.14)
+          describesType:
+            Int
+      AstParDecl(b) @(17.15-17.15)
+          RelAccess(8,16,2)
+        AstAtomType(INT) @(17.20-17.22)
+          describesType:
+            Int
+    AstAtomType(INT) @(17.26-17.28)
+      describesType:
+        Int
+    AstBinExpr(ADD) @(17.34-17.34)
+      exprOfType:
+        Int
+      AstNameExpr(a) @(17.32-17.32)
+        declaredAt: 17.9-17.9
+        exprOfType:
+          Int
+      AstNameExpr(b) @(17.36-17.36)
+        declaredAt: 17.15-17.15
+        exprOfType:
+          Int
+}#

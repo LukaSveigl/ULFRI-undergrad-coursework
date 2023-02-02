@@ -1,0 +1,39 @@
+@model sfl.Models.Job
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Job</h4>
+
+<a class="nav-link" align="right" asp-area="" asp-controller="Parcels" asp-action="Index">Parcels</a>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StaffUsername" class="control-label">Username</label>
+                <select asp-for="StaffUsername" class="form-control" asp-items="ViewBag.StaffUsername"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobTypeID" class="control-label">Job Type</label>
+                <select asp-for="JobTypeID" class="form-control" asp-items="ViewBag.JobTypeID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParcelIDs" class="control-label">Parcels</label>
+                <select asp-for="ParcelIDs" class="form-control" asp-items="ViewBag.Parcels" multiple></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

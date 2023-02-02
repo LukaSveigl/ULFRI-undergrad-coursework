@@ -1,0 +1,160 @@
+-------------Naloga 1:-------------
+          .text
+
+STEV1:    .word 10  @ ali hword ali byte
+STEV2:    .word 5
+REZ:      .space  4
+
+          .align
+          .global __start
+__start:
+
+          adr r0, STEV1
+          ldr r1, [r0]  @ ali ldrh ali ldrb
+          
+          adr r0, STEV2
+          ldr r2, [r0]
+          
+          add r3, r1, r2 @ za odstevanje sub
+          
+          adr r0, REZ
+          str r3, [r0]
+
+__end:    b __end  
+
+
+
+-------------Naloga 2:-------------------
+          .text
+
+STEV1:    .word 0x50  @ ali hword ali byte
+STEV2:    .word 100
+STEV3:    .word 0x2F
+
+          .align
+          .global __start
+__start:
+
+          adr r0, STEV1
+          ldr r1, [r0]
+          
+          adr r0, STEV2
+          ldr r2, [r0]
+          
+          adr r0, STEV3
+          ldr r3, [r0]
+          
+          add r4, r2, r3
+          sub r1, r4, r1
+          
+          adr r0, STEV1
+          str r1, [r0]
+          
+__end:    b __end  
+
+
+
+-------------Naloga 3:------------------- Za doma
+          .text
+
+STEV1:    .word 0x12345678
+
+          .align
+STEV2:    .byte 128
+
+          .align
+STEV3:    .hword 0xF123
+
+          .align
+          .global __start
+__start:
+          
+          adr r0, STEV1
+          ldr r1, [r0]     @ a naloga
+          
+          adr r0, STEV2    
+          ldrb r2, [r0]    @ b naloga
+          ldrsb r3, [r0]   @ c naloga (v registru se dodatni biti napolnijo z F)
+          
+          adr r0, STEV3
+          ldrh r4, [r0]    @ d naloga
+          ldrsh r5, [r0]   @ e naloga (v registru se dodatni biti napolnijo z F)
+          
+          
+__end:    b __end  
+
+
+
+--------------Naloga 4:----------------- Za doma
+
+a)
+
+          .text
+
+STEV1:    .byte 15
+          
+          .align
+STEV2:    .byte 130
+
+          .align
+          .global __start
+__start:
+          adr r0, STEV1
+          ldrb r1, [r0]
+          
+          adr r0, STEV2
+          ldrb r2, [r0]
+          
+          add r1, r2, r1
+          
+__end:    b __end  
+
+
+b)
+
+          .text
+
+STEV1:    .byte 15
+          
+          .align
+STEV2:    .byte 130
+
+          .align
+          .global __start
+__start:
+          adr r0, STEV1
+          ldrsb r1, [r0]
+          
+          adr r0, STEV2
+          ldrsb r2, [r0]
+          
+          add r1, r2, r1
+          
+__end:    b __end   
+
+
+c)
+
+
+          .text
+
+STEV1:    .word 128
+          
+          .align
+STEV2:    .byte 128
+
+          .align
+          .global __start
+__start:
+          adr r0, STEV1
+          ldr r1, [r0]
+          
+          adr r0, STEV2
+          ldrsb r2, [r0]
+          
+          add r1, r2, r1
+          
+__end:    b __end   
+
+
+

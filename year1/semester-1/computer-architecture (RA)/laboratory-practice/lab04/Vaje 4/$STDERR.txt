@@ -1,0 +1,1 @@
+c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/bin/ld.exe: warning: cannot find entry symbol __asyst_start; defaulting to 00000000

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GenericMetadata xsi:schemaLocation="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/genericmetadata SDMXGenericMetadata.xsd http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message SDMXMessage.xsd" xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message" xmlns:genericmetadata="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/genericmetadata" xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common" xmlns:compact="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/compact" xmlns:cross="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/cross" xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic" xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Header>
+        <ID>ENERGY_TES_A</ID>
+        <Test>false</Test>
+        <Name>ENERGY_TES_A_4D_2017_0000 (nrg_t_esms)</Name>
+        <Prepared>2022-02-07T21:04:31</Prepared>
+        <Sender id="4D0">
+            <Contact/>
+        </Sender>
+        <DataSetID>ENERGY_TES_A_1644264272449</DataSetID>
+        <DataSetAction></DataSetAction>
+        <Extracted></Extracted>
+        <ReportingBegin>2017-01-01T00:00:00</ReportingBegin>
+        <ReportingEnd>2017-12-31T00:00:00</ReportingEnd>
+        <DataSetAgency>ESTAT</DataSetAgency>
+    </Header>
+    <genericmetadata:MetadataSet>
+        <genericmetadata:MetadataStructureRef>ESMS_MSD</genericmetadata:MetadataStructureRef>
+        <genericmetadata:MetadataStructureAgencyRef>ESTAT</genericmetadata:MetadataStructureAgencyRef>
+        <genericmetadata:ReportRef>ESMS_REPORT_FULL</genericmetadata:ReportRef>
+        <genericmetadata:AttributeValueSet>
+            <genericmetadata:TargetRef>FULL_ESMS</genericmetadata:TargetRef>
+            <genericmetadata:TargetValues>
+                <genericmetadata:ComponentValue component="TIME_PERIOD" object="TimeDimension">2017-A0</genericmetadata:ComponentValue>
+                <genericmetadata:ComponentValue component="DATA_PROVIDER" object="DataProvider">4D0</genericmetadata:ComponentValue>
+                <genericmetadata:ComponentValue component="DATAFLOW" object="DataFlow">ENERGY_TES_A:1.0</genericmetadata:ComponentValue>
+            </genericmetadata:TargetValues>
+            <genericmetadata:ReportedAttribute conceptID="CONTACT">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="CONTACT_ORGANISATION">
+                    <genericmetadata:Value>&lt;p&gt;Eurostat, the Statistical Office of the European Union&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="ORGANISATION_UNIT">
+                    <genericmetadata:Value>&lt;p&gt;E5: Energy&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="CONTACT_NAME">
+                    <genericmetadata:Value>Restricted from publication</genericmetadata:Value>
+                    <genericmetadata:Annotations>
+                        <common:Annotation>
+                            <common:AnnotationType>RESTRICTED_FOR_PUBLICATION</common:AnnotationType>
+                            <common:AnnotationText>YES</common:AnnotationText>
+                        </common:Annotation>
+                    </genericmetadata:Annotations>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="CONTACT_FUNCT">
+                    <genericmetadata:Value>Restricted from publication</genericmetadata:Value>
+                    <genericmetadata:Annotations>
+                        <common:Annotation>
+                            <common:AnnotationType>RESTRICTED_FOR_PUBLICATION</common:AnnotationType>
+                            <common:AnnotationText>YES</common:AnnotationText>
+                        </common:Annotation>
+                    </genericmetadata:Annotations>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="CONTACT_MAIL">
+                    <genericmetadata:Value>&lt;p&gt;European Commission - Eurostat&lt;/p&gt;
+&lt;p&gt;Unit ESTAT.E.5: Energy&lt;/p&gt;
+&lt;p&gt;L-2920 Luxembourg&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="CONTACT_EMAIL">
+                    <genericmetadata:Value>Restricted from publication</genericmetadata:Value>
+                    <genericmetadata:Annotations>
+                        <common:Annotation>
+                            <common:AnnotationType>RESTRICTED_FOR_PUBLICATION</common:AnnotationType>
+                            <common:AnnotationText>YES</common:AnnotationText>
+                        </common:Annotation>
+                    </genericmetadata:Annotations>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="CONTACT_PHONE">
+                    <genericmetadata:Value>Restricted from publication</genericmetadata:Value>
+                    <genericmetadata:Annotations>
+                        <common:Annotation>
+                            <common:AnnotationType>RESTRICTED_FOR_PUBLICATION</common:AnnotationType>
+                            <common:AnnotationText>YES</common:AnnotationText>
+                        </common:Annotation>
+                    </genericmetadata:Annotations>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="CONTACT_FAX">
+                    <genericmetadata:Value>Restricted from publication</genericmetadata:Value>
+                    <genericmetadata:Annotations>
+                        <common:Annotation>
+                            <common:AnnotationType>RESTRICTED_FOR_PUBLICATION</common:AnnotationType>
+                            <common:AnnotationText>YES</common:AnnotationText>
+                        </common:Annotation>
+                    </genericmetadata:Annotations>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="META_UPDATE">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="META_CERTIFIED">
+                    <genericmetadata:Value>07/02/2019</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="META_POSTED">
+                    <genericmetadata:Value>07/02/2019</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="META_LAST_UPDATE">
+                    <genericmetadata:Value>07/02/2019</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="STAT_PRES">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="DATA_DESCR">
+                    <genericmetadata:Value>&lt;p&gt;Annual imports and exports data of various energy carriers, such as&amp;nbsp;crude oil and petroleum products, natural gas, electricity, solid fossil fuels and combustible renewables by country of origin and destination.&lt;/p&gt;
+&lt;p&gt;Annual data collection cover in principle the EU Member States, EFTA, EU candidate countries, and potential candidate countries. Time series starts mostly in year 1990.&lt;/p&gt;
+&lt;p&gt;For solid fossil fuels, natural gas, crude oil,&amp;nbsp;oil products&amp;nbsp;and biofuels the partner country of the "imports&amp;rdquo; refer to the country of ultimate origin, the country in which the energy product was produced. Partner country of the "exports&amp;rdquo; refer to the ultimate country of consumption of the energy products.&lt;/p&gt;
+&lt;p&gt;For electricity the partner&amp;nbsp;country of the "imports&amp;rdquo; refer to the country from where the electricity enters, the partner country of the "exports&amp;rdquo; is the country where the electricity exits on the borders. If electricity is transited through a country, the amount should be reported as both an import and an export.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="CLASS_SYSTEM">
+                    <genericmetadata:Value>&lt;p&gt;Energy statistics is an integral part of the European system of statistics. Therefore, they also rely on classifications and nomenclatures developed in other fields.&lt;/p&gt;
+&lt;p&gt;Classifications, nomenclatures and correspondence tables are available at Eurostat&amp;rsquo;s classification server &lt;a href="http://ec.europa.eu/eurostat/ramon/index.cfm?TargetUrl=DSP_PUB_WELC"&gt;RAMON&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Classification of energy products (commodities/carriers) is in general highly consistent with the &lt;a href="http://unstats.un.org/UNSD/energy/ires/default.htm" target="_blank"&gt;UN&amp;rsquo;s International Recommendations for Energy Statistics&lt;/a&gt; (especially its chapter 3: &amp;ldquo;Standard International Energy Product Classification&amp;rdquo;).&lt;/p&gt;
+&lt;p&gt;Country of origin and destination is reported with a predefined country list covering 162 countries, relevanat for production and trade of energy carriers. Where no origin or destination is a different country or cannot be reported due to missing information or confidentiality, "Non-specified/Other" may be used by the reporting countries.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="COVERAGE_SECTOR">
+                    <genericmetadata:Value>&lt;p&gt;Energy statistics data covers all major sectors of the economy that are involved in the production, trade, energy transformation and energy consumption (the energy sector, industrial sector, transport, commercial and public services, agricultural/forestry/fishing and residential).&lt;/p&gt;
+&lt;p&gt;Classifications, nomenclatures and correspondence tables are available at the Eurostat&amp;rsquo;s classification server &lt;a href="http://ec.europa.eu/eurostat/ramon/" target="_blank"&gt;RAMON&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For further detail information on divisions, groups or class please consult the &lt;a href="http://ec.europa.eu/eurostat/web/energy/methodology/annual"&gt;reporting instructions&lt;/a&gt;.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="STAT_CONC_DEF">
+                    <genericmetadata:Value>&lt;p&gt;For energy statistics, definitions, concepts and methodology are harmonised on&amp;nbsp;international level. The methodology is described in the &lt;a href="http://ec.europa.eu/eurostat/web/products-manuals-and-guidelines/-/NRG-2004"&gt;Energy Statistics Manual&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Definitions of Annex A and Annex B of &lt;a href="http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32008R1099"&gt;Regulation (EC) No 1099/2008 on energy statistics&lt;/a&gt; applies.&lt;/p&gt;
+&lt;p&gt;Definitions are available at Eurostat&amp;rsquo;s classification server &lt;a href="http://ec.europa.eu/eurostat/ramon/" target="_blank"&gt;RAMON&lt;/a&gt;.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="STAT_UNIT">
+                    <genericmetadata:Value>&lt;p&gt;The statistical unit may vary in the annual energy statistics. A statistical unit in energy statistics can be for example: enterprises, local units or households.&lt;/p&gt;
+&lt;p&gt;Reporting units in energy statistics might be: producers, importers, exporters of oil and petroleum products. &amp;nbsp;&lt;/p&gt;
+&lt;p&gt;For detailed information on statistical units, see &lt;a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:31993R0696:EN:HTML"&gt;Council Regulation (EEC) No 696/93 of 15 March 1993 on the statistical units for the observation and analysis of the production system in the Community (Official Journal of the European Communities No L 076, 30/03/1993, p. 1)&lt;/a&gt;, Section III of 15.03.1993 on the statistical units for the observation and analysis of the production system in the Community.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="STAT_POP">
+                    <genericmetadata:Value>&lt;p&gt;Not available.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="REF_AREA">
+                    <genericmetadata:Value>&lt;p&gt;Annual data series cover all&amp;nbsp;Member States of the European Union, EFTA-countries (Iceland and Norway), EU candidate countries (Montenegro, North Macedonia, Albania, Serbia and Turkey) and potential candidate countries (Bosnia &amp;amp; Herzegovina and Kosovo (UNSCR 1244/99)).&lt;/p&gt;
+&lt;p&gt;Data for &lt;a href="https://www.energy-community.org/" target="_blank"&gt;Energy Community&lt;/a&gt; Contracting Parties are also available (in addition to countries listed before this covers Moldova, Ukraine and Georgia).&lt;/p&gt;
+&lt;p&gt;The EU and Eurozone aggregates are also shown.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="COVERAGE_TIME">
+                    <genericmetadata:Value>&lt;p&gt;Time series start in 1990 for the vast majority of countries.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="BASE_PER">
+                    <genericmetadata:Value>&lt;p&gt;The concept of base period is not applicable for energy statistics as there is no &amp;ldquo;index number&amp;rdquo; or a &amp;ldquo;constant series&amp;rdquo;.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="UNIT_MEASURE">
+                <genericmetadata:Value>&lt;p&gt;Basic data on energy quantities are given in fuel specific units e.g. solid and liquid fuels in thousand tonnes, natutal gas in million cubic metres and in terajoules, electricity in Gigawatt-hours, heat and gases in terajoules.&lt;/p&gt;
+&lt;p&gt;Units are defined in Annex B of &lt;a href="http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32008R1099"&gt;Regulation (EC) No 1099/2008 on energy statistics&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Until reference year 2016 all figures reported are rounded to the nearest whole number. As of reference year 2017, reporting countries can provide data up to 3 decimal places. Some countries provided more decimal places as part of the revision of their historic time series. Some countries opted for continuing reporting rounded to the nearest whole number.&lt;/p&gt;</genericmetadata:Value>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="REF_PERIOD">
+                <genericmetadata:Value>&lt;p&gt;Annual energy statistics refer to the calendar year (January - December).&lt;/p&gt;</genericmetadata:Value>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="INST_MANDATE">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="INST_MAN_LA_OA">
+                    <genericmetadata:Value>&lt;p&gt;Data are compiled under the standard collection cycles of the "Energy Statistics Unit&amp;rdquo; according to &lt;a href="http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32008R1099"&gt;Regulation (EC) No 1099/2008 on energy statistics&lt;/a&gt; (and its amendments). This legal text provides the framework for the production, transmission, evaluation and dissemination of annual energy statistics in its&amp;nbsp;Annex B. This legislation also defines&amp;nbsp;the scope, units, reported period, frequency, deadline and transmission modalities for the annual energy statistics.&lt;/p&gt;
+&lt;p&gt;Harmonised annual energy questionnaires are used - five annual questionnaires (&lt;a href="http://ec.europa.eu/eurostat/web/energy/methodology/annual"&gt;Eurostat &amp;ndash; OECD/IEA &amp;ndash; UNECE &amp;nbsp;questionnaires&lt;/a&gt;) that contain detailed explanatory notes on the accounting conventions to be used for each fuel type. These conventions are agreed and reviewed regularly by the three organisations using these questionnaires.&lt;/p&gt;
+&lt;p&gt;In general, the energy statistics transmitted to Eurostat is coherent with the&amp;nbsp;&lt;a href="https://unstats.un.org/unsd/energy/ires/" target="_blank"&gt;International Recommendations for Energy Statistics&lt;/a&gt;&amp;nbsp;(IRES) adopted by the United Nations Statistical Commission in 2011. The methodology for constructing enegry balances is also coherent with IRES.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="INST_MAN_SHAR">
+                    <genericmetadata:Value>&lt;p&gt;Not applicable. Eurostat does not have any agreements or procedures in place for data sharing of annual energy statistics. Eurostat &lt;a href="https://ec.europa.eu/eurostat/about/policies/copyright"&gt;&lt;span&gt;copyright rules&lt;/span&gt;&lt;/a&gt; applies: &lt;em&gt;free re-use, both for non-commercial and commercial purposes&lt;/em&gt;.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="CONF">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="CONF_POLICY">
+                    <genericmetadata:Value>&lt;p&gt;&lt;a href="http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32009R0223" target="_blank"&gt;&lt;span&gt;Regulation (EC) No 223/2009 on European statistics&lt;/span&gt;&lt;/a&gt; (recitals 23-27, 31-32 and Articles 20-26) applies also to energy statistics. It stipulates the need to establish common principles and guidelines ensuring the confidentiality of data used for the production of European statistics and the access to those confidential data with due account for technical developments and the requirements of users in a democratic society.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="CONF_DATA_TR">
+                    <genericmetadata:Value>&lt;p&gt;Confidential data are not shown. The most common approach is to present only aggregation of the confidential data point with the non-confidential data that is the nearest suitable data point.&lt;/p&gt;
+&lt;p&gt;For annual data, confidentiality is applied by reporting countries before transmission of the annual energy questionnaires to Eurostat, as this helps reporting countries to ensure all confidentiality aspects vis-&amp;agrave;-vis the release of their national data and ensures the aspects of secondary confidentiality.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="REL_POLICY">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="REL_CAL_POLICY">
+                    <genericmetadata:Value>&lt;p&gt;According to &lt;a href="http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32008R1099"&gt;&lt;span&gt;Regulation (EC) No 1099/2008 on energy statistics&lt;/span&gt;&lt;/a&gt;, annual energy statistics need to be published by 31 January of the year Y+2 (Y being the reference year of data).&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="REL_CAL_ACCESS">
+                    <genericmetadata:Value>&lt;p&gt;Release calendar is available on &lt;a href="http://ec.europa.eu/eurostat/web/energy/data" target="_blank"&gt;Eurostat's website in the Energy section&lt;/a&gt;.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="REL_POL_US_AC">
+                    <genericmetadata:Value>&lt;p&gt;In line with the Community legal framework and the &lt;a href="http://ec.europa.eu/eurostat/c/portal/layout?p_l_id=64173&amp;amp;p_v_l_s_g_id=0" target="_blank"&gt;European Statistics Code of Practice&lt;/a&gt; Eurostat disseminates European statistics on Eurostat's website (see item 10 - 'Accessibility and clarity') respecting professional independence and in an objective, professional and transparent manner in which all users are treated equitably. The detailed arrangements are governed by the &lt;a href="https://ec.europa.eu/eurostat/documents/10186/9268011/IMPARTIAL_ACCESS_2014_JAN-EN.PDF.pdf" target="_blank"&gt;Eurostat protocol on impartial access to Eurostat data for users. &lt;/a&gt;Eurostat grants DG Energy of the European Commission pre-release access to energy data for quality assurance reasons.&lt;/p&gt;
+&lt;p&gt;Energy data - database: &lt;a href="http://ec.europa.eu/eurostat/web/energy/data/database" target="_blank"&gt;http://ec.europa.eu/eurostat/web/energy/data/database&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Energy data - main tables: &lt;a href="http://ec.europa.eu/eurostat/web/energy/data/main-tables" target="_blank"&gt;http://ec.europa.eu/eurostat/web/energy/data/main-tables&lt;/a&gt;&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="FREQ_DISS">
+                <genericmetadata:Value>&lt;p&gt;Data are disseminated on annual basis.&lt;/p&gt;</genericmetadata:Value>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="ACCESSIBILITY_CLARITY">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="NEWS_REL">
+                    <genericmetadata:Value>&lt;p&gt;News releases on-line.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="PUBLICATIONS">
+                    <genericmetadata:Value>&lt;p&gt;Statistics explained and selected statistical info in the Energy Dedicated Section.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="ONLINE_DB">
+                    <genericmetadata:Value>&lt;p&gt;The annual energy data on quantities is published in Eurobase:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://ec.europa.eu/eurostat/web/energy/data/database" target="_blank"&gt;http://ec.europa.eu/eurostat/web/energy/data/database&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://ec.europa.eu/eurostat/web/energy/data/main-tables" target="_blank"&gt;http://ec.europa.eu/eurostat/web/energy/data/main-tables&lt;/a&gt;&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="MICRO_DAT_ACC">
+                    <genericmetadata:Value>&lt;p&gt;Not applicable.&lt;/p&gt;
+&lt;p&gt;No micro data are transmitted to Eurostat for data collected under Regulation (EC) No 1099/2008 on energy statistics.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="DISS_OTHER">
+                    <genericmetadata:Value>&lt;p&gt;The digital publication &lt;a href="http://ec.europa.eu/eurostat/cache/infographs/energy"&gt;Shedding light on energy in the EU &amp;ndash; A guided tour of energy statistics&lt;/a&gt;. This publication aims to answer questions on energy most frequently asked by citizens in an original way. Answers are provided through short texts, dynamic infographics, maps, videos, graphs, photos etc. This digital publication provides the statistical background which helps to better understand the challenges faced by the Energy Union. Both those not so familiar with the energy sector and experts in the domain should find something of interest.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="http://ec.europa.eu/eurostat/web/energy/data" target="_blank"&gt;Energy dedicated section&lt;/a&gt; in Eurostat website contains methodological information.&lt;/p&gt;
+&lt;p&gt;Several articles in the &lt;a href="http://ec.europa.eu/eurostat/statistics-explained/index.php/Category:Energy" target="_blank"&gt;Energy theme of the Statistics Explained&lt;/a&gt; section exist for the energy domain.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="DOC_METHOD">
+                    <genericmetadata:Value>&lt;p&gt;The methodology is described in the &lt;a href="http://ec.europa.eu/eurostat/web/products-manuals-and-guidelines/-/NRG-2004"&gt;Energy Statistics Manual&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="http://ec.europa.eu/eurostat/web/energy/data/energy-balances"&gt;Energy dedicated section&lt;/a&gt; on Eurostat's website has additional methodological information. In general, the energy statistics transmitted to Eurostat is coherent with the &lt;a href="https://unstats.un.org/unsd/energy/ires/"&gt;International Recommendations for Energy Statistics&lt;/a&gt; adopted by the United Nations Statistical Commission in 2011.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="QUALITY_DOC">
+                    <genericmetadata:Value>&lt;p&gt;See "10.6. Documentation on methodology" and consult the quality documentation on&lt;a href="http://ec.europa.eu/eurostat/web/energy/methodology" target="_blank"&gt; energy statistics website - section "QUALITY REPORTS"&lt;/a&gt;.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="QUALITY_MGMNT">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="QUALITY_ASSURE">
+                    <genericmetadata:Value>&lt;p&gt;This dataset is a part of the energy statistics defined in &lt;a href="http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32008R1099"&gt;Regulation (EC) No 1099/2008 on energy statistics&lt;/a&gt;. It is considered as European statistics and consequently the &lt;a href="https://ec.europa.eu/eurostat/web/quality"&gt;ESS framework for quality&lt;/a&gt; applies. In addition, they are integrated in the Quality Reporting cycle that takes place every five years. &lt;a href="http://ec.europa.eu/eurostat/web/energy/methodology" target="_blank"&gt;Quality reports&amp;nbsp;&lt;/a&gt;for energy statistics are based on Article 6 of &lt;a href="http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32008R1099"&gt;Regulation (EC) No 1099/2008 on energy statistics&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The data reflects the view of the reporting country, inconsistencies can occur between imports reported by country A from country B and exports reported by country B to country A. Eurostat and the reporting countries carry&amp;nbsp;out validation and quality tests to eliminate such major inconsistencies from the data.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="QUALITY_ASSMNT">
+                    <genericmetadata:Value>&lt;p&gt;Energy data are subject to several validation checks, among which the time series checks, the consistency &amp;amp; completeness checks, plausibility checks, energy transformation efficiency checks and other checks&amp;nbsp;corresponding to levels 0-3 of the &lt;a href="https://webgate.ec.europa.eu/fpfis/mwikis/essvalidserv/index.php/Validation_Levels"&gt;ESS.VIP on validation&lt;/a&gt;. Validation on levels 4-5 is not consistently performed.&lt;/p&gt;
+&lt;p&gt;If there are any doubts as regards data quality, Eurostat contacts reporting countries to provide necessary justifications or corrections.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="RELEVANCE">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="USER_NEEDS">
+                    <genericmetadata:Value>&lt;p&gt;Annual energy quantities statistics are collected and published by Eurostat in order to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Provide the Commission with harmonised, reliable and relevant statistical information needed to define, implement, monitor and evaluate Commission policies in the energy sector.&lt;/li&gt;
+&lt;li&gt;Provide the EU institutions, national administrations, enterprises, professional associations and EU citizens with high quality statistical services and products in the field of energy.&lt;/li&gt;
+&lt;/ul&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="USER_SAT">
+                    <genericmetadata:Value>&lt;p&gt;Eurostat conducts two types of evaluations that assess Eurostat's performance in general:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Evaluations of the Community Statistical Programmes&lt;/li&gt;
+&lt;li&gt;User Satisfaction Surveys&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please see &lt;a href="https://ec.europa.eu/eurostat/web/quality/general-evaluation-results" target="_blank"&gt;more details on the Eurostat website&lt;/a&gt;.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="COMPLETENESS">
+                    <genericmetadata:Value>&lt;p&gt;Not available.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="ACCURACY">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="ACCURACY_OVERALL">
+                    <genericmetadata:Value>&lt;p&gt;The accuracy of the basic data depends on the quality of the national statistical systems and may vary from country to country. In several countries and for most energy commodities data provision by the companies is required by law. However, emerging liberalisation process in some countries may to some extent negatively affect accuracy in some cases.&lt;/p&gt;
+&lt;p&gt;The data reflects the view of the reporting country, inconsistencies can occur between imports reported by country A from country B and exports reported by country B to country A. Eurostat and the reporting countries carry&amp;nbsp;out validation and quality tests to eliminate such major inconsistencies from the data.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="SAMPLING_ERR">
+                    <genericmetadata:Value>&lt;p&gt;Not available &amp;ndash; information not produced by Eurostat.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="NONSAMPLING_ERR">
+                    <genericmetadata:Value>&lt;p&gt;Not available &amp;ndash; information not produced by Eurostat.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="TIMELINESS_PUNCT">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="TIMELINESS">
+                    <genericmetadata:Value>&lt;p&gt;Annual energy statistics is should transmitted from reporting countries to Eurostat 11 months after the end of the reference year as stipulated in Annex B of &lt;a href="http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32008R1099" target="_blank"&gt;Regulation (EC) No 1099/2008&lt;/a&gt; on energy statistics.&lt;/p&gt;
+&lt;p&gt;Eurostat should disseminate annual energy statistics 13 months after the end of the reference year as stipulated in Article 5(5) of &lt;a href="http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32008R1099" target="_blank"&gt;Regulation (EC) No 1099/2008&lt;/a&gt; on energy statistics.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="PUNCTUALITY">
+                    <genericmetadata:Value>&lt;p&gt;General punctuality of annual data deliveries to Eurostat for EU Member States is presented in the table below. The first column indicate the number of months (end of the month) after the end of the reference period (calendar year). The second column indicates the percentage of completed data transmission &amp;ndash; cumulative totals.&lt;/p&gt;
+&lt;table border="1" cellspacing="0" cellpadding="3"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;9 months (end September)&lt;/td&gt;
+&lt;td style="text-align: center;"&gt;15%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10 months (end October)&lt;/td&gt;
+&lt;td style="text-align: center;"&gt;30%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11 months (end November)&lt;/td&gt;
+&lt;td style="text-align: center;"&gt;80%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;12 months (end December)&lt;/td&gt;
+&lt;td style="text-align: center;"&gt;95-99%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;13 months (end January)&lt;/td&gt;
+&lt;td style="text-align: center;"&gt;100%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Disseminating deadline for EU Member States is in general met by Eurostat and data are disseminated during the last week of January and first weeks of February. In recent years, Eurostat disseminated complete energy balances always before the legal deadline and datasets in Eurobase were gradually updated around the legal deadline.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="COHER_COMPAR">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="COMPAR_GEO">
+                    <genericmetadata:Value>&lt;p&gt;Energy domain provides highly comparable annual energy statistics. Eurostat verifies, to the extent possible, if the reported data respect the prescribed methodology. The underlying data collection methods are however the responsibility of the reporting countries. The methodology for reporting energy statistics is harmonised for all European countries (EU Member States, EFTA countries, EU Candidate Countries, Energy Community Contracting Parties) and also with &lt;a href="https://data.oecd.org/energy.htm"&gt;the OECD energy statistics&lt;/a&gt;. In general, the energy statistics compiled by Eurostat is coherent with the &lt;a href="https://unstats.un.org/unsd/energy/ires/"&gt;International Recommendations for Energy Statistics&lt;/a&gt; adopted by the United Nations Statistical Commission in 2011.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="COMPAR_TIME">
+                    <genericmetadata:Value>&lt;p&gt;Comparability over time is ensured with a solid methodology harmonised on international level that is stable over long periods. Occasional breaks in time series are present due to the developments of statistical systems on national level and the level of detailed information (micro data) available at national level.&lt;/p&gt;
+&lt;p&gt;In general comparability is very high in last 10 years and for older periods slowly decreasing. In addition, introduction of new statistical information in the most recent data collections can lead to breaks in series until information is compiled and provided by reporting countries.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="COHER_X_DOM">
+                    <genericmetadata:Value>&lt;p&gt;Not available - information not produced by Eurostat.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="COHER_INTERNAL">
+                    <genericmetadata:Value>&lt;p&gt;Data are checked in detail for internal consistency/coherence in full cooperation with the countries concerned. Details checks involve the consistency of time series, detection of outliers, efficiency of energy transformation processes and also checks on utilization factors.&lt;/p&gt;
+&lt;p&gt;The data reflects the view of the reporting country, inconsistencies can occur between imports reported by country A from country B and exports reported by country B to country A. Eurostat and the reporting countries carry&amp;nbsp;out validation and quality tests to eliminate such major inconsistencies from the data.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="COST_BURDEN">
+                <genericmetadata:Value>&lt;p&gt;Not available - information not produced&amp;nbsp;by Eurostat.&lt;/p&gt;</genericmetadata:Value>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="DATA_REV">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="REV_POLICY">
+                    <genericmetadata:Value>&lt;p&gt;The &lt;a href="http://ec.europa.eu/eurostat/web/energy/methodology" target="_blank"&gt;Revision Policy&amp;nbsp;for energy statistics&lt;/a&gt; and&amp;nbsp;&lt;a href="http://ec.europa.eu/eurostat/web/energy/methodology" target="_blank"&gt;the revision pre-announcement form&lt;/a&gt;&amp;nbsp;are implemented on the basis of a gentlemen's agreement (October 2015). It might be followed by the future amendment of the relevant legislation once the revision policy has been incorporated into national practice.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="REV_PRACTICE">
+                    <genericmetadata:Value>&lt;p&gt;The annual questionnaires provide data on the last reference year and revisions for the years before (maximum back to 1990). Revisions of entire time series can be made by reporting countries due to their national specific circumstances. These revisions are then reflected in the annual energy questionnaires and are also implemented by Eurostat in due time.&lt;/p&gt;
+&lt;p&gt;Data are updated in case an error would be identified, if a Member State transmits more up-to-date figures or if provisional data are modified into definitive ones.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="STAT_PROCESS">
+                <genericmetadata:Value></genericmetadata:Value>
+                <genericmetadata:ReportedAttribute conceptID="SOURCE_TYPE">
+                    <genericmetadata:Value>&lt;p&gt;Data are obtained from the National Administrations competent for energy statistics. Depending on the reporting country and the specific monthly process, the data providers can be:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;National Statistical&amp;nbsp;Institutes&lt;/li&gt;
+&lt;li&gt;Ministries&lt;/li&gt;
+&lt;li&gt;Energy Agencies&lt;/li&gt;
+&lt;li&gt;Professional Associations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Questionnaires in standardized electronic format are collected from the national authorities via data transmission over the Internet. Data files have to be transmitted by the Member States to Eurostat via the Single Entry Point (SEP) following the implementing procedures of &lt;a href="https://webgate.ec.europa.eu/edamis"&gt;EDAMIS&lt;/a&gt; (Electronic Data files Administration and Management Information System).&lt;/p&gt;
+&lt;p&gt;More information can be found in the &lt;a href="https://ec.europa.eu/eurostat/cache/metadata/en/nrg_quant_esms.htm"&gt;national metadata files&lt;/a&gt; build on the basis of the national quality reports.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="FREQ_COLL">
+                    <genericmetadata:Value>&lt;p&gt;Annual.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="COLL_METHOD">
+                    <genericmetadata:Value>&lt;p&gt;All data transfers to Eurostat come via Single Entry Point of data, which is currently implemented by EDAMIS.&lt;/p&gt;
+&lt;p&gt;For national practices:&lt;/p&gt;
+&lt;p&gt;National competent authorities collect the data by using census, surveys, administrative data, association's data, customs data and also by modelling including interpolation and extrapolation. Even estimates are occasionally submitted if real data is not available. The mixture of sources differs between countries. More information can be found in the &lt;a href="https://ec.europa.eu/eurostat/cache/metadata/en/nrg_quant_esms.htm"&gt;national metadata files&lt;/a&gt; build on the basis of the national quality reports.&lt;/p&gt;
+&lt;p&gt;For Eurostat:&lt;/p&gt;
+&lt;p&gt;The annual data cycle starts in July-August for the previous year's data by sending to reporting countries pre-filled annual energy questionnaires (email with MS Excel files attached). Starting in September, countries provide new data for the latest reference year and possible revisions for historical time periods. The legal deadline is 30 November. Data corrections and data revisions can arrive until April due to ongoing discussions on data validation issues and this might result in changes in disseminated data.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="DATA_VALIDATION">
+                    <genericmetadata:Value>&lt;p&gt;Energy data are subject to several validation checks, among which the time series checks, the consistency &amp;amp; completeness checks, plausibility checks, energy transformation efficiency checks and others corresponding to levels 0-3 of the &lt;a href="https://webgate.ec.europa.eu/fpfis/mwikis/essvalidserv/index.php/Validation_Levels"&gt;ESS.VIP on validation&lt;/a&gt;. Validation on levels 4-5 is not consistently performed.&lt;/p&gt;
+&lt;p&gt;If there are any doubts as regards data quality, Eurostat contacts the Member State to provide necessary justifications or corrections.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="DATA_COMP">
+                    <genericmetadata:Value>&lt;p&gt;Countries report to Eurostat basic data in the relevant units as defined in &lt;a href="http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32008R1099" target="_blank"&gt;Regulation (EC) No 1099/2008 on energy statistics&lt;/a&gt;. Country aggregations, such as EU&amp;nbsp;aggregate are formed by the aggregation of data from individual countries.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+                <genericmetadata:ReportedAttribute conceptID="ADJUSTMENT">
+                    <genericmetadata:Value>&lt;p&gt;No adjustments of data are performed in a systematic way, because energy statistics are collected according to internationally harmonised methodology and standards.&lt;/p&gt;</genericmetadata:Value>
+                </genericmetadata:ReportedAttribute>
+            </genericmetadata:ReportedAttribute>
+            <genericmetadata:ReportedAttribute conceptID="COMMENT_DSET">
+                <genericmetadata:Value>&lt;p&gt;More information can be found in the related metadata and in the national quality reports.&lt;/p&gt;</genericmetadata:Value>
+            </genericmetadata:ReportedAttribute>
+        </genericmetadata:AttributeValueSet>
+        <genericmetadata:Annotations>
+            <common:Annotation>
+                <common:AnnotationType>FOR_PUBLICATION</common:AnnotationType>
+                <common:AnnotationText>YES</common:AnnotationText>
+            </common:Annotation>
+            <common:Annotation>
+                <common:AnnotationType>RELATED_METADATA</common:AnnotationType>
+                <common:AnnotationText>nrg_quant_esms</common:AnnotationText>
+                <common:AnnotationURL>http://ec.europa.eu/eurostat/cache/metadata/EN/nrg_quant_esms.htm</common:AnnotationURL>
+            </common:Annotation>
+        </genericmetadata:Annotations>
+    </genericmetadata:MetadataSet>
+</GenericMetadata>

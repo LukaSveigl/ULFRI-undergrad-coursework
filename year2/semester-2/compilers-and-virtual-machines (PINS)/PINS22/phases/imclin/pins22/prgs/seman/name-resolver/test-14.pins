@@ -1,0 +1,14 @@
+#{NOTE: this should break during type checking}#
+#{but not during name resolving}#
+
+typ integer = natural;
+typ natural = integer;
+
+#{Should output: (locations might vary)
+  AstTypDecl(integer) @(4.1-4.3)
+    AstTypeName(natural) @(4.15-4.21)
+      declaredAt: 5.1-5.3
+  AstTypDecl(natural) @(5.1-5.3)
+    AstTypeName(integer) @(5.15-5.21)
+      declaredAt: 4.1-4.3
+}#

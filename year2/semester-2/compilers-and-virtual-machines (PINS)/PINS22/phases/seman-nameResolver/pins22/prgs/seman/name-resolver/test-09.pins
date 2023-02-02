@@ -1,0 +1,107 @@
+#{Scope test 1}#
+
+typ integer = int;
+
+#{Create new scope}#
+fun main() : void = {
+    #{Create new scope}#
+    (
+        {
+        x = 1;
+        #{Create new scope}#
+        (
+            {
+            #{Create new scope}#
+            (
+                {
+                x = x + w(x);
+                y = x * w(x);
+                }
+                where
+                    fun w(z : integer) : integer = z * 3;
+            );
+            #{Leave scope}#
+            }
+            where
+                typ number = integer;
+                var y : number;
+        );
+        #{Leave scope}#
+        }
+    where
+        var x : integer;
+    );
+    #{Leave scope}#
+};
+#{Leave scope}#
+
+#{Should output: (locations might vary)
+  AstTypDecl(integer) @(3.1-3.3)
+    AstAtomType(INT) @(3.15-3.17)
+  AstFunDecl(main) @(6.1-6.3)
+    {Pars}
+    AstAtomType(VOID) @(6.14-6.17)
+    AstStmtExpr @(6.21-6.21)
+      {Stmts}
+          AstExprStmt @(31.5-31.9)
+            AstWhereExpr @(31.5-31.9)
+              {Decls}
+                  AstVarDecl(x) @(32.9-32.11)
+                    AstTypeName(integer) @(32.17-32.23)
+                      declaredAt: 3.1-3.3
+              AstStmtExpr @(9.9-9.9)
+                {Stmts}
+                    AstAssignStmt @(10.9-10.9)
+                      AstNameExpr(x) @(10.9-10.9)
+                        declaredAt: 32.9-32.11
+                      AstConstExpr(INT,1) @(10.13-10.13)
+                    AstExprStmt @(25.13-25.17)
+                      AstWhereExpr @(25.13-25.17)
+                        {Decls}
+                            AstTypDecl(number) @(26.17-26.19)
+                              AstTypeName(integer) @(26.30-26.36)
+                                declaredAt: 3.1-3.3
+                            AstVarDecl(y) @(27.17-27.19)
+                              AstTypeName(number) @(27.25-27.30)
+                                declaredAt: 26.17-26.19
+                        AstStmtExpr @(13.13-13.13)
+                          {Stmts}
+                              AstExprStmt @(20.17-20.21)
+                                AstWhereExpr @(20.17-20.21)
+                                  {Decls}
+                                      AstFunDecl(w) @(21.21-21.23)
+                                        {Pars}
+                                          AstParDecl(z) @(21.27-21.27)
+                                            AstTypeName(integer) @(21.31-21.37)
+                                              declaredAt: 3.1-3.3
+                                        AstTypeName(integer) @(21.42-21.48)
+                                          declaredAt: 3.1-3.3
+                                        AstBinExpr(MUL) @(21.54-21.54)
+                                          AstNameExpr(z) @(21.52-21.52)
+                                            declaredAt: 21.27-21.27
+                                          AstConstExpr(INT,3) @(21.56-21.56)
+                                  AstStmtExpr @(16.17-16.17)
+                                    {Stmts}
+                                        AstAssignStmt @(17.17-17.17)
+                                          AstNameExpr(x) @(17.17-17.17)
+                                            declaredAt: 32.9-32.11
+                                          AstBinExpr(ADD) @(17.23-17.23)
+                                            AstNameExpr(x) @(17.21-17.21)
+                                              declaredAt: 32.9-32.11
+                                            AstCallExpr(w) @(17.25-17.25)
+                                              declaredAt: 21.21-21.23
+                                              {Args}
+                                                AstNameExpr(x) @(17.27-17.27)
+                                                  declaredAt: 32.9-32.11
+                                        AstAssignStmt @(18.17-18.17)
+                                          AstNameExpr(y) @(18.17-18.17)
+                                            declaredAt: 27.17-27.19
+                                          AstBinExpr(MUL) @(18.23-18.23)
+                                            AstNameExpr(x) @(18.21-18.21)
+                                              declaredAt: 32.9-32.11
+                                            AstCallExpr(w) @(18.25-18.25)
+                                              declaredAt: 21.21-21.23
+                                              {Args}
+                                                AstNameExpr(x) @(18.27-18.27)
+                                                  declaredAt: 32.9-32.11
+}#

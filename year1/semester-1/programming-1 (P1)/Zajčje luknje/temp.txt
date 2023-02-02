@@ -1,0 +1,47 @@
+
+'''def check_concurrent(lst):
+    count = 0
+    for v1, v2 in zip(lst[::-1], lst[-2::-1]):
+        count += 1
+        if abs(int(v2) - int(v1)) > 1:
+            return count
+
+def check_differences(lst):
+    for v1, v2 in zip(lst[::-1], lst[-2::-1]):
+        if abs(int(v2) - int(v1)) == 1:
+            return True
+    return False
+
+def make_correct(lst):
+    count = 0
+    copy_lst = lst
+    while not check_differences(copy_lst):
+        copy_lst = lst
+        count += 1
+        copy_lst = copy_lst[-count:][::-1] + copy_lst[:-count]
+
+    return copy_lst
+'''
+
+#beavers = make_correct(beavers)
+#print("Corrected beavers:", beavers)
+
+'''
+while beavers != original:
+    depth_of = 0
+    if beavers == original[::-1]:
+        return_holes.append(num_of_beavers)
+        beavers = beavers[-num_of_beavers:][::-1] + beavers[:-num_of_beavers]
+
+    depth_of = check_concurrent(beavers)
+    if depth_of:
+        beavers = beavers[-depth_of:][::-1] + beavers[:-depth_of]
+        return_holes.append(depth_of)
+
+
+    #print("Current mix:", beavers)
+'''
+    '''depth_of = 0
+    if beavers == original[::-1]:
+        return_holes.append(len(beavers) - 1)
+        beavers = beavers[-(len(beavers) - 1):][::-1] + beavers[:-(len(beavers) - 1)]'''

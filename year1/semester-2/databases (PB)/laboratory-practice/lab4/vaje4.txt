@@ -1,0 +1,85 @@
+-----Naloga 1:----
+
+SELECT DISTINCT j.jid
+FROM jadralec j
+WHERE j.ime LIKE '%Henrik%';
+
+-----Naloga 2:----
+
+SELECT DISTINCT c.ime
+FROM coln c
+WHERE c.dolzina > 20;
+
+-----Naloga 3:----
+
+SELECT DISTINCT j.ime, c.ime
+FROM jadralec j, coln c;
+
+-----Naloga 4:----
+
+SELECT DISTINCT c.cid
+FROM coln c
+WHERE c.ime IS NULL OR c.dolzina IS NULL OR c.barva IS NULL;
+
+-----Naloga 5:----
+
+SELECT DISTINCT c.ime
+FROM coln c
+INNER JOIN rezervacija r 
+USING (cid);
+
+-----Naloga 6:----
+
+SELECT DISTINCT ime, jid
+FROM jadralec
+WHERE (ime, jid) NOT IN (
+SELECT DISTINCT j.ime, j.jid 
+FROM jadralec j 
+INNER JOIN rezervacija r
+USING (jid)
+);
+
+-----Travian:----
+
+-----Naloga 1:----
+
+SELECT DISTINCT n.vid
+FROM naselje n
+INNER JOIN igralec i
+USING (pid)
+WHERE i.player = 'matija';
+
+-----Naloga 2:----
+
+SELECT n.village
+FROM naselje n
+WHERE n.village RLIKE '^[0-9].*$'
+OR n.village RLIKE '^.*[0-9]$';
+
+-----Naloga 3:----
+
+SELECT DISTINCT i.pid, i.player
+FROM igralec i
+INNER JOIN aliansa a
+USING (aid)
+WHERE a.alliance = 'sladoled' OR a.alliance = 'ANIMALS';
+
+-----Naloga 4:----
+
+SELECT DISTINCT n.village, n.population
+FROM naselje n
+WHERE x > 0 OR y > 0;
+
+-----Naloga 5:----
+
+SELECT DISTINCT i.player
+FROM igralec i
+WHERE i.aid = 0;
+
+-----Naloga 6:----
+
+SELECT DISTINCT i.player
+FROM igralec i
+INNER JOIN pleme p
+USING (tid)
+WHERE p.tribe NOT LIKE 'N%'; 

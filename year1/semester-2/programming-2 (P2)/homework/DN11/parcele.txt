@@ -1,0 +1,6 @@
+NJIVA Ljubljana 1859 M2_FRI Mejnik_st_3 Mejnik_st_2 M1_FRI
+TRAVNIK Roznik 1859 Mejnik_st_3 Mejnik_st_2 M1_FRI M2_FRI
+GOZD Roznik 1858 Mejnik_st_2 M1_FRI M2_FRI Mejnik_st_3
+PASNIK Roznik 1859 Mejnik_st_3 Mejnik_st_4 Mejnik_st_1 Mejnik_st_2
+DRUGO Ljubljana 1859/1 M1_FRI M2_FRI Mejnik_st_3 Mejnik_st_2
+STAVBA Ljubljana 123/7 Mejnik_st_1 Mejnik_st_2 Mejnik_st_3 Mejnik_st_4 120

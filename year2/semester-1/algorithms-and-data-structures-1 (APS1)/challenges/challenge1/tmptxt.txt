@@ -1,0 +1,344 @@
+class StackImplementation<T> implements Stack<T> {
+
+    private DequeImplementation<T> internal_deque;
+
+
+    /*
+    Constructors
+     */
+
+
+    StackImplementation() {
+        this.internal_deque = new DequeImplementation<>();
+    }
+
+    StackImplementation(int capacity) {
+        this.internal_deque = new DequeImplementation<>(capacity);
+    }
+
+
+    /*
+    Methods of interface Collection
+     */
+
+
+    @Override
+    public boolean isEmpty() {
+        return this.internal_deque.isEmpty();
+    }
+
+    @Override
+    public boolean isFull() {
+        return this.internal_deque.isFull();
+    }
+
+    @Override
+    public int size() {
+        return this.internal_deque.size();
+    }
+
+    @Override
+    public String toString() {
+        return this.internal_deque.toString();
+    }
+
+
+    /*
+    Methods of this class
+     */
+
+
+    @Override
+    public T top() throws CollectionException {
+        return this.internal_deque.back();
+    }
+
+    @Override
+    public void push(T x) throws CollectionException {
+        this.internal_deque.enqueue(x);
+    }
+
+    @Override
+    public T pop() throws CollectionException {
+        return this.internal_deque.dequeueBack();
+    }
+}
+
+class DequeImplementation<T> implements Deque<T> {
+    private static final int DEFAULT_CAPACITY = 64;
+
+    // Static internal array to use with methods
+    private T[] arr;
+
+    // Size of array (number of elements currently in array)
+    private int size;
+
+
+    /*
+    Constructors
+     */
+
+
+    DequeImplementation() {
+        this.arr = (T[]) new Object[DEFAULT_CAPACITY];
+        this.size = 0;
+    }
+
+    DequeImplementation(int capacity) {
+        this.arr = (T[]) new Object[capacity];
+        this.size = 0;
+    }
+
+
+    /*
+    Methods of interface Collection
+     */
+
+
+    @Override
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
+
+    @Override
+    public boolean isFull() {
+        return this.size == this.arr.length;
+    }
+
+    @Override
+    public int size() {
+        return this.size;
+    }
+
+    @Override
+    public String toString() {
+        String arr_string = "[";
+
+        for (int i = 0; i < this.size(); i++) {
+            arr_string += this.arr[i].toString() + ", ";
+        }
+
+        // Remove last occurence of ", "
+        arr_string = arr_string.substring(0, arr_string.length() - 2);
+
+        arr_string += "]";
+
+        return arr_string;
+    }
+
+
+    /*
+    Methods of this class
+     */
+
+
+    @Override
+    public T front() throws CollectionException {
+        if (this.isEmpty()) {
+            throw new CollectionException(ERR_MSG_EMPTY);
+        }
+
+        return this.arr[0];
+    }
+
+    @Override
+    public T back() throws CollectionException {
+        if (this.isEmpty()) {
+            throw new CollectionException(ERR_MSG_EMPTY);
+        }
+
+        return this.arr[this.size - 1];
+    }
+
+
+    public void enqueue(T x) throws CollectionException {
+        if (this.isFull()) {
+            throw new CollectionException(ERR_MSG_FULL);
+        }
+
+        // Set last element
+        this.arr[this.size] = x;
+
+        // Increase counter of elements
+        this.size++;
+    }
+
+    @Override
+    public void enqueueFront(T x) throws CollectionException {
+        if (this.isFull()) {
+            throw new CollectionException(ERR_MSG_FULL);
+        }
+
+        // Move all elements 1 index forward
+        for (int i = this.size; i > 0; i--) {
+            this.arr[i] = this.arr[i - 1];
+        }
+
+        // Set first element
+        this.arr[0] = x;
+
+        // Increase counter of elements
+        this.size++;
+    }
+
+    @Override
+    public T dequeue() throws CollectionException {
+        if (this.isEmpty()) {
+            throw new CollectionException(ERR_MSG_EMPTY);
+        }
+
+        // Get first element
+        T el = this.arr[0];
+
+        // Move all elements 1 index back - remove first element
+        for (int i = 0; i < this.size - 1; i++) {
+            this.arr[i] = this.arr[i + 1];
+        }
+
+        // Reduce counter of elements
+        this.size--;
+
+        return el;
+    }
+
+    @Override
+    public T dequeueBack() throws CollectionException {
+        if (this.isEmpty()) {
+            throw new CollectionException(ERR_MSG_EMPTY);
+        }
+
+        // Get last element
+        T el = this.arr[this.size - 1];
+
+        // Reduce counter of elements - effectively remove last element
+        this.size--;
+
+        return el;
+    }
+}
+
+class SequenceImplementation<T> implements Sequence<T> {
+    private static final int DEFAULT_CAPACITY = 64;
+
+    // Static internal array to use with methods
+    private T[] arr;
+
+    // Size of array (number of elements currently in array)
+    private int size;
+
+
+    /*
+    Constructors
+     */
+
+
+    SequenceImplementation() {
+        this.arr = (T[]) new Object[DEFAULT_CAPACITY];
+        this.size = 0;
+    }
+
+    SequenceImplementation(int capacity) {
+        this.arr = (T[]) new Object[capacity];
+        this.size = 0;
+    }
+
+
+    /*
+    Methods of interface Collection
+     */
+
+
+    @Override
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
+
+    @Override
+    public boolean isFull() {
+        return this.size == this.arr.length;
+    }
+
+    @Override
+    public int size() {
+        return this.size;
+    }
+
+    @Override
+    public String toString() {
+        String arr_string = "[";
+
+        for (int i = 0; i < this.size(); i++) {
+            arr_string += this.arr[i].toString() + ", ";
+        }
+
+        // Remove last occurence of ", "
+        arr_string = arr_string.substring(0, arr_string.length() - 2);
+
+        arr_string += "]";
+
+        return arr_string;
+    }
+
+
+    /*
+    Methods of this class
+     */
+
+
+    @Override
+    public T get(int i) throws CollectionException {
+        if (i < 0 || i >= this.size) {
+            throw new CollectionException(ERR_MSG_INDEX);
+        }
+        return this.arr[i];
+    }
+
+    @Override
+    public void add(T x) throws CollectionException {
+        if (this.isFull()) {
+            throw new CollectionException(ERR_MSG_FULL);
+        }
+        // Set last element
+        this.arr[this.size] = x;
+
+        // Increase counter of elements
+        this.size++;
+    }
+
+    public void insert(int i, T x) throws CollectionException {
+        if (this.isFull()) {
+            throw new CollectionException(ERR_MSG_FULL);
+        }
+        if (i < 0 || i >= this.size) {
+            throw new CollectionException(ERR_MSG_INDEX);
+        }
+
+        // Move elements from index i 1 index forward
+        for (int j = this.size; j > i; j--) {
+            this.arr[j] = this.arr[j - 1];
+        }
+
+        // Set last element
+        this.arr[i] = x;
+
+        // Increase counter of elements
+        this.size++;
+    }
+
+    public void remove(int i) throws CollectionException {
+        if (this.isEmpty()) {
+            throw new CollectionException(ERR_MSG_EMPTY);
+        }
+        if (i < 0 && i >= this.size) {
+            throw new CollectionException(ERR_MSG_INDEX);
+        }
+
+        // Move elements from index i 1 index forward
+        for (int j = i; j < this.size - 1; j++) {
+            this.arr[j] = this.arr[j + 1];
+        }
+
+        // Decrease counter of elements
+        this.size--;
+    }
+}

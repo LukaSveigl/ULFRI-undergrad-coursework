@@ -1,0 +1,77 @@
+@model IEnumerable<sfl.Models.Parcel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+    <a asp-controller="Jobs" asp-action="Create">Back</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depth)
+            </th>
+            <th>
+                @Html.DisplayName("Parcel status")
+            </th>
+            <th>
+                @Html.DisplayName("Recipient location")
+            </th>
+            <th>
+                @Html.DisplayName("Sender location")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight) g
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Height) cm
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Width) cm
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Depth) cm
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParcelStatus.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecipientStreet.CityCode),&nbsp
+                    @Html.DisplayFor(modelItem => item.RecipientStreet.StreetName)&nbsp;
+                    @Html.DisplayFor(modelItem => item.RecipientStreet.StreetNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SenderStreet.CityCode),&nbsp
+                    @Html.DisplayFor(modelItem => item.SenderStreet.StreetName)&nbsp
+                    @Html.DisplayFor(modelItem => item.SenderStreet.StreetNumber)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

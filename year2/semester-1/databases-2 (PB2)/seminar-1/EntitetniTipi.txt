@@ -1,0 +1,15 @@
+1. Poslovalnica
+2. Naslov
+3. Posta
+4. Zaposleni
+5. Vodja poslovalnice?
+6. Artikel
+7. Vrsta artikla
+8. Stranke
+9. Račun
+10.Akcije
+11.Naročila proizvajalcu
+12.Proizvajalec
+13.Dobavitelj
+14.Nastavitve računa
+15.Zaloga

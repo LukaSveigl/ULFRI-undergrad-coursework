@@ -1,0 +1,40 @@
+--------------Naloga 1:--------------
+
+          .text
+NIZ1:     .asciz  "dovod"
+          .align  
+JEPAL:    .space  2
+          .align
+          .global __start
+__start:
+          mov r0, #4 @ dolzina niza - 1
+          adr r1, JEPAL
+          adr r2, NIZ1
+          adr r3, NIZ1
+          
+          add r3, r3, r0
+LOOP:
+          ldrb r4, [r2]
+          ldrb r5, [r3]
+         
+          cmp r4, #0
+          beq PALINDROME
+
+          cmp r4, r5
+          bne NOT_PALINDROME
+
+          add r2, r2, #1
+          sub r3, r3, #1
+          b LOOP
+
+PALINDROME:
+          mov r7, #1
+          strh r7, [r1]
+          b __end
+NOT_PALINDROME:
+          mov r7, #0
+          strh r7, [r0]
+
+
+__end:    b __end  
+

@@ -1,0 +1,206 @@
+----Naloga 1:----
+
+          .text
+
+TAB8:     .byte
+
+          .align
+          .global __start
+__start:
+          mov r0, #0b01011011 @ Set value
+          adr r1, TAB8
+          bl PASER            @ Jump to subroutine (store current address to link register)
+
+__end:    b __end   
+
+
+PASER:    
+          mov r2, #8          @ Counter of elements
+          mov r3, #128        @ Mask of bits: 128 = 10000000, last bit set
+          
+          mov r8, #0
+          mov r9, #1
+          
+  LOOP:
+            tst r0, r3
+            streqb r8, [r1], #1 @ Store appropriate value of bit to location
+            strneb r9, [r1], #1 @ and move to next memory address
+          
+            lsr r3, #1          @ Divide mask by 2 (eg. 128 becomes 64, masks next bit)
+          
+            cmp r2, #0
+            sub r2, r2, #1      @ Decrease counter of elements
+          
+            bne LOOP
+
+          mov r15, r14        @ Move value of link register to program counter (jump back)
+
+
+
+----Naloga 2:----
+
+
+          .text
+
+S1:       .word 0x78563412
+
+          .align
+          .global __start
+__start:
+          adr r1, S1
+          
+          mov r0, #0           @ Start with 0 in result register
+          
+          bl LDBIGEND          @ Jump to subroutine (store current address to link register)
+
+__end:    b __end   
+
+
+LDBIGEND: 
+          mov r4, #24         @ Offset register
+
+          
+          @ Step 1
+          ldrb r2, [r1], #1    @ Read one byte and move to next
+          lsl r2, r4           @ Reduce value by offset
+
+          sub r4, r4, #8       @ Reduce offset
+          
+          add r0, r0, r2       @ Add value to register
+          
+          
+          @ Step 2
+          ldrb r2, [r1], #1    @ Read one byte and move to next
+          lsl r2, r4           @ Reduce value by offset
+
+          sub r4, r4, #8       @ Reduce offset
+          
+          add r0, r0, r2       @ Add value to register
+          
+          
+          @ Step 3
+          ldrb r2, [r1], #1    @ Read one byte and move to next
+          lsl r2, r4           @ Reduce value by offset
+
+          sub r4, r4, #8       @ Reduce offset
+          
+          add r0, r0, r2       @ Add value to register
+          
+          
+          @ Step 4
+          ldrb r2, [r1], #1    @ Read one byte and move to next
+          lsl r2, r4           @ Reduce value by offset
+          
+          add r0, r0, r2       @ Add value to register
+          
+          
+          mov r15, r14         @ Move value of link register to program counter (jump back)
+
+
+
+
+----Naloga 3:----
+
+
+          .text
+
+S1:       .byte
+
+          .align
+          .global __start
+__start:
+          ldr r0, =0x12345678
+          adr r1, S1
+          
+          bl STBIGEND          @ Jump to subroutine (store current address to link register)
+
+__end:    b __end   
+
+
+STBIGEND: 
+          mov r4, #24         @ Offset to right register
+          
+          mov r3, r0          @ Copy value
+          
+          @ Step 1
+          lsr r3, r4           @ Shift value by offset to right (set to last two places)
+          strb r3, [r1], #1
+
+          sub r4, r4, #8       @ Reduce offset
+          
+          
+          
+          @ Step 2
+          mov r3, r0           @ Copy value
+          
+          lsr r3, r4           @ Shift value by offset to right (eg 0x12345678 -> 0x00001234)
+          lsl r3, #24          @ Shift value by offset to left  (eg 0x00001234 -> 0x34000000)
+          lsr r3, #24          @ Shift value back to right      (eg 0x34000000 -> 0x00000034)
+          strb r3, [r1], #1    @ Store value to memory and move to next byte
+
+          sub r4, r4, #8       @ Reduce offset
+          
+          
+          
+          @ Step 3
+          mov r3, r0           @ Copy value
+          
+          lsr r3, r4           @ Shift value by offset to right (eg 0x12345678 -> 0x00001234)
+          lsl r3, #24          @ Shift value by offset to left  (eg 0x00001234 -> 0x34000000)
+          lsr r3, #24          @ Shift value back to right      (eg 0x34000000 -> 0x00000034)
+          strb r3, [r1], #1    @ Store value to memory and move to next byte
+
+          sub r4, r4, #8       @ Reduce offset
+
+          
+          
+          @ Step 4
+          mov r3, r0           @ Copy value
+          
+          lsr r3, r4           @ Shift value by offset to right (eg 0x12345678 -> 0x00001234)
+          lsl r3, #24          @ Shift value by offset to left  (eg 0x00001234 -> 0x34000000)
+          lsr r3, #24          @ Shift value back to right      (eg 0x34000000 -> 0x00000034)
+          strb r3, [r1], #1    @ Store value to memory and move to next byte
+          
+          
+          mov r15, r14         @ Move value of link register to program counter (jump back)
+
+
+
+----Naloga 4:----
+
+          .text
+
+TAB8:     .byte 16,120,112, 34, 55, 23, 3, 6
+
+          .align
+          .global __start
+__start:
+          
+          adr r0, TAB8
+
+          bl AVG8              @ Jump to subroutine (store current address to link register)
+
+__end:    b __end   
+
+
+AVG8: 
+          mov r2, #0           @ Sum register
+          mov r8, #0           @ Counter
+          
+  LOOP:
+            ldrb r3, [r0], #1  @ Load element and move to next byte
+            add r2, r2, r3     @ Add register to sum
+            
+            add r8, r8, #1     @ Increase loop counter
+            
+            cmp r8, #8
+            bne LOOP
+          
+          
+          mov r0, r2           @ Move sum to r0
+          and r1, r0, #7       @ Get remainder (last 3 bits of number: 7 = 00000111)
+          lsr r0, #3           @ Divide sum by 8
+          
+          mov r15, r14         @ Move value of link register to program counter (jump back)
+

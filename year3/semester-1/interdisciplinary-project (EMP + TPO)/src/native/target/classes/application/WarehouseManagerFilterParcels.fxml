@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.WarehouseManagerController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-8.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" scaleX="0.66" scaleY="0.66">
+         <image>
+            <Image url="@../res/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="userIcon" fitHeight="64.0" fitWidth="64.0" layoutX="1189.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" scaleX="0.66" scaleY="0.66">
+         <image>
+            <Image url="@../res/User%20icon.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="265.0" layoutY="72.0" prefHeight="648.0" prefWidth="1015.0" style="-fx-background-color: F9F9F9;">
+         <children>
+            <AnchorPane fx:id="contentAnchorPane" layoutX="29.0" layoutY="28.0" prefHeight="592.0" prefWidth="956.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="21.0" layoutY="16.0" text="Parcels - Filter" textFill="#aaaaaa">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutY="56.0" prefHeight="52.0" prefWidth="956.0" style="-fx-background-color: F5F5F5;">
+                     <children>
+                        <Label layoutX="25.0" layoutY="13.0" text="ID">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="132.0" layoutY="13.0" text="Tracking No.">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="355.0" layoutY="13.0" text="Weight">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="432.0" layoutY="13.0" text="Dimensions">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="738.0" layoutY="13.0" text="Status">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="571.0" layoutY="13.0" text="Job type">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label fx:id="id1" layoutX="25.0" layoutY="132.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t1" layoutX="133.0" layoutY="132.0" text="YT72760621444007800">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w1" layoutX="356.0" layoutY="132.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="d1" layoutX="434.0" layoutY="132.0" text="12.3 x 10.5 x 5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id2" layoutX="25.0" layoutY="191.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t2" layoutX="133.0" layoutY="191.0" text="YT72760621444007800">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w2" layoutX="356.0" layoutY="191.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="d2" layoutX="434.0" layoutY="191.0" text="12.3 x 10.5 x 5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id3" layoutX="25.0" layoutY="248.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t3" layoutX="133.0" layoutY="248.0" text="YT72760621444007800">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w3" layoutX="356.0" layoutY="248.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="d3" layoutX="434.0" layoutY="248.0" text="12.3 x 10.5 x 5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id4" layoutX="25.0" layoutY="305.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t4" layoutX="133.0" layoutY="305.0" text="YT72760621444007800">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w4" layoutX="356.0" layoutY="305.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="d4" layoutX="434.0" layoutY="305.0" text="12.3 x 10.5 x 5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="c4" layoutX="737.0" layoutY="306.0" prefWidth="150.0" style="-fx-border-width: 1.5px; -fx-border-color: #30A3FF; -fx-border-radius: 5px; -fx-background-color: none; -fx-cursor: hand;" />
+                  <Label fx:id="id5" layoutX="25.0" layoutY="361.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t5" layoutX="133.0" layoutY="361.0" text="YT72760621444007800">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w5" layoutX="356.0" layoutY="361.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="d5" layoutX="434.0" layoutY="361.0" text="12.3 x 10.5 x 5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id6" layoutX="25.0" layoutY="417.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t6" layoutX="133.0" layoutY="417.0" text="YT72760621444007800">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w6" layoutX="356.0" layoutY="417.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="d6" layoutX="434.0" layoutY="417.0" text="12.3 x 10.5 x 5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id7" layoutX="25.0" layoutY="472.0" text="00450">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t7" layoutX="133.0" layoutY="472.0" text="YT72760621444007800">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w7" layoutX="356.0" layoutY="472.0" text="2.53">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="d7" layoutX="434.0" layoutY="472.0" text="12.3 x 10.5 x 5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="24.0" layoutY="542.0" mnemonicParsing="false" onAction="#switchPageLeft" style="-fx-border-width: 1.5px; -fx-border-color: #30A3FF; -fx-border-radius: 5px; -fx-background-color: none; -fx-cursor: hand;" text="◀">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="61.0" layoutY="542.0" mnemonicParsing="false" onAction="#switchPageRight" style="-fx-border-width: 1.5px; -fx-border-color: #30A3FF; -fx-border-radius: 5px; -fx-background-color: none; -fx-cursor: hand;" text="▶">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="b1" layoutX="737.0" layoutY="133.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-radius: 5px; -fx-background-color: #30a3ff;" text="PENDING" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="b2" layoutX="737.0" layoutY="192.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-radius: 5px; -fx-background-color: #30a3ff;" text="PENDING" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="b3" layoutX="737.0" layoutY="249.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-radius: 5px; -fx-background-color: #30a3ff;" text="PENDING" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="b4" layoutX="737.0" layoutY="306.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-radius: 5px; -fx-background-color: #30a3ff;" text="PENDING" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="b5" layoutX="737.0" layoutY="362.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-radius: 5px; -fx-background-color: #30a3ff;" text="PENDING" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="b6" layoutX="737.0" layoutY="418.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-radius: 5px; -fx-background-color: #30a3ff;" text="PENDING" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="b7" layoutX="737.0" layoutY="473.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-radius: 5px; -fx-background-color: #30a3ff;" text="PENDING" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="147.0" layoutY="15.0" text="Agent:">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="choiceBoxFilter" layoutX="212.0" layoutY="16.0" prefWidth="150.0" style="-fx-border-width: 1px; -fx-border-radius: 5px; -fx-border-color: black; -fx-background-color: none;" />
+                  <Label fx:id="j1" layoutX="572.0" layoutY="132.0" text="Handover">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="j2" layoutX="572.0" layoutY="191.0" text="Check in">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="j3" layoutX="572.0" layoutY="248.0" text="Parcel hando.">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="j4" layoutX="572.0" layoutY="305.0" text="Handover">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="j5" layoutX="572.0" layoutY="361.0" text="Handover">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="j6" layoutX="572.0" layoutY="417.0" text="Handover">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="j7" layoutX="572.0" layoutY="472.0" text="Handover">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="allParcelsAnchorPane" layoutY="101.0" onMouseClicked="#allParcelsButton" prefHeight="52.0" prefWidth="265.0" style="-fx-cursor: hand;">
+         <children>
+            <SVGPath fx:id="allParcelsIcon" content="M42.3228 13.6952L24.1959 24.1947C23.4661 24.6185 22.548 24.6185 21.7947 24.1947L3.66776 13.6952C2.37298 12.9419 2.0434 11.1763 3.03214 10.0699C3.71484 9.29299 4.49171 8.65737 5.31566 8.21008L18.0751 1.14765C20.8059 -0.382549 25.2317 -0.382549 27.9625 1.14765L40.722 8.21008C41.546 8.65737 42.3228 9.31653 43.0055 10.0699C43.9472 11.1763 43.6176 12.9419 42.3228 13.6952ZM21.6581 28.5687V44.624C21.6581 46.4132 19.8454 47.5902 18.2446 46.8134C13.3951 44.4357 5.2262 39.9863 5.2262 39.9863C2.35414 38.362 0 34.2658 0 30.8993V18.7519C0 16.8922 1.95394 15.7151 3.55476 16.6332L20.4811 26.45C21.1873 26.8973 21.6581 27.6977 21.6581 28.5687ZM24.3419 28.5687V44.624C24.3419 46.4132 26.1546 47.5902 27.7554 46.8134C32.6049 44.4357 40.7738 39.9863 40.7738 39.9863C43.6459 38.362 46 34.2658 46 30.8993V18.7519C46 16.8922 44.0461 15.7151 42.4452 16.6332L25.5189 26.45C24.8127 26.8973 24.3419 27.6977 24.3419 28.5687Z" fill="#c2c2c2" layoutX="40.0" layoutY="2.0" scaleX="0.66" scaleY="0.66" />
+            <Label fx:id="allParcelsLabel" layoutX="97.0" layoutY="13.0" style="-fx-font-weight: bold;" text="All Parcels" textFill="#c2c2c2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="30.0" layoutY="647.0" onMouseClicked="#signOutAnchorPaneButton" prefHeight="42.0" prefWidth="200.0" style="-fx-border-color: #30a3ff; -fx-border-radius: 5px; -fx-border-width: 1.5px; -fx-cursor: hand;">
+         <children>
+            <Label fx:id="signOutAnchorPane" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="180.0" style="-fx-font-weight: bold;" text="Sign Out" textFill="#30a3ff">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label fx:id="userFullName" layoutX="1092.0" layoutY="16.0" text="Jeff McJeff">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="1072.0" layoutY="39.0" text="Warehouse Manager" />
+      <AnchorPane fx:id="filterParcelsAnchorPane" layoutY="160.0" onMouseClicked="#filterParcelsButton" prefHeight="52.0" prefWidth="265.0" style="-fx-cursor: hand; -fx-background-color: E4F2FD;">
+         <children>
+            <SVGPath fx:id="filterParcelsIcon1" content="M35.9546 7.5597L22.9326 0.553164C22.2558 0.190034 21.4996 0 20.7315 0C19.9634 0 19.2073 0.190034 18.5305 0.553164L5.53149 7.5597C4.58653 8.0898 3.98729 9.10391 3.98729 10.2102C3.98729 11.3395 4.56349 12.3536 5.53149 12.8607L18.5535 19.8672C19.2262 20.2303 19.9786 20.4205 20.7431 20.4205C21.5075 20.4205 22.2599 20.2303 22.9326 19.8672L35.9546 12.8607C36.8996 12.3536 37.4988 11.3395 37.4988 10.2102C37.4988 9.10391 36.8996 8.0898 35.9546 7.5597ZM16.4101 22.308L4.30996 16.2695C3.85736 16.0388 3.35307 15.9283 2.84548 15.9486C2.33788 15.9689 1.84403 16.1193 1.4113 16.3854C0.978583 16.6515 0.621521 17.0244 0.374385 17.4682C0.127249 17.9121 -0.00166457 18.412 1.62276e-05 18.92V30.3517C1.62276e-05 32.3338 1.10631 34.1085 2.88099 35.0074L14.9811 41.0459C15.396 41.2533 15.8569 41.3685 16.3179 41.3685C16.848 41.3685 17.4011 41.2072 17.8851 40.9306C18.7609 40.3775 19.291 39.4325 19.291 38.3954V26.9637C19.268 24.9816 18.1617 23.2069 16.4101 22.308ZM41.4861 18.92V24.5897C40.3798 24.2671 39.2044 24.1288 38.0289 24.1288C34.8944 24.1288 31.8291 25.212 29.409 27.148C26.0901 29.7524 24.2002 33.6936 24.2002 37.9575C24.2002 39.0868 24.3385 40.2162 24.6381 41.2994C24.2924 41.2533 23.9467 41.115 23.624 40.9076C22.7482 40.3775 22.2181 39.4325 22.2181 38.3954V26.9637C22.2181 24.9816 23.3244 23.2069 25.076 22.308L37.1761 16.2695C37.6287 16.0388 38.133 15.9283 38.6406 15.9486C39.1482 15.9689 39.6421 16.1193 40.0748 16.3854C40.5075 16.6515 40.8646 17.0244 41.1117 17.4682C41.3589 17.9121 41.4878 18.412 41.4861 18.92Z" fill="#30a3ff" layoutX="40.0" layoutY="3.0" scaleX="0.66" scaleY="0.66" />
+            <Label fx:id="filterParcelsLabel" layoutX="97.0" layoutY="13.0" style="-fx-font-weight: bold;" text="Filter Parcels" textFill="#30a3ff">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <SVGPath fx:id="filterParcelsIcon2" content="M47.4323 44.8695L45.4963 42.9335C46.5104 41.4124 47.1097 39.5686 47.1097 37.6095C47.1097 35.6858 46.5392 33.8054 45.4705 32.2059C44.4018 30.6064 42.8827 29.3598 41.1055 28.6237C39.3283 27.8875 37.3727 27.6949 35.486 28.0702C33.5993 28.4455 31.8663 29.3718 30.506 30.732C29.1458 32.0923 28.2195 33.8253 27.8442 35.712C27.4689 37.5987 27.6615 39.5543 28.3977 41.3315C29.1338 43.1088 30.3804 44.6278 31.9799 45.6965C33.5794 46.7652 35.4598 47.3357 37.3835 47.3357C39.3425 47.3357 41.1864 46.7364 42.7075 45.7223L44.6435 47.6583C45.0353 48.0501 45.5194 48.2345 46.0264 48.2345C46.5335 48.2345 47.0405 48.0501 47.4093 47.6583C48.1929 46.8747 48.1929 45.6301 47.4323 44.8695Z" fill="#30a3ff" layoutX="34.0" layoutY="-3.0" scaleX="0.66" scaleY="0.66" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="statsAnchorPane" layoutY="214.0" onMouseClicked="#statsButton" prefHeight="52.0" prefWidth="265.0" style="-fx-cursor: hand;">
+         <children>
+            <SVGPath fx:id="statsIcon1" content="M44.3954 46H8.02326C3.59442 46 0 42.4056 0 37.9767V1.60465C0 0.727442 0.727442 0 1.60465 0C2.48186 0 3.2093 0.727442 3.2093 1.60465V37.9767C3.2093 40.6298 5.37023 42.7907 8.02326 42.7907H44.3954C45.2726 42.7907 46 43.5181 46 44.3954C46 45.2726 45.2726 46 44.3954 46Z" fill="#c2c2c2" layoutX="40.0" layoutY="2.0" scaleX="0.66" scaleY="0.66" />
+            <Label fx:id="statsLabel" layoutX="97.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Stats" textFill="#c2c2c2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <SVGPath fx:id="statsIcon2" content="M8.02333 35.3024C7.65961 35.3024 7.2745 35.174 6.97496 34.9173C6.65368 34.6379 6.45552 34.2431 6.42347 33.8185C6.39143 33.3939 6.52809 32.9738 6.8038 32.6494L16.6243 21.1815C17.694 19.9405 19.2345 19.1917 20.8605 19.1275C22.4866 19.0847 24.0912 19.6838 25.2466 20.8391L27.2791 22.8717C27.814 23.4066 28.4987 23.6633 29.2689 23.6633C30.0178 23.6419 30.7024 23.2996 31.1945 22.7219L41.015 11.254C41.5926 10.5908 42.5982 10.5052 43.2829 11.0829C43.9461 11.6605 44.0317 12.6661 43.454 13.3508L33.6336 24.8187C32.5638 26.0596 31.0233 26.8084 29.3973 26.8726C28.5882 26.9008 27.7819 26.7636 27.0277 26.4693C26.2735 26.175 25.5874 25.7298 25.0112 25.161L23.0001 23.1284C22.4652 22.5936 21.7591 22.3154 21.0103 22.3368C20.2615 22.3582 19.5768 22.7005 19.0847 23.2782L9.26426 34.7461C9.1064 34.9187 8.91485 35.0571 8.70142 35.1528C8.48798 35.2485 8.25721 35.2994 8.02333 35.3024Z" fill="#c2c2c2" layoutX="39.0" layoutY="2.0" scaleX="0.66" scaleY="0.66" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="employeesAnchorPane" layoutY="269.0" onMouseClicked="#employeesButton" prefHeight="52.0" prefWidth="265.0" style="-fx-cursor: hand;">
+         <children>
+            <SVGPath fx:id="employeesIcon1" content="M16.1606 0C10.1463 0 5.25679 4.8895 5.25679 10.9038C5.25679 16.8034 9.87082 21.5781 15.8851 21.7847C16.0688 21.7617 16.2524 21.7617 16.3902 21.7847H16.5508C19.3729 21.6905 22.0477 20.5026 24.0097 18.472C25.9717 16.4414 27.0672 13.7274 27.0644 10.9038C27.0644 4.8895 22.1749 0 16.1606 0ZM27.8219 27.8885C21.4174 23.6188 10.9727 23.6188 4.52221 27.8885C1.60688 29.8397 0 32.4796 0 35.3031C0 38.1266 1.60688 40.7435 4.49926 42.6718C7.71301 44.8296 11.9368 45.9085 16.1606 45.9085C20.3844 45.9085 24.6082 44.8296 27.8219 42.6718C30.7143 40.7206 32.3212 38.1037 32.3212 35.2572C32.2982 32.4337 30.7143 29.8168 27.8219 27.8885ZM41.3886 12.2536C41.7559 16.7069 38.588 20.6094 34.2035 21.1373H34.0888C33.951 21.1373 33.8133 21.1373 33.6985 21.1832C31.4718 21.298 29.4288 20.5864 27.8908 19.2779C30.2552 17.166 31.6096 13.9982 31.3341 10.5549C31.1766 8.76438 30.5685 7.04285 29.5666 5.55062C30.7694 4.96544 32.0965 4.68168 33.4335 4.72381C34.7705 4.76594 36.0771 5.1327 37.2407 5.79246C38.4043 6.45221 39.3899 7.38514 40.1126 8.51078C40.8352 9.63641 41.2731 10.921 41.3886 12.2536Z" fill="#c2c2c2" layoutX="40.0" layoutY="2.0" scaleX="0.66" scaleY="0.66" />
+            <Label fx:id="employeesLabel" layoutX="97.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Employees" textFill="#c2c2c2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <SVGPath fx:id="employeesIcon2" content="M45.975 33.492C45.7913 35.7186 44.3681 37.6469 41.9807 38.9553C39.6852 40.2179 36.7928 40.8147 33.9234 40.7459C35.5762 39.2538 36.5403 37.3944 36.724 35.4202C36.9535 32.5737 35.5991 29.8421 32.8904 27.6613C31.3524 26.4447 29.5619 25.4805 27.6107 24.7689C32.6838 23.2998 39.0654 24.2868 42.9908 27.4547C45.1027 29.1534 46.1816 31.2882 45.975 33.492Z" fill="#c2c2c2" layoutX="34.0" layoutY="-1.0" scaleX="0.66" scaleY="0.66" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="settingsAnchorPane" layoutY="324.0" onMouseClicked="#settingsButton" prefHeight="52.0" prefWidth="265.0" style="-fx-cursor: hand;">
+         <children>
+            <SVGPath fx:id="settingsIcon" content="M41.6092 15.3078C37.4483 15.3078 35.7471 12.3653 37.8161 8.75609C39.0115 6.66414 38.2988 3.99747 36.2069 2.80207L32.2299 0.52621C30.4138 -0.55425 28.069 0.0894285 26.9885 1.90552L26.7356 2.3423C24.6667 5.9515 21.2644 5.9515 19.1724 2.3423L18.9195 1.90552C18.6717 1.47099 18.34 1.09009 17.9436 0.78498C17.5472 0.479868 17.0941 0.256639 16.6106 0.128282C16.1271 -7.43174e-05 15.6229 -0.0309946 15.1274 0.0373208C14.6319 0.105636 14.1548 0.271823 13.7241 0.52621L9.74713 2.80207C7.65517 3.99747 6.94253 6.68713 8.13793 8.77908C10.2299 12.3653 8.52874 15.3078 4.36782 15.3078C1.97701 15.3078 0 17.2618 0 19.6756V23.7216C0 26.1124 1.95402 28.0894 4.36782 28.0894C8.52874 28.0894 10.2299 31.032 8.13793 34.6412C6.94253 36.7331 7.65517 39.3998 9.74713 40.5952L13.7241 42.871C15.5402 43.9515 17.8851 43.3078 18.9655 41.4917L19.2184 41.0549C21.2874 37.4457 24.6897 37.4457 26.7816 41.0549L27.0345 41.4917C28.1149 43.3078 30.4598 43.9515 32.2759 42.871L36.2529 40.5952C38.3448 39.3998 39.0575 36.7101 37.8621 34.6412C35.7701 31.032 37.4713 28.0894 41.6322 28.0894C44.023 28.0894 46 26.1354 46 23.7216V19.6756C45.9879 18.517 45.5208 17.4095 44.6993 16.5923C43.8778 15.7752 42.7679 15.3138 41.6092 15.3078ZM22.9885 29.1699C18.8736 29.1699 15.5172 25.8136 15.5172 21.6986C15.5172 17.5837 18.8736 14.2274 22.9885 14.2274C27.1034 14.2274 30.4598 17.5837 30.4598 21.6986C30.4598 25.8136 27.1034 29.1699 22.9885 29.1699Z" fill="#c2c2c2" layoutX="40.0" layoutY="2.0" scaleX="0.66" scaleY="0.66" />
+            <Label fx:id="settingsLabel" layoutX="97.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Settings" textFill="#c2c2c2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label fx:id="allPackagesLabel" layoutX="367.0" layoutY="39.0" text="Label" visible="false" />
+      <Label fx:id="pendingPackagesLabel" layoutX="414.0" layoutY="39.0" text="Label" visible="false" />
+      <Label fx:id="processedPackagesLabel" layoutX="461.0" layoutY="39.0" text="Label" visible="false" />
+   </children>
+</AnchorPane>

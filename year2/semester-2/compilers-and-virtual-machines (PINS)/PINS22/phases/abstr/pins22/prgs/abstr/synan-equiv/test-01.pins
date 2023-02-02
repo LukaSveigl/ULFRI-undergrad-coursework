@@ -1,0 +1,3 @@
+typ a = void;
+var x : char;
+typ b = [3]int;

@@ -1,0 +1,6 @@
+fun add(a: int, b: int): int = a + b;
+
+fun x(b: int): void = {
+    add(add(2,3), add(3,4));
+    none;
+};

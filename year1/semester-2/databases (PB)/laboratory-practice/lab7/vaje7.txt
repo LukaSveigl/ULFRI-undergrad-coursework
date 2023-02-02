@@ -1,0 +1,102 @@
+-----Travian:-----
+-----Naloga 1:-----
+
+SELECT COUNT(*) / (SELECT COUNT(*) FROM igralec) as 'Delež'
+FROM igralec
+WHERE aid = 0;
+
+-----Naloga 2:-----
+
+DROP Table StatistikaIgralcev;
+
+CREATE TEMPORARY TABLE StatistikaIgralcev (
+	pid INTEGER PRIMARY KEY,
+    player VARCHAR(100),
+    alliance VARCHAR(100),
+    st_naselji INTEGER,
+    population INTEGER
+) AS 
+SELECT i.pid, i.player, 'Brez alianse' AS alliance, COUNT(*) AS st_naselji, SUM(population) AS population
+FROM igralec i INNER JOIN aliansa a USING(aid) INNER JOIN naselje n USING(pid)
+WHERE a.aid = 0
+GROUP BY i.pid, i.player, a.alliance
+UNION
+SELECT i.pid, i.player, a.alliance AS alliance, COUNT(*) AS st_naselji, SUM(population) AS population
+FROM igralec i INNER JOIN aliansa a USING(aid) INNER JOIN naselje n USING(pid)
+WHERE a.aid != 0
+GROUP BY i.pid, i.player, a.alliance; 
+
+SELECT * FROM StatistikaIgralcev LIMIT 10;
+
+-----Naloga 3:-----
+
+SELECT i2.pid,
+        (SELECT village
+            FROM igralec i JOIN naselje n USING(pid)
+            WHERE i.pid = i2.pid
+            ORDER BY population DESC
+            LIMIT 1) 
+        AS najvecje_naselje
+FROM igralec i2;
+
+-----Naloga 4:-----
+
+ALTER TABLE StatistikaIgralcev ADD COLUMN Najvecje_mesto VARCHAR(100);
+
+-----Naloga 5:-----
+
+UPDATE StatistikaIgralcev SET Najvecje_mesto = 
+(SELECT village 
+FROM igralec i INNER JOIN naselje n USING(pid)
+WHERE i.pid = StatistikaIgralcev.pid
+ORDER BY population DESC
+LIMIT 1
+);
+
+
+-----Jadralci:-----
+
+-----Naloga 1:-----
+
+CREATE INDEX po_imenih ON naselje(village);
+CREATE INDEX po_populacijo ON naselje(population);
+CREATE INDEX po_koordinatah ON naselje(x, y);
+
+-----Naloga 2:-----
+
+CREATE TEMPORARY TABLE PolnoletniJadralci(
+  jid INTEGER PRIMARY KEY AUTO_INCREMENT,
+  ime VARCHAR(20),
+  starost REAL,
+  rating INTEGER,
+  CHECK( starost >= 18)) -- koristna omejitev glede na ime tabele
+AS SELECT jid, ime, starost, rating
+FROM jadralec
+WHERE starost >= 18;
+
+INSERT INTO PolnoletniJadralci(ime, starost, rating) VALUES ('Tine', 18, 8);
+
+-----Naloga 3:-----
+
+CREATE VIEW StatistikaColnov(cid, ime, dolzina, st_rez, st_jad, povp_rating) AS
+SELECT c.cid, c.ime, c.dolzina, COUNT(*) AS st_rez, COUNT(DISTINCT j.jid) AS st_jad, AVG(j.rating) AS povp_rating
+FROM coln c JOIN rezervacija r USING(cid) JOIN jadralec j USING(jid)
+GROUP BY c.cid, c.ime, c.dolzina;
+
+-----Naloga 4:-----
+
+CREATE VIEW StatistikaJadralcev(jid, ime, st_rez, povp_dol, naj_barva)
+AS
+SELECT j.jid,
+    j.ime,
+    COUNT(*) AS st_rez,
+    AVG(dolzina) AS povp_dol,
+    (SELECT barva
+        FROM coln c2 JOIN rezervacija r2 USING(cid)
+        WHERE r2.jid = j.jid
+        GROUP BY barva
+        ORDER BY COUNT(*) DESC -- če ima jadralec več najljubših barv izpise samo eno
+        LIMIT 1)
+    AS naj_barva
+FROM jadralec j JOIN rezervacija r USING(jid) JOIN coln c USING(cid)
+GROUP BY j.jid, j.ime;

@@ -1,0 +1,50 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.spacer{
+    height: 4rem;
+}
+
+.trackingNumberForm{
+    width: 20rem;
+}
+
+.loginForm{
+    width: 25rem;
+}
+
+.newParcelForm {
+    width: 30rem;
+}
+
+.blueButton {
+    color: #30A3FF;
+    font-weight: bold;
+    border: 2px solid #30A3FF;
+}
+
+.actionButton {
+    color: #30A3FF;
+    border: 1px solid #30A3FF;
+}
+
+.statusBadge {
+    background-color: #30A3FF;
+    border: none;
+}
+
+.signOutButton {
+    color: #30A3FF;
+    border: 1px solid #30A3FF;
+}
+
+.greyLine {
+    border-top: 1px solid #B4B3B3;
+    width: 30rem;
+}
+.noTextDecoration{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}

@@ -1,0 +1,9 @@
+fun a() : void = {3 + 2;};
+
+#{fun k() : void = (3 + 2 where 3 = 2;);
+
+fun a() : void = 3 != 2 != 3;
+
+fun b() : void = 1 & -2 + 3;
+
+fun c() : void = & 3 + 2; #{Should throw error}#

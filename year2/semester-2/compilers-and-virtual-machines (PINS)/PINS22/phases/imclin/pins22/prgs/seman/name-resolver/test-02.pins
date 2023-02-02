@@ -1,0 +1,10 @@
+typ named = int;
+var x : named;
+
+#{Should output: (locations might vary)
+  AstTypDecl(named) @(1.1-1.3)
+    AstAtomType(INT) @(1.13-1.15)
+  AstVarDecl(x) @(2.1-2.3)
+    AstTypeName(named) @(2.9-2.13)
+      declaredAt: 1.1-1.3
+}#

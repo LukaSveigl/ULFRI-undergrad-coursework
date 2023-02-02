@@ -1,0 +1,12 @@
+fun main() : void = ({
+    int1 = 2;
+    int2 = 3;
+    int1 + int2;
+    none;
+}
+where
+    var int1 : int;
+    var int2 : int;
+);
+
+fun putChar(c : char) : void = none;

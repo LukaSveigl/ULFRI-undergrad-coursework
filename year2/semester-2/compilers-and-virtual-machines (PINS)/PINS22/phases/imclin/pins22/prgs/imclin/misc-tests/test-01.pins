@@ -1,0 +1,73 @@
+var a : int;
+var y : int;
+
+fun b(i : int) : int = {
+    if (i != 0) then
+        y = y + b(i - 1) + 1;
+        putInt(y);
+        putChar((y : char));
+    end;
+    y;
+};
+
+typ integer = int;
+var arr : [2]integer;
+
+var result : char;
+
+fun c(g : ^[2]int) : char = {
+    result = '/';
+
+    if ((g^)[0] > (g^)[1]) then
+        result = '+';
+    else
+        if ((g^)[0] < (g^)[1]) then
+            result = '-';
+        else
+            result = '0';
+        end;
+    end;
+
+    result;
+};
+
+var z : ^int;
+
+var cnt : int;
+
+var chr : char;
+
+fun main() : int = {
+    #{y = 0;
+    arr[0] = 11;
+    arr[1] = 22;
+    putInt(arr[0]);
+    putChar((10 : char));
+    putInt(arr[1]);
+    putChar((10 : char));
+    putChar(c(^arr));
+    putChar((10 : char));
+    putInt(b(10));
+    putInt(getInt());}#
+    chr = ' ';
+    putInt(randInt(10, 232));
+    putChar((10 : char));
+    cnt = 10;
+    while (cnt > 0) do
+        putInt(cnt);
+        putChar(',');
+        putChar((32 : char));
+        cnt = cnt - 1;
+    end;
+    putChar((8 : char));
+    putChar((8 : char));
+    putChar((10:  char));
+    0;
+};
+
+#{ Forward declarations }#
+fun putChar(c : char) : void = none;
+fun getChar() : char = (0 : char);
+fun putInt(i : int) : void = none;
+fun getInt() : int = 0;
+fun randInt(min : int, max : int) : int = 0;

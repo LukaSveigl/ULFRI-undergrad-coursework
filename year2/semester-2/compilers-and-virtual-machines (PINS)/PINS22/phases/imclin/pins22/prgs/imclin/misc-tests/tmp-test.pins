@@ -1,0 +1,13 @@
+fun main() : int = {
+    add4(add2(1, 2), add2(3, 4));
+    add4(add2(11, 12), add2(13, 14));
+    add4(add2(21, 22), add2(23, 24));
+};
+
+fun add2(a : int, b : int) : int = {
+    a + b;
+};
+
+fun add4(sum1 : int, sum2 : int) : int = {
+    sum1 + sum2;
+};

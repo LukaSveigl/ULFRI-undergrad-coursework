@@ -1,0 +1,49 @@
+---------------Naloga 3:-------------
+
+          .text
+NIZ1:     .asciz  "yxem Nx yzcdxo, am knxfx Vcjs, Gbnnws rx ejnm nj Zxcj."     
+SEZNAM1:  .asciz  "xfjrmansobyzcdwke"       
+SEZNAM2:  .asciz  "adegiklmnoprstuvz"
+          .align
+          .global __start
+__start:
+          adr r0, NIZ1
+          adr r1, SEZNAM1
+          adr r2, SEZNAM2
+          
+LOOP:
+          ldrb r4, [r0]
+          
+          cmp r4, #0
+          beq __end
+          
+          bl CHECK
+          
+          strb r4, [r0]
+          
+          add r0, r0, #1
+          
+          b LOOP
+          
+CHECK:
+          adr r1, SEZNAM1
+          adr r2, SEZNAM2
+          
+          CLOOP:
+                ldrb r5, [r1]
+                ldrb r6, [r2]
+          
+                cmp r5, #0
+                moveq r15, r14
+          
+                cmp r5, r4
+                moveq r4, r6
+                moveq r15, r14
+                
+                add r1, r1, #1
+                add r2, r2, #1
+                
+                b CLOOP  
+
+__end:    b __end
+

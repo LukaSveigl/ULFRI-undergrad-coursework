@@ -1,0 +1,15 @@
+RA, Avditorne naloge 1:
+Miniračunalniki so imeli 18 naslovnih signalov in 18-bit naslovno vodilo.
+a) Kolikšen je bil naslovni prostor: 2^18 = 256k (2^8 * 2^10)
+
+b) Kolikšen je bil največji možni pomnilknik v bajtih če je bila pom. beseda velika 1B: 
+						+ velikost naslovnega prostora * 1B(velikost pom besede) 256kB
+						
+c) Kako dolg je moral biti PC: Vsaj 18bit PC (vsaj velikost nas. vodila)
+
+d) Kaj bi bilo potrebno spremeniti, da bi naslovni prostor 8x povečali: 
+						+ Naslovno vodilo moramo povečati za 3 bite, da lahko zapišemo 8 novih vr in povečati registre
+						+ NASL. PROSTOR * 8 = 2^18 * 2^3 = 2^21
+						+ 21 bit naslovno vodilo
+						+ Povečati PC, MAR
+						+ Ukazi, formati ukazov

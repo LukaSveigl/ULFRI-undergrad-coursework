@@ -1,0 +1,17 @@
+Ime zgodbe: Ogled statistike poslovalnic v podjetju
+
+Opis: 	Uporabnik (logistik) si lahko ogleda statistiko (št. paketov, zaposlenih...) 
+	poslovalnic v podjetju. 
+	Dodatno lahko vidi obremenjenost ene poslovalnice v primerjavi z drugimi 
+	poslovalnicami.
+
+Opomba:	V kolikor nobena poslovalnica ni izbrana, uporabnik vidi statistiko vseh poslovalnic.
+
+Ocena: 3
+Prioriteta: 3
+
+Sprejemni testi:
+- Ob vpisu v račun logistika, mora biti uporabniku vidna statistika vseh 
+  poslovalnic.
+- Ob izbiri poslovalnice se more uporabniku prikazati le statistika
+  za tisto poslovalnico.

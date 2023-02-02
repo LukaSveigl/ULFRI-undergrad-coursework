@@ -1,0 +1,42 @@
+var cnt : int;
+var arr : ^[10]char;
+var arrPtr : ^char;
+
+fun a(p1 : char, p2 : char, p3 : char, p4 : char, p5 : char, p6 : char, p7 : char, p8 : char, p9 : char, p10 : char) : ^char = ({
+    array = (new 80 : ^char);
+
+    (((array : int) + 0 * 8) : ^char)^ = p1;
+    (((array : int) + 1 * 8) : ^char)^ = p2;
+    (((array : int) + 2 * 8) : ^char)^ = p3;
+    (((array : int) + 3 * 8) : ^char)^ = p4;
+    (((array : int) + 4 * 8) : ^char)^ = p5;
+    (((array : int) + 5 * 8) : ^char)^ = p6;
+    (((array : int) + 6 * 8) : ^char)^ = p7;
+    (((array : int) + 7 * 8) : ^char)^ = p8;
+    (((array : int) + 8 * 8) : ^char)^ = p9;
+    (((array : int) + 9 * 8) : ^char)^ = p10;
+    array;
+}
+where
+    var array : ^char;
+);
+
+fun print(arr : ^char) : int = {
+    cnt = 9;
+    while (cnt >= 0) do
+            putChar((((arr : int) + cnt * 8) : ^char)^);
+            putChar(' ');
+            cnt = cnt - 1;
+        end;
+        putChar((10 : char));
+    0;
+};
+
+fun main() : int = {
+    arrPtr = a('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j');
+    print(arrPtr);
+    0;
+};
+
+fun putInt(i : int) : void = none;
+fun putChar(c : char) : void = none;

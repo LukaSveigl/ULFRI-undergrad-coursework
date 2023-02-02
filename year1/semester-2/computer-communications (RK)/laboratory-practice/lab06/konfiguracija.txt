@@ -1,0 +1,263 @@
+Ping & traceroute PC1 - PC2 pred prekinitvijo:
+
+/ # ping 192.168.0.1
+PING 192.168.0.1 (192.168.0.1): 56 data bytes
+64 bytes from 192.168.0.1: seq=0 ttl=62 time=4.693 ms
+64 bytes from 192.168.0.1: seq=1 ttl=62 time=12.338 ms
+64 bytes from 192.168.0.1: seq=2 ttl=62 time=3.404 ms
+64 bytes from 192.168.0.1: seq=3 ttl=62 time=9.353 ms
+^C
+--- 192.168.0.1 ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 3.404/7.447/12.338 ms
+
+/ # traceroute 192.168.0.1
+traceroute to 192.168.0.1 (192.168.0.1), 30 hops max, 46 byte packets
+ 1  10.3.0.2 (10.3.0.2)  1.883 ms  3.502 ms  3.994 ms
+ 2  1.1.1.2 (1.1.1.2)  7.566 ms  11.261 ms  5.153 ms
+ 3  192.168.0.1 (192.168.0.1)  9.072 ms  9.394 ms  10.899 ms
+
+
+-------------------------------------------------
+Ping & traceroute PC1 - PC2 po prekinitvi:
+
+/ # ping 192.168.0.1
+PING 192.168.0.1 (192.168.0.1): 56 data bytes
+64 bytes from 192.168.0.1: seq=0 ttl=61 time=12.105 ms
+64 bytes from 192.168.0.1: seq=1 ttl=61 time=11.208 ms
+64 bytes from 192.168.0.1: seq=2 ttl=61 time=28.685 ms
+64 bytes from 192.168.0.1: seq=3 ttl=61 time=26.695 ms
+^C
+--- 192.168.0.1 ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 11.208/19.673/28.685 ms
+
+/ # traceroute 192.168.0.1
+traceroute to 192.168.0.1 (192.168.0.1), 30 hops max, 46 byte packets
+ 1  10.3.0.2 (10.3.0.2)  1.327 ms  4.275 ms  3.156 ms
+ 2  1.1.1.9 (1.1.1.9)  12.491 ms  25.010 ms  12.926 ms
+ 3  1.1.1.5 (1.1.1.5)  11.889 ms  42.287 ms  13.823 ms
+ 4  192.168.0.1 (192.168.0.1)  11.765 ms  35.385 ms  25.504 ms
+
+
+
+
+-------------------------------------------------
+Usmerjevalna tabela R1:
+
+vyos@vyos:~$ show ip bgp
+BGP table version is 0, local router ID is 1.1.1.10
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale, R Removed
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*> 10.3.0.0/30      0.0.0.0                  1         32768 i
+*  172.16.1.0/30    1.1.1.2                                0 65532 65533 i
+*>                  1.1.1.9                  1             0 65533 i
+*  192.168.0.0/30   1.1.1.9                                0 65533 65532 i
+*>                  1.1.1.2                  1             0 65532 i
+
+Total number of prefixes 3
+
+
+-------------------------------------------------
+Usmerjevalna tabela R2:
+
+vyos@vyos:~$ show ip bgp
+BGP table version is 0, local router ID is 1.1.1.5
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale, R Removed
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*  10.3.0.0/30      1.1.1.6                                0 65533 65531 i
+*>                  1.1.1.1                  1             0 65531 i
+*  172.16.1.0/30    1.1.1.1                                0 65531 65533 i
+*>                  1.1.1.6                  1             0 65533 i
+*> 192.168.0.0/30   0.0.0.0                  1         32768 i
+
+Total number of prefixes 3
+
+
+-------------------------------------------------
+Usmerjevalna tabela R3:
+
+vyos@vyos:~$ show ip bgp
+BGP table version is 0, local router ID is 1.1.1.9
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale, R Removed
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*> 10.3.0.0/30      1.1.1.10                 1             0 65531 i
+*                   1.1.1.5                                0 65532 65531 i
+*> 172.16.1.0/30    0.0.0.0                  1         32768 i
+*  192.168.0.0/30   1.1.1.10                               0 65531 65532 i
+*>                  1.1.1.5                  1             0 65532 i
+
+Total number of prefixes 3
+
+
+
+
+-------------------------------------------------
+Konfiguracija PC1:
+
+/ # vi /etc/network/interfaces
+
+#
+# This is a sample network config uncomment lines to configure the network
+#
+
+
+# Static config for eth0
+auto eth0
+iface eth0 inet static
+        address 10.3.0.1
+        netmask 255.255.255.252
+        gateway 10.3.0.2
+#       up echo nameserver 192.168.0.1 > /etc/resolv.conf
+
+# DHCP config for eth0
+# auto eth0
+# iface eth0 inet dhcp
+
+/ # ifup eth0
+
+
+-------------------------------------------------
+Konfiguracija PC2:
+
+/ # vi /etc/network/interfaces
+
+#
+# This is a sample network config uncomment lines to configure the network
+#
+
+
+# Static config for eth0
+auto eth0
+iface eth0 inet static
+        address 192.168.0.1
+        netmask 255.255.255.252
+        gateway 192.168.0.2
+#       up echo nameserver 192.168.0.1 > /etc/resolv.conf
+
+# DHCP config for eth0
+# auto eth0
+# iface eth0 inet dhcp
+
+/ # ifup eth0
+
+
+-------------------------------------------------
+Konfiguracija PC3:
+
+/ # vi /etc/network/interfaces
+
+#
+# This is a sample network config uncomment lines to configure the network
+#
+
+
+# Static config for eth0
+auto eth0
+iface eth0 inet static
+        address 172.16.1.1
+        netmask 255.255.255.252
+        gateway 172.16.1.2
+#       up echo nameserver 192.168.0.1 > /etc/resolv.conf
+
+# DHCP config for eth0
+# auto eth0
+# iface eth0 inet dhcp
+
+/ # ifup eth0
+
+
+-------------------------------------------------
+Konfiguracija R1:
+
+vyos@vyos:~$ config
+
+vyos@vyos# set interfaces ethernet eth0 address 10.3.0.2/30
+[edit]
+vyos@vyos# set interfaces ethernet eth1 address 1.1.1.10/30
+[edit]
+vyos@vyos# set interfaces ethernet eth2 address 1.1.1.1/30
+[edit]
+vyos@vyos# set protocols bgp 65531 neighbor 1.1.1.2 remote-as '65532'
+[edit]
+vyos@vyos# set protocols bgp 65531 neighbor 1.1.1.9 remote-as '65533'
+[edit]
+vyos@vyos# set protocols bgp 65531 neighbor 1.1.1.2 update-source 1.1.1.1
+[edit]
+vyos@vyos# set protocols bgp 65531 neighbor 1.1.1.9 update-source 1.1.1.10
+[edit]
+vyos@vyos# set protocols bgp 65531 parameters router-id 1.1.1.1
+[edit]
+vyos@vyos# set protocols bgp 65531 parameters router-id 1.1.1.10
+[edit]
+vyos@vyos# set protocols bgp 65531 network 10.3.0.0/30
+[edit]
+vyos@vyos# commit
+[edit]
+
+
+-------------------------------------------------
+Konfiguracija R2:
+
+vyos@vyos:~$ config
+
+vyos@vyos# set interfaces ethernet eth0 address 192.168.0.2/30
+[edit]
+vyos@vyos# set interfaces ethernet eth1 address 1.1.1.5/30
+[edit]
+vyos@vyos# set interfaces ethernet eth2 address 1.1.1.2/30
+[edit]
+vyos@vyos# set protocols bgp 65532 neighbor 1.1.1.1 remote-as '65531'
+[edit]
+vyos@vyos# set protocols bgp 65532 neighbor 1.1.1.6 remote-as '65533'
+[edit]
+vyos@vyos# set protocols bgp 65532 neighbor 1.1.1.1 update-source 1.1.1.2
+[edit]
+vyos@vyos# set protocols bgp 65532 neighbor 1.1.1.6 update-source 1.1.1.5
+[edit]
+vyos@vyos# set protocols bgp 65532 parameters router-id 1.1.1.2
+[edit]
+vyos@vyos# set protocols bgp 65532 parameters router-id 1.1.1.5
+[edit]
+vyos@vyos# set protocols bgp 65532 network 192.168.0.0/30
+[edit]
+vyos@vyos# commit
+[edit]
+
+
+-------------------------------------------------
+Konfiguracija R3:
+
+vyos@vyos:~$ config
+
+vyos@vyos# set interfaces ethernet eth0 address 172.16.1.2/30
+[edit]
+vyos@vyos# set interfaces ethernet eth1 address 1.1.1.9/30
+[edit]
+vyos@vyos# set interfaces ethernet eth2 address 1.1.1.6/30
+[edit]
+vyos@vyos# set protocols bgp 65533 neighbor 1.1.1.10 remote-as '65531'
+[edit]
+vyos@vyos# set protocols bgp 65533 neighbor 1.1.1.5 remote-as '65532'
+[edit]
+vyos@vyos# set protocols bgp 65533 neighbor 1.1.1.10 update-source 1.1.1.9
+[edit]
+vyos@vyos# set protocols bgp 65533 neighbor 1.1.1.5 update-source 1.1.1.6
+[edit]
+vyos@vyos# set protocols bgp 65533 parameters router-id 1.1.1.6
+[edit]
+vyos@vyos# set protocols bgp 65533 parameters router-id 1.1.1.9
+[edit]
+vyos@vyos# set protocols bgp 65533 network 172.16.1.0/30
+[edit]
+vyos@vyos# commit
+[edit]

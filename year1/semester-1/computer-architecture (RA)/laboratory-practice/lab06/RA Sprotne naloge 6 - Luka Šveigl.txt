@@ -1,0 +1,77 @@
+-----------Naloga 1: --------------------------
+		.text
+		.align
+		.global __start.
+		
+__start:
+		movs r0, #0
+		@ vrednost zastavic: Z = 1, N = 0
+		
+		subs r0, r0, #1
+		@ vrednost zastavic: C = 0, Z = 0, N = 1, V = 0
+		@ nepredznačeno: max. vrednost, predznačeno: -1
+		
+		adds r0, r0, #2
+		@ vrednost zastavic: C = 1, Z = 0, N = 0, V = 0
+		@ nepredznačeno: 1, predznačeno: 1
+__end:	b	__end
+
+------------Naloga 2: (naredi doma)------------
+		.text
+		.align
+		.global __start
+__start:
+		movs r0, #1
+		@ vrednost zastavic: Z = 0, N = 0, stevilo je pozitivno in razlicno od 0
+		
+		subs r0, r0, #1
+		@ vrednost zastavic: Z = 1, N = 0, C = 1, V = 0, stevilo je enako 0, borrow = 1,
+		@ saj je flag C pri odstevanju obraten od rezultata pri sestevanju
+		
+		subs r0, r0, #1 
+		@ vrednost zastavic: Z = 0, N = 1, C = 0, V = 0, stevilo ni enako 0, je negativno, 
+		@ borrow = 1, saj je flag C pri odstevanju obraten kot pri sestevanju, 
+		@ overflow je 0 ker koncna bita nista enaka
+		@ po zadnjem ukazu je nepredznačena vrednost največja vrednost v registru (0xFFFFFFFF), 
+		@ predznačena pa je -1
+		
+__end:	b __end
+
+------------Naloga 3: -------------------------
+          .text
+          
+STEV1:    .hword  -10
+          .align
+          
+STEV2:    .byte   0x64
+          .align
+          
+STEV3:    .byte   -2
+
+          .align
+          .global __start
+__start:
+
+          adr r0, STEV1
+          ldrsh r1, [r0]
+          
+          adr r0, STEV2
+          ldrsb r2, [r0]
+          
+          adr r0, STEV3
+          ldrsb r3, [r0]
+          
+	  adds r4, r2, r3
+          subs r1, r4, r1
+          
+	  adr r0, STEV1
+	  strh r1, [r0]
+
+__end:    b __end 
+
+
+
+
+
+
+

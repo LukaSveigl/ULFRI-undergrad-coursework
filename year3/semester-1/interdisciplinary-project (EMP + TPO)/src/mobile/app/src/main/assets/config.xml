@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<db_settings>
+   <!-- <schema id="test_tpo">
+        <ip>127.0.0.1</ip>
+        <port>3306</port>
+    </schema> -->
+    <schema id="TPO">
+        <ip>db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com</ip>
+        <port>25060</port>
+    </schema>
+</db_settings>

@@ -1,0 +1,29 @@
+fun main() : int = {
+    0;
+};
+
+fun pow(base : int, exponent : int) : int = ({
+    result = 1;
+    count = 0;
+    while (count < exponent) do
+        result = result * base;
+        count = count + 1;
+    end;
+    result;
+}
+where
+    var result : int;
+    var count : int;
+);
+
+fun fact(n : int) : int = ({
+    result = 1;
+    while (n > 1) do
+        result = result * n;
+        n = n - 1;
+    end;
+    result;
+}
+where
+    var result : int;
+);

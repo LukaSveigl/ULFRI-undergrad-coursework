@@ -1,0 +1,126 @@
+-------------------1. Naloga:-----------------
+          .text
+REZULTAT: .byte 0
+NIZ:      .asciz  "Koliko je v tem nizu vejic, pik, klicajev in vprašajev? Vesele praznike in srecno novo leto. Ostanite zdravi! Se slišimo…"  
+          .align
+          .global __start
+__start:
+          @ Program, ki presteje vejice, pike, klicaje in vprasaje (locila)
+          mov r2, #',' @ V registre shranimo vrednosti za primerjavo
+          mov r3, #'.'
+          mov r4, #'!'
+          mov r5, #'?'
+          
+          mov r6, #0 @ Stevec locil
+          
+          adr r0, REZULTAT
+          adr r1, NIZ
+
+LOOP:
+          ldrb r7, [r1]
+          
+          cmp r7, #0 @ Preverimo, ce je niza konec
+          beq END_OF_LOOP  @ Ce je niza konec, koncamo program
+          
+          cmp r7, r2 @ Pogledamo, ce je znak vejica
+          addeq r6, r6, #1
+          
+          cmp r7, r3 @ Pogledamo, ce je znak pika
+          addeq r6, r6, #1
+          
+          cmp r7, r4 @ Pogledamo, ce je znak klicaj
+          addeq r6, r6, #1
+          
+          cmp r7, r5 @ Pogledamo, ce je znak vprasaj
+          addeq r6, r6, #1
+          
+          add r1, r1, #1 @ Premik na naslednji znak
+          
+          b LOOP
+END_OF_LOOP:
+          strb r6, [r0]
+__end:    b __end
+
+
+
+-----------------2. Naloga:-----------------
+          .text
+          
+TABELA:   .hword 1, 5, -1, 8, -130, 1024, 10, 64, -80, 256
+MAX:      .space 2
+MIN:      .space 2   
+VELIKOST_TABELE: .byte 10
+
+          .align
+          .global __start
+__start:
+
+           adr r0, TABELA
+           adr r1, VELIKOST_TABELE
+           ldr r2, [r1]
+           
+           ldrsh r5, [r0]
+           
+           mov r3, r5 @MAX
+           mov r4, r5 @MIN           
+
+
+LOOP:     
+          ldrsh r5, [r0]
+
+          cmp r5, r3
+          movge r3, r5
+          
+          cmp r5, r4
+          movle r4, r5
+          
+          add r0, r0, #2
+          subs r2, r2, #1
+          
+          bne LOOP
+		
+		  adr r6, MAX
+          strh r3, [r6]
+          
+          adr r6, MIN
+          strh r4, [r6] 
+@ Najmanjsa vrednost v tabeli je -130 oz 0xFF7E, z indeksom 4
+@ Najvecja vrednost v tabeli je 1024 oz 0x0400, z indeksom 5
+          
+__end:    b __end   
+
+
+
+
+--------------3. Naloga:---------------
+          .text
+          
+STEV1:    .byte 24
+STEV2:    .byte 1
+REZULTAT: .space 1
+          
+          .align
+          .global __start
+__start:
+           adr r0, STEV1
+           adr r1, STEV2
+           ldrb r2, [r0] @ STEV1
+           ldrb r3, [r1] @ Stevec (STEV2)
+           
+           mov r4, #0
+           
+LOOP:
+           add r4, r4, r2
+
+           subs r3, r3, #1
+           bne LOOP
+
+           adr r5, REZULTAT
+           strb r4, [r5] 
+
+@ Testni podatki: STEV1 = 24, STEV2 = 7, REZULTAT = 168 oz 0xA8
+@ Testni podatki: STEV1 = 15, STEV2 = 15, REZULTAT = 225 oz 0xE1 
+@ Testni podatki: STEV1 = 2, STEV2 = 1, REZULTAT = 2 oz 0x02
+@ Testni podatki: STEV1 = 3, STEV2 = 5, REZULTAT = 15 oz 0x0F
+
+__end:    b __end  

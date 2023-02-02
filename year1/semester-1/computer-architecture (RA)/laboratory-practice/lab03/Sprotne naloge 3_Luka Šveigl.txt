@@ -1,0 +1,85 @@
+1. naloga:
+	Pred izvedbo: r1 = 0x0 , r15 = 0x20
+	Po izvedbi: r1 = 0x80, r15 = 0x24
+	
+2. naloga
+          .text
+          
+STEV1:    .word   0x12345678
+STEV2:    .byte   128
+          .align
+STEV3:    .hword  0xF123
+
+          .align
+          .global __start
+__start:
+          adr r0, STEV1
+          ldr r1, [r0]
+          
+          adr r0, STEV2
+          ldrb r1, [r0]
+          
+          adr r0, STEV3
+          ldrh r1, [r0]
+          
+__end:    b __end   
+
+3. naloga:
+	32-bit. št:
+	
+          .text
+          
+STEV1:    .word   0x12345678
+STEV2:    .word   0x0
+
+          .align
+          .global __start
+__start:
+          adr r0, STEV1
+          ldr r1, [r0]
+
+          adr r0, STEV2
+          str r1, [r0]
+          
+__end:    b __end   
+
+-----------16-bit št.:-------------------
+
+          .text
+          
+STEV1:    .hword   0xF123
+          .align
+STEV2:    .hword   0x0
+
+          .align
+          .global __start
+__start:
+          adr r0, STEV1
+          ldrh r1, [r0]
+         
+	  adr r0, STEV2
+          strh r1, [r0]
+          
+__end:    b __end   
+
+--------8-bit št.:---------------
+	
+	      .text
+          
+STEV1:    .byte   128
+          .align
+STEV2:    .byte   0
+
+          .align
+          .global __start
+__start:
+          adr r0, STEV1
+          ldrb r1, [r0]
+         
+	  adr r0, STEV2
+          strb r1, [r0]
+          
+__end:    b __end   
+
+
+

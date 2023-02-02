@@ -1,0 +1,96 @@
+2022-12-31 23:13:38 Log: DBCore.DBAPI:login: The user aarmatt59 is trying to log in.
+================================================================================
+2022-12-31 23:13:38 Error: ConfigLoader.ConfigLoader:load: C:\Users\LoL\Documents\Tomcat 10.0\SFL-API\api\config.xml (The system cannot find the file specified)
+================================================================================
+2022-12-31 23:13:38 Error: DBCore.DBCore:login: Database data is null.
+================================================================================
+2023-01-01 20:11:24 Log: DBCore.DBAPI:login: The user aarmatt59 is trying to log in.
+================================================================================
+2023-01-01 20:11:24 Error: ConfigLoader.ConfigLoader:load: C:\Users\LoL\Documents\Tomcat 10.0\SFL-API\api\config.xml (The system cannot find the file specified)
+================================================================================
+2023-01-01 20:11:24 Error: DBCore.DBCore:login: Database data is null.
+================================================================================
+2023-01-01 20:13:53 Log: DBCore.DBAPI:login: The user aarmatt59 is trying to log in.
+================================================================================
+2023-01-01 20:13:53 Error: ConfigLoader.ConfigLoader:load: C:\Users\LoL\Documents\Tomcat 10.0\SFL-API\api\config.xml (The system cannot find the file specified)
+================================================================================
+2023-01-01 20:13:53 Error: DBCore.DBCore:login: Database data is null.
+================================================================================
+2023-01-01 20:14:17 Log: DBCore.DBAPI:login: The user aarmatt59 is trying to log in.
+================================================================================
+2023-01-01 20:14:17 Error: ConfigLoader.ConfigLoader:load: C:\Users\LoL\Documents\Tomcat 10.0\SFL-API\api\config.xml (The system cannot find the file specified)
+================================================================================
+2023-01-01 20:14:17 Error: DBCore.DBCore:login: Database data is null.
+================================================================================
+2023-01-01 20:18:20 Log: DBCore.DBAPI:login: The user aarmatt59 is trying to log in.
+================================================================================
+2023-01-01 20:18:20 Error: DBCore.DBCore:init: No suitable driver found for jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO
+================================================================================
+2023-01-01 20:18:43 Log: DBCore.DBAPI:login: The user aarmatt59 is trying to log in.
+================================================================================
+2023-01-01 20:18:44 Log: DBCore.DBCore:login: User aarmatt59 successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-01 20:18:45 Log: DBCore.DBAPI:login: The user aarmatt59 is trying to log in.
+================================================================================
+2023-01-01 20:18:45 Log: DBCore.DBCore:login: User aarmatt59 successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-01 21:13:05 Log: DBCore.DBAPI:login: The user aarmatt59 is trying to log in.
+================================================================================
+2023-01-01 21:13:06 Log: DBCore.DBCore:login: User aarmatt59 successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-01 21:32:50 Log: DBCore.DBAPI:login: The user aarmatt59 is trying to log in.
+================================================================================
+2023-01-01 21:32:51 Log: DBCore.DBCore:login: User aarmatt59 successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-02 16:47:44 Log: DBCore.DBAPI:login: The user doadmin is trying to log in.
+================================================================================
+2023-01-02 16:47:45 Log: DBCore.DBCore:login: User doadmin successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-02 16:47:46 Error: DBCore.DBAPI:createCustomerInDatabase: Parameter index out of range (1 > number of parameters, which is 0).
+================================================================================
+2023-01-02 16:49:10 Log: DBCore.DBAPI:login: The user doadmin is trying to log in.
+================================================================================
+2023-01-02 16:49:11 Log: DBCore.DBCore:login: User doadmin successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-02 16:49:12 Error: DBCore.DBAPI:createCustomerInDatabase: Parameter index out of range (1 > number of parameters, which is 0).
+================================================================================
+2023-01-02 16:59:48 Log: DBCore.DBAPI:login: The user doadmin is trying to log in.
+================================================================================
+2023-01-02 16:59:49 Log: DBCore.DBCore:login: User doadmin successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-02 16:59:50 Error: DBCore.DBAPI:createCustomerInDatabase: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''password' at line 1
+================================================================================
+2023-01-02 17:04:58 Log: DBCore.DBAPI:login: The user doadmin is trying to log in.
+================================================================================
+2023-01-02 17:04:59 Log: DBCore.DBCore:login: User doadmin successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-02 17:57:10 Log: DBCore.DBAPI:login: The user doadmin is trying to log in.
+================================================================================
+2023-01-02 17:57:10 Log: DBCore.DBCore:login: User doadmin successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-02 17:57:11 Error: DBCore.DBAPI:createCustomerInDatabase: Operation CREATE USER failed for 'dick'@'%'
+================================================================================
+2023-01-02 17:57:35 Log: DBCore.DBAPI:login: The user doadmin is trying to log in.
+================================================================================
+2023-01-02 17:57:36 Log: DBCore.DBCore:login: User doadmin successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-02 18:06:25 Log: DBCore.DBAPI:login: The user doadmin is trying to log in.
+================================================================================
+2023-01-02 18:06:26 Log: DBCore.DBCore:login: User doadmin successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-02 18:06:27 Error: DBCore.DBAPI:createCustomerInDatabase: Operation CREATE USER failed for 'pdick'@'%'
+================================================================================
+2023-01-02 18:08:56 Log: DBCore.DBAPI:login: The user doadmin is trying to log in.
+================================================================================
+2023-01-02 18:08:57 Log: DBCore.DBCore:login: User doadmin successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-02 18:08:57 Error: DBCore.DBAPI:createCustomerInDatabase: Operation CREATE USER failed for 'pdick'@'%'
+================================================================================
+2023-01-02 18:09:05 Log: DBCore.DBAPI:login: The user doadmin is trying to log in.
+================================================================================
+2023-01-02 18:09:06 Log: DBCore.DBCore:login: User doadmin successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================
+2023-01-02 18:13:37 Log: DBCore.DBAPI:login: The user doadmin is trying to log in.
+================================================================================
+2023-01-02 18:13:38 Log: DBCore.DBCore:login: User doadmin successfully logged into the database at url jdbc:mysql://db-mysql-fra1-30802-do-user-12793213-0.b.db.ondigitalocean.com:25060/TPO.
+================================================================================

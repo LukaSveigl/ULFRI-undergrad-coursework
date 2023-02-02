@@ -1,0 +1,83 @@
+-----------------Naloga 1:-----------------
+C = 1, N = 0, Z = 1, V = 0
+Rezultat bo 0
+          .text
+          
+STEV1:    .space 4   
+STEV2:    .word 0x7FFFFFFF     
+STEV3:    .word 0x80000001
+
+          .align
+          .global __start
+__start:
+
+          adr r0, STEV2
+          ldr r2, [r0]
+          
+          adr r0, STEV3
+          ldr r3, [r0]
+          
+          adr r0, STEV1
+          
+          adds r1, r2, r3
+          str r1, [r0]
+          
+__end:    b __end 
+
+
+--------------Naloga 2:------------
+Z = 0, C = 0, V = 0, N = 1
+Rezultat bo 0xFFFFFFFF
+
+          .text
+          
+STEV2:    .word 0x0     
+STEV3:    .word 0xFFFFFFFF
+
+          .align
+          .global __start
+__start:
+
+          adr r0, STEV2
+          ldr r2, [r0]
+          
+          adr r0, STEV3
+          ldr r3, [r0]
+          
+          adr r0, STEV2
+          
+          adds r2, r2, r3
+          str r2, [r0]
+          
+__end:    b __end 
+
+
+
+--------------Naloga 3:---------
+Pog. skok ;  N = 1 ; C = 0 ; Z = 0 ; V = 0 ; Izvede? ; Komentarji
+----------------------------------------------------------------------
+bcc												SE		C = 0
+bne												SE		Z = 0
+bge												NE		N != V
+bls												SE		C = 0 ali Z = 1 // C = 0 v tem primeru
+bmi												SE		N = 1
+bcs												NE 		C = 0
+blt												SE		N != V
+
+
+
+--------------Naloga 4:---------------------------------------------
+Primer					;		Večna zanka? Zakaj?
+--------------------------------------------------------------------
+zanka: movs r1, #127	;		DA, r1 = 127 != 0 ;  BNE je zpolnjen
+bne zanka				;
+						;
+zanka: movs r1, #127	;		NE, r1 = 127 != 0 ;	BEQ ni izpolnjen
+beq zanka				;	
+						;
+zanka: movs r1, #0		;		DA, r1 = 0 = 0	;	BEQ je izpolnjen	
+beq zanka				;
+						;
+zanka: mov r1, #1		;		DA (1 - 25) = -24 ; BMI je izpolnjen
+cmp r1, #25				;
+bmi zanka				;

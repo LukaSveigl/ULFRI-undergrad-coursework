@@ -1,0 +1,67 @@
+Ime zgodbe: Ogled statistike poslovalnic v podjetju
+
+Opis: 	Uporabnik (logistik) si lahko ogleda statistiko (št. paketov, zaposlenih...) 
+	poslovalnic v podjetju. 
+	Dodatno lahko vidi obremenjenost ene poslovalnice v primerjavi z drugimi 
+	poslovalnicami.
+
+Opomba:	V kolikor nobena poslovalnica ni izbrana, uporabnik vidi statistiko vseh poslovalnic.
+
+Ocena: 3
+Prioriteta: 3
+
+Sprejemni testi:
+- Ob vpisu v račun logistika, mora biti uporabniku vidna statistika vseh 
+  poslovalnic.
+- Ob izbiri poslovalnice se more uporabniku prikazati le statistika
+  za tisto poslovalnico.
+
+---------------------------------------------------------------------------------------------
+Ime zgodbe: Potrditev dostave paketov v dostavniku z uporabo filtra
+
+Opis: Uporabnik (dostavljalec paketov) ima prikazan pogled, kjer vidi pošiljke v dostavnem vozilu.
+      Pošiljke si lahko filtrira še z dodatnim filtrom dostavljeno/v dostavi.
+
+Opomba: V kolikor nima izbranega nobenega filtra, uporabnik vidi vse pošiljke v dostavniku.
+
+
+Ocena: 5
+Prioriteta: 4 (https://cdn.discordapp.com/attachments/1027146200526376981/1044963826270998649/306153281_621332456152370_8263790146371154225_n.mp4)
+
+Sprejemni testi:
+- ob izbiri na pogled za potrditev dostave paketov, se morajo sprva uporabniku prikazati vsi paketi v dostavniku
+- ob izbiri filtra, se morajo prikazati le paketi, ki ustrezajo filtru
+- uporabnik ima možnost pogleda na vse pošiljke v dostavniku
+---------------------------------------------------------------------------------------------
+Ime zgodbe: Sledenje stanju in lokaciji strankinih pošiljk
+
+Opis: Uporabnik/stranka mora vpisati enolično številko svoje pošiljke, da lahko opazuje trenutno stanje in lokacijo svoje pošiljke.
+      V kolikor stanje pošiljke še ni v stanju "Dostavljanje", lahko stranka spremeni lokacijo dostave.
+
+Opomba: Pred vpisom enolične številke pošiljke stranka ne vidi nobenih podatkov o pošiljkah.
+
+Ocena: 3
+Prioriteta: 5
+
+Sprejemni testi:
+- Ob vpisu enolične številke pošiljke, se mora prikazati lokacija pošiljke ter njeno stanje
+- Ob sledenju pošiljke, ki še ni v stanju "Dostavljanje" ima uporabnik možnost spremeniti lokacijo dostave.
+---------------------------------------------------------------------------------------------
+Ime zgodbe: Ogled statusa pošiljk v paketnem centru z uporabo filtrov
+
+Opis: Uporabnik (nadzornik paketnega centra) si lahko ogleda statuse posameznih 
+	pošiljk v paketnem centru.
+	Dodatno lahko te pošiljke filtrira glede na zaposlenege ki je pošiljko pregledal.
+
+Opomba: V kolikor noben filter ni izbran, uporabnik vidi vse pošiljke (od vseh 
+   	zaposlenih).
+
+Ocena: 3
+Prioriteta: 4
+
+Sprejemni testi:
+- ob kliku na zavihek za ogled pošiljk z uporabo filtrov, se morajo sprva uporabniku 
+  pokazati vse pošiljke.
+- ob izbiri določenega filtra se morajo uporabniku prikazati le pošiljke ki ustrezajo 
+  temu filtru.
+- uporabnik mora imeti možnost pregleda vseh pošiljk, ne glede na status pošiljke.

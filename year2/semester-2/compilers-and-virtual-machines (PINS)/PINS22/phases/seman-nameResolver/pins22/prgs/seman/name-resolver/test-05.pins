@@ -1,0 +1,9 @@
+fun first(i : int) : int = 1;
+
+fun second() : int = {
+    first(i);
+};
+
+#{Should output: (locations might vary)
+  [4.11-4.11] Semantic Error: 'i' is not declared.
+}#

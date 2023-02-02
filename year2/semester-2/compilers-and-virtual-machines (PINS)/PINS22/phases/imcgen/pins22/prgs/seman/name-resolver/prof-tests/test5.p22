@@ -1,0 +1,8 @@
+typ number=int;
+var a:number;
+var b:natural;
+fun main(argc:number):void = {
+	while 1+2+3 > 0 do
+		argc = 2*argc+3;
+	end;
+};

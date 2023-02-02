@@ -1,0 +1,4 @@
+fun main(i:int):int = 1+2+3;
+fun main(i:int):int = 1+2*3;
+fun main(i:int):int = 1*2+3;
+

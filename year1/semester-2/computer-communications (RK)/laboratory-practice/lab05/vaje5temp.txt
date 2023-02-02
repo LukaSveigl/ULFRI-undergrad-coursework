@@ -1,0 +1,334 @@
+63200301
+A=0
+B=3
+c=0
+D=1
+
+10.A.0.0/30
+10.0.B.0/30
+192.168.C.0/30
+172.16.D.0/??
+2001:db8:e:A::/??
+2001:db8:B:f::/??
+2001:db8:ef:C::/??
+2001:db8:D:ef::/??
+
+10.0.0.0/30
+10.0.3.0/30
+192.168.0.0/30
+172.16.1.0/
+2001:db8:e:0::/127
+2001:db8:3:f::/127
+2001:db8:ef:0::/127
+2001:db8:1:ef::/127
+
+R2-config:
+interfaces {
+    ethernet eth0 {
+        address 192.168.0.2/30
+        address 2001:db8:ef::1/127
+        duplex auto
+        hw-id 0c:16:d3:c6:20:00
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth1 {
+        address 172.16.1.1/30
+        address 2001:db8:1:ef::/127
+        duplex auto
+        hw-id 0c:16:d3:c6:20:01
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth2 {
+        duplex auto
+        hw-id 0c:16:d3:c6:20:02
+        smp_affinity auto
+        speed auto
+    }
+    loopback lo {
+    }
+}
+protocols {
+    static {
+        route 10.0.0.0/30 {
+            next-hop 192.168.0.1 {
+            }
+        }
+        route 10.0.3.0/30 {
+            next-hop 172.16.1.2 {
+            }
+        }
+        route6 2001:db8:3:f::/127 {
+            next-hop 2001:db8:1:ef::1 {
+            }
+        }
+        route6 2001:db8:e:0::/127 {
+            next-hop 2001:db8:ef:: {
+            }
+        }
+    }
+}
+system {
+    config-management {
+        commit-revisions 20
+    }
+    console {
+        device ttyS0 {
+            speed 9600
+        }
+    }
+    host-name vyos
+    login {
+        user vyos {
+            authentication {
+                encrypted-password $1$5HsQse2v$VQLh5eeEp4ZzGmCG/PRBA1
+                plaintext-password ""
+            }
+            level admin
+        }
+    }
+    ntp {
+        server 0.pool.ntp.org {
+        }
+        server 1.pool.ntp.org {
+        }
+        server 2.pool.ntp.org {
+        }
+    }
+    package {
+        auto-sync 1
+        repository community {
+            components main
+            distribution helium
+            password ""
+            url http://packages.vyos.net/vyos
+            username ""
+        }
+    }
+    syslog {
+        global {
+            facility all {
+                level notice
+            }
+            facility protocols {
+                level debug
+            }
+        }
+    }
+    time-zone UTC
+}
+
+
+/* Warning: Do not remove the following line. */
+/* === vyatta-config-version: "cluster@1:config-management@1:conntrack-sync@1:conntrack@1:cron@1:dhcp-relay@1:dhcp-server@4:firewall@5:ipsec@4:nat@4:qos@1:quagga@2:system@6:vrrp@1:wanloadbalance@3:webgui@1:webproxy@1:zone-policy@1" === */
+/* Release version: VyOS 1.1.8 */
+
+R1-config:
+
+interfaces {
+    ethernet eth0 {
+        address 10.0.0.2/30
+        address 2001:db8:e::1/127
+        address 2001:db8:e:0::1/127
+        duplex auto
+        hw-id 0c:16:d3:79:84:00
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth1 {
+        address 192.168.0.1/30
+        address 2001:db8:ef::/127
+        duplex auto
+        hw-id 0c:16:d3:79:84:01
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth2 {
+        duplex auto
+        hw-id 0c:16:d3:79:84:02
+        smp_affinity auto
+        speed auto
+    }
+    loopback lo {
+    }
+}
+protocols {
+    static {
+        route 10.0.3.0/30 {
+            next-hop 192.168.0.2 {
+            }
+        }
+        route 172.16.1.0/30 {
+            next-hop 192.168.0.2 {
+            }
+        }
+        route6 2001:db8:1:ef::/127 {
+            next-hop 2001:db8:ef::1 {
+            }
+        }
+        route6 2001:db8:3:f::/127 {
+            next-hop 2001:db8:ef::1 {
+            }
+        }
+    }
+}
+system {
+    config-management {
+        commit-revisions 20
+    }
+    console {
+        device ttyS0 {
+            speed 9600
+        }
+    }
+    host-name vyos
+    login {
+        user vyos {
+            authentication {
+                encrypted-password $1$5HsQse2v$VQLh5eeEp4ZzGmCG/PRBA1
+                plaintext-password ""
+            }
+            level admin
+        }
+    }
+    ntp {
+        server 0.pool.ntp.org {
+        }
+        server 1.pool.ntp.org {
+        }
+        server 2.pool.ntp.org {
+        }
+    }
+    package {
+        auto-sync 1
+        repository community {
+            components main
+            distribution helium
+            password ""
+            url http://packages.vyos.net/vyos
+            username ""
+        }
+    }
+    syslog {
+        global {
+            facility all {
+                level notice
+            }
+            facility protocols {
+                level debug
+            }
+        }
+    }
+    time-zone UTC
+}
+
+
+/* Warning: Do not remove the following line. */
+/* === vyatta-config-version: "cluster@1:config-management@1:conntrack-sync@1:conntrack@1:cron@1:dhcp-relay@1:dhcp-server@4:firewall@5:ipsec@4:nat@4:qos@1:quagga@2:system@6:vrrp@1:wanloadbalance@3:webgui@1:webproxy@1:zone-policy@1" === */
+/* Release version: VyOS 1.1.8 */
+
+
+
+R3-config:
+
+interfaces {
+    ethernet eth0 {
+        address 10.0.3.2/30
+        address 2001:db8:3:f::1/127
+        duplex auto
+        hw-id 0c:16:d3:85:6a:00
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth1 {
+        address 172.16.1.2/30
+        address 2001:db8:1:ef::1/127
+        duplex auto
+        hw-id 0c:16:d3:85:6a:01
+        smp_affinity auto
+        speed auto
+    }
+    ethernet eth2 {
+        duplex auto
+        hw-id 0c:16:d3:85:6a:02
+        smp_affinity auto
+        speed auto
+    }
+    loopback lo {
+    }
+}
+protocols {
+    static {
+        route 10.0.0.0/30 {
+            next-hop 172.16.1.1 {
+            }
+        }
+        route 192.168.0.0/30 {
+            next-hop 172.16.1.1 {
+            }
+        }
+        route6 2001:db8:ef::/127 {
+            next-hop 2001:db8:1:ef:: {
+            }
+        }
+        route6 2001:db8:e:0::/127 {
+            next-hop 2001:db8:1:ef:: {
+            }
+        }
+    }
+}
+system {
+    config-management {
+        commit-revisions 20
+    }
+    console {
+        device ttyS0 {
+            speed 9600
+        }
+    }
+    host-name vyos
+    login {
+        user vyos {
+            authentication {
+                encrypted-password $1$5HsQse2v$VQLh5eeEp4ZzGmCG/PRBA1
+                plaintext-password ""
+            }
+            level admin
+        }
+    }
+    ntp {
+        server 0.pool.ntp.org {
+        }
+        server 1.pool.ntp.org {
+        }
+        server 2.pool.ntp.org {
+        }
+    }
+    package {
+        auto-sync 1
+        repository community {
+            components main
+            distribution helium
+            password ""
+            url http://packages.vyos.net/vyos
+            username ""
+        }
+    }
+    syslog {
+        global {
+            facility all {
+                level notice
+            }
+            facility protocols {
+                level debug
+            }
+        }
+    }
+    time-zone UTC
+}
+
+
+/* Warning: Do not remove the following line. */
+/* === vyatta-config-version: "cluster@1:config-management@1:conntrack-sync@1:conntrack@1:cron@1:dhcp-relay@1:dhcp-server@4:firewall@5:ipsec@4:nat@4:qos@1:quagga@2:system@6:vrrp@1:wanloadbalance@3:webgui@1:webproxy@1:zone-policy@1" === */
+/* Release version: VyOS 1.1.8 */

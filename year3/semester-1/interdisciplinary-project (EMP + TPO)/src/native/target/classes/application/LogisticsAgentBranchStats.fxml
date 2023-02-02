@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LogisticsAgentController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-8.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" scaleX="0.66" scaleY="0.66">
+         <image>
+            <Image url="@../res/Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="userIcon" fitHeight="64.0" fitWidth="64.0" layoutX="1189.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" scaleX="0.66" scaleY="0.66">
+         <image>
+            <Image url="@../res/User%20icon.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="265.0" layoutY="72.0" prefHeight="648.0" prefWidth="1015.0" style="-fx-background-color: F9F9F9;">
+         <children>
+            <AnchorPane fx:id="contentAnchorPane" layoutX="29.0" layoutY="28.0" prefHeight="592.0" prefWidth="956.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="21.0" layoutY="16.0" text="Parcels - Filter" textFill="#aaaaaa">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="branchChoiceBox" layoutX="40.0" layoutY="57.0" prefHeight="27.0" prefWidth="872.0" style="-fx-border-width: 1px; -fx-border-radius: 5px; -fx-border-color: black; -fx-background-color: none;" />
+                  <AnchorPane layoutX="40.0" layoutY="106.0" prefHeight="440.0" prefWidth="420.0" style="-fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-color: black; -fx-background-color: none;">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="68.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true" scaleX="0.66" scaleY="0.66">
+                           <image>
+                              <Image url="@../res/Package%20icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="203.0" layoutY="45.0" text="Parcels">
+                           <font>
+                              <Font name="System Bold" size="27.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="p1" layoutX="34.0" layoutY="147.0" text="⚫ Inbound: 4.512">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="p2" layoutX="34.0" layoutY="174.0" text="⚫ Outbound: 1.332">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="p3" layoutX="34.0" layoutY="201.0" text="⚫ Branch Load: 24 %">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="p4" layoutX="34.0" layoutY="228.0" text="⚫ Average Load: 3 %">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="492.0" layoutY="106.0" prefHeight="440.0" prefWidth="420.0" style="-fx-border-width: 2px; -fx-border-radius: 10px; -fx-border-color: black; -fx-background-color: none;">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="68.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true" scaleX="0.5" scaleY="0.5">
+                           <image>
+                              <Image url="@../res/Driver%20icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="203.0" layoutY="45.0" text="Drivers">
+                           <font>
+                              <Font name="System Bold" size="27.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="d1" layoutX="34.0" layoutY="147.0" text="⚫ All jobs for drivers: 243">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="d2" layoutX="34.0" layoutY="174.0" text="⚫ No. of drivers: 32">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="d3" layoutX="34.0" layoutY="201.0" text="⚫ Avg. no. of jobs per driver: 2.4">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="warningLabel" layoutX="62.0" layoutY="234.0" text="Not enough drivers in this branch" textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="warningIcon" fitHeight="150.0" fitWidth="200.0" layoutX="-25.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true" scaleX="0.15" scaleY="0.15">
+                           <image>
+                              <Image url="@../res/Warning%20icon.png" />
+                           </image>
+                        </ImageView>
+                        <ChoiceBox fx:id="employeeChoiceBox" layoutX="32.0" layoutY="287.0" prefHeight="27.0" prefWidth="167.0" style="-fx-border-width: 1px; -fx-border-radius: 5px; -fx-border-color: black; -fx-background-color: none;" />
+                        <Label fx:id="employeeNoOfJobsLabel" layoutX="34.0" layoutY="320.0" text="⚫ No. of jobs: 2">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="30.0" layoutY="647.0" onMouseClicked="#signOutAnchorPaneButton" prefHeight="42.0" prefWidth="200.0" style="-fx-border-color: #30a3ff; -fx-border-radius: 5px; -fx-border-width: 1.5px; -fx-cursor: hand;">
+         <children>
+            <Label fx:id="signOutAnchorPane" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="180.0" style="-fx-font-weight: bold;" text="Sign Out" textFill="#30a3ff">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label fx:id="userFullName" layoutX="1092.0" layoutY="16.0" text="Jeff McJeff">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="1092.0" layoutY="39.0" text="Logistics Agent" />
+      <AnchorPane fx:id="filterParcelsAnchorPane" layoutY="100.0" prefHeight="52.0" prefWidth="265.0" style="-fx-cursor: hand; -fx-background-color: E4F2FD;">
+         <children>
+            <SVGPath fx:id="filterParcelsIcon1" content="M32.6533 0H13.3697C4.99349 0 0 4.99349 0 13.3697V32.6303C0 41.0294 4.99349 46.0229 13.3697 46.0229H32.6303C41.0064 46.0229 45.9999 41.0294 45.9999 32.6533V13.3697C46.0229 4.99349 41.0294 0 32.6533 0ZM12.9555 37.1635C12.9555 38.107 12.1731 38.8894 11.2296 38.8894C10.2861 38.8894 9.50374 38.107 9.50374 37.1635V32.4001C9.50374 31.4567 10.2861 30.6743 11.2296 30.6743C12.1731 30.6743 12.9555 31.4567 12.9555 32.4001V37.1635ZM24.7373 37.1635C24.7373 38.107 23.9549 38.8894 23.0115 38.8894C22.068 38.8894 21.2856 38.107 21.2856 37.1635V27.6138C21.2856 26.6703 22.068 25.8879 23.0115 25.8879C23.9549 25.8879 24.7373 26.6703 24.7373 27.6138V37.1635ZM36.5192 37.1635C36.5192 38.107 35.7368 38.8894 34.7933 38.8894C33.8499 38.8894 33.0675 38.107 33.0675 37.1635V22.8504C33.0675 21.9069 33.8499 21.1245 34.7933 21.1245C35.7368 21.1245 36.5192 21.9069 36.5192 22.8504V37.1635ZM36.5192 15.5788C36.5192 16.5222 35.7368 17.3046 34.7933 17.3046C33.8499 17.3046 33.0675 16.5222 33.0675 15.5788V13.3467C27.2195 19.3797 19.7975 23.6527 11.6438 25.6808C11.5057 25.7268 11.3677 25.7268 11.2296 25.7268C10.4472 25.7268 9.75686 25.1976 9.54976 24.4152C9.31964 23.4947 9.87192 22.5512 10.8154 22.3211C18.5112 20.402 25.4976 16.322 30.9504 10.5623H28.074C27.1305 10.5623 26.3481 9.77987 26.3481 8.8364C26.3481 7.89293 27.1305 7.11054 28.074 7.11054H34.8163C34.9084 7.11054 34.9774 7.15657 35.0695 7.15657C35.1845 7.17958 35.2996 7.17958 35.4146 7.2256C35.5297 7.27162 35.6217 7.34066 35.7368 7.40969C35.8058 7.45571 35.8749 7.47873 35.9439 7.52475C35.9669 7.54776 35.9669 7.57077 35.9899 7.57077C36.082 7.66282 36.151 7.75486 36.2201 7.84691C36.2891 7.93896 36.3581 8.00799 36.3811 8.10004C36.4272 8.19208 36.4272 8.28413 36.4502 8.39919C36.4732 8.51424 36.5192 8.6293 36.5192 8.76737C36.5192 8.79038 36.5422 8.81339 36.5422 8.8364V15.5788H36.5192Z" fill="#30a3ff" layoutX="40.0" layoutY="3.0" scaleX="0.66" scaleY="0.66" />
+            <Label fx:id="filterParcelsLabel" layoutX="97.0" layoutY="13.0" style="-fx-font-weight: bold;" text="Branch Stats" textFill="#30a3ff">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="settingsAnchorPane" layoutY="159.0" onMouseClicked="#settingsButton" prefHeight="52.0" prefWidth="265.0" style="-fx-cursor: hand;">
+         <children>
+            <SVGPath fx:id="settingsIcon" content="M41.6092 15.3078C37.4483 15.3078 35.7471 12.3653 37.8161 8.75609C39.0115 6.66414 38.2988 3.99747 36.2069 2.80207L32.2299 0.52621C30.4138 -0.55425 28.069 0.0894285 26.9885 1.90552L26.7356 2.3423C24.6667 5.9515 21.2644 5.9515 19.1724 2.3423L18.9195 1.90552C18.6717 1.47099 18.34 1.09009 17.9436 0.78498C17.5472 0.479868 17.0941 0.256639 16.6106 0.128282C16.1271 -7.43174e-05 15.6229 -0.0309946 15.1274 0.0373208C14.6319 0.105636 14.1548 0.271823 13.7241 0.52621L9.74713 2.80207C7.65517 3.99747 6.94253 6.68713 8.13793 8.77908C10.2299 12.3653 8.52874 15.3078 4.36782 15.3078C1.97701 15.3078 0 17.2618 0 19.6756V23.7216C0 26.1124 1.95402 28.0894 4.36782 28.0894C8.52874 28.0894 10.2299 31.032 8.13793 34.6412C6.94253 36.7331 7.65517 39.3998 9.74713 40.5952L13.7241 42.871C15.5402 43.9515 17.8851 43.3078 18.9655 41.4917L19.2184 41.0549C21.2874 37.4457 24.6897 37.4457 26.7816 41.0549L27.0345 41.4917C28.1149 43.3078 30.4598 43.9515 32.2759 42.871L36.2529 40.5952C38.3448 39.3998 39.0575 36.7101 37.8621 34.6412C35.7701 31.032 37.4713 28.0894 41.6322 28.0894C44.023 28.0894 46 26.1354 46 23.7216V19.6756C45.9879 18.517 45.5208 17.4095 44.6993 16.5923C43.8778 15.7752 42.7679 15.3138 41.6092 15.3078ZM22.9885 29.1699C18.8736 29.1699 15.5172 25.8136 15.5172 21.6986C15.5172 17.5837 18.8736 14.2274 22.9885 14.2274C27.1034 14.2274 30.4598 17.5837 30.4598 21.6986C30.4598 25.8136 27.1034 29.1699 22.9885 29.1699Z" fill="#c2c2c2" layoutX="40.0" layoutY="2.0" scaleX="0.66" scaleY="0.66" />
+            <Label fx:id="settingsLabel" layoutX="97.0" layoutY="11.0" style="-fx-font-weight: bold;" text="Settings" textFill="#c2c2c2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label fx:id="allPackagesLabel" layoutX="367.0" layoutY="39.0" text="Label" visible="false" />
+      <Label fx:id="pendingPackagesLabel" layoutX="414.0" layoutY="39.0" text="Label" visible="false" />
+      <Label fx:id="processedPackagesLabel" layoutX="461.0" layoutY="39.0" text="Label" visible="false" />
+   </children>
+</AnchorPane>

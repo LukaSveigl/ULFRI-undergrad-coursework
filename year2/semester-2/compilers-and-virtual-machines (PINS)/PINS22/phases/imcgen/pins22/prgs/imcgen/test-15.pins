@@ -1,0 +1,20 @@
+var a: int;
+
+fun f1(): int = {
+  (a where var num: int; fun f2(): int = {
+    (a where fun f3(): int = {
+      ({
+        f4();
+        f3();
+        f2();
+        f1();
+        num = 5;
+      } where fun f4(): int = {
+        a;
+      };);
+      a;
+    };);
+    a;
+  };);
+  a;
+};

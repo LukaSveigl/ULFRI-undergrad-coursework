@@ -1,0 +1,8 @@
+fun a() : int = {
+    (x + 1 where var x : int;);
+    x = x + 1;
+};
+
+#{Should output: (locations might vary)
+:-( [3.5-3.5] Semantic Error: 'x' is not declared.
+}#

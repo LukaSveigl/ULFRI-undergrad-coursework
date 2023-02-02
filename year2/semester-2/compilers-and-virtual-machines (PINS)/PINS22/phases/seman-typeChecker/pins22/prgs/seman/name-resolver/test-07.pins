@@ -1,0 +1,79 @@
+typ integer = int;
+typ number  = integer;
+typ num     = number;
+
+var x : num;
+
+fun main(argc:int) : void = {
+    x = x + 1;
+
+    (
+        {
+            alpha = 1;
+            x = (x : integer) * retNum() + alpha;
+        }
+        where
+        fun retNum() : number = 23;
+        var alpha : integer;
+    );
+};
+
+#{Should output: (locations might vary)
+  AstTypDecl(integer) @(1.1-1.3)
+    AstAtomType(INT) @(1.15-1.17)
+  AstTypDecl(number) @(2.1-2.3)
+    AstTypeName(integer) @(2.15-2.21)
+      declaredAt: 1.1-1.3
+  AstTypDecl(num) @(3.1-3.3)
+    AstTypeName(number) @(3.15-3.20)
+      declaredAt: 2.1-2.3
+  AstVarDecl(x) @(5.1-5.3)
+    AstTypeName(num) @(5.9-5.11)
+      declaredAt: 3.1-3.3
+  AstFunDecl(main) @(7.1-7.3)
+    {Pars}
+      AstParDecl(argc) @(7.10-7.13)
+        AstAtomType(INT) @(7.15-7.17)
+    AstAtomType(VOID) @(7.22-7.25)
+    AstStmtExpr @(7.29-7.29)
+      {Stmts}
+          AstAssignStmt @(8.5-8.5)
+            AstNameExpr(x) @(8.5-8.5)
+              declaredAt: 5.1-5.3
+            AstBinExpr(ADD) @(8.11-8.11)
+              AstNameExpr(x) @(8.9-8.9)
+                declaredAt: 5.1-5.3
+              AstConstExpr(INT,1) @(8.13-8.13)
+          AstExprStmt @(15.9-15.13)
+            AstWhereExpr @(15.9-15.13)
+              {Decls}
+                  AstFunDecl(retNum) @(16.9-16.11)
+                    {Pars}
+                    AstTypeName(number) @(16.24-16.29)
+                      declaredAt: 2.1-2.3
+                    AstConstExpr(INT,23) @(16.33-16.34)
+                  AstVarDecl(alpha) @(17.9-17.11)
+                    AstTypeName(integer) @(17.21-17.27)
+                      declaredAt: 1.1-1.3
+              AstStmtExpr @(11.9-11.9)
+                {Stmts}
+                    AstAssignStmt @(12.13-12.17)
+                      AstNameExpr(alpha) @(12.13-12.17)
+                        declaredAt: 17.9-17.11
+                      AstConstExpr(INT,1) @(12.21-12.21)
+                    AstAssignStmt @(13.13-13.13)
+                      AstNameExpr(x) @(13.13-13.13)
+                        declaredAt: 5.1-5.3
+                      AstBinExpr(ADD) @(13.42-13.42)
+                        AstBinExpr(MUL) @(13.31-13.31)
+                          AstCastExpr @(13.20-13.20)
+                            AstNameExpr(x) @(13.18-13.18)
+                              declaredAt: 5.1-5.3
+                            AstTypeName(integer) @(13.22-13.28)
+                              declaredAt: 1.1-1.3
+                          AstCallExpr(retNum) @(13.33-13.38)
+                            declaredAt: 16.9-16.11
+                            {Args}
+                        AstNameExpr(alpha) @(13.44-13.48)
+                          declaredAt: 17.9-17.11
+}#

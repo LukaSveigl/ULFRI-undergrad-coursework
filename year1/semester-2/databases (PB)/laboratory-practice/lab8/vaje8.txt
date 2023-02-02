@@ -1,0 +1,119 @@
+-----Naloga 1:-----
+
+DELIMITER //
+CREATE TRIGGER MladoletniJadralci_Delete
+AFTER DELETE ON jadralec
+FOR EACH ROW
+BEGIN
+	DELETE FROM MladoletniJadralci WHERE jid = OLD.jid;
+END //
+DELIMITER ;
+
+
+-----Naloga 2:-----
+
+DELIMITER //
+CREATE TRIGGER MladoletniJadralci_Update
+AFTER UPDATE ON jadralec
+FOR EACH ROW
+BEGIN
+    -- Najprej preverimo novo starost jadralca, če smo ga postarali in ga moramo zato izbrisati iz tabele
+    IF NEW.starost >= 18 THEN
+		DELETE FROM MladoletniJadralci WHERE jid = OLD.jid; -- Nujno OLD, ker je lahko bila sprememba na jid in starost hkrati
+	END IF;
+    -- Ali smo jadralca pomlajšali in ga moramo sedaj vstaviti v tabelo?
+    IF OLD.starost >= 18 AND NEW.starost < 18 THEN
+		INSERT INTO MladoletniJadralci(jid, ime, starost, rating) VALUES (NEW.jid, NEW.ime, NEW.starost, NEW.rating);
+    END IF;
+    -- Od tukaj naprej so samo spremembe, ki ohranjajo starost OLD in NEW pod 18.
+    UPDATE MladoletniJadralci SET jid = NEW.jid, ime = NEW.ime, starost = NEW.starost, rating = NEW.rating WHERE jid = OLD.jid;
+END //
+DELIMITER ;
+
+
+-----Naloga 2:-----
+
+DELIMITER //
+CREATE PROCEDURE IzbrisiPraznaNaselja(OUT stevilo INTEGER)
+BEGIN
+    SELECT COUNT(*) INTO stevilo
+    FROM naselje n
+    WHERE n.population = 0;
+    -- Najprej je treba prešteti števlo naselji, ki bo izbrisanih, drugače bi vedno dobili rezulrat 0.
+    DELETE FROM naselje WHERE population = 0;
+END //
+DELIMITER ;
+
+
+-----Naloga 3:-----
+
+DELIMITER //
+CREATE PROCEDURE StatistikaAlianse(IN imeAlianse VARCHAR(100))
+BEGIN
+	SELECT a.aid AS 'Sifra alianse', 
+			a.alliance AS 'Ime alianse', 
+                        i.player AS 'Ime clana',
+                        COUNT(*) AS 'Stevilo naselji'
+        FROM aliansa a JOIN igralec i USING(aid) JOIN naselje n USING(pid)
+        WHERE a.alliance = imeAlianse
+        GROUP BY a.aid, a.alliance, i.player;
+END //
+DELIMITER ;
+
+
+-----Naloga 4:-----
+
+DELIMITER //
+CREATE FUNCTION NajBarva(jid INTEGER) RETURNS VARCHAR(10)
+BEGIN 
+	DECLARE najbarva VARCHAR(100);
+	SELECT c.barva INTO najbarva
+	FROM rezervacija r JOIN coln c USING(cid)
+	WHERE r.jid = jid
+	GROUP BY c.barva
+	ORDER BY COUNT(*) DESC
+	LIMIT 1;
+        RETURN najbarva;
+END //
+DELIMITER ;
+
+
+-----Naloga 5:-----
+
+DELIMITER $
+CREATE TRIGGER PreveriNaselje_Insert
+BEFORE INSERT ON naselje -- Potreben je BEFORE, da prekinemo izvajanje, če je bila napaka
+FOR EACH ROW
+BEGIN
+	IF (NEW.x < -400 OR NEW.x > 400) THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "Koordinata x ni na območju [-400, 400].";
+    END IF;
+    IF (NEW.y < -400 OR NEW.y > 400) THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "Koordinata y ni na območju [-400, 400].";
+    END IF;
+    IF (NEW.population < 0) THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "Populacija naselja ne sme biti negativna.";
+    END IF;
+END $
+DELIMITER ;
+
+-- Bazni prožilec za UPDATE je identičen tistemu za INSERT
+-- V nekaterih SQL jezikih bi lahko napisali tudi "BEFORE UPDATE OR INSERT ON naselje"
+-- Vendar MariaDB tega ne podpira
+
+DELIMITER $
+CREATE TRIGGER PreveriNaselje_Update
+BEFORE UPDATE ON naselje -- Potreben je BEFORE, da prekinemo izvajanje, če je bila napaka
+FOR EACH ROW
+BEGIN
+	IF (NEW.x < -400 OR NEW.x > 400) THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "Koordinata x ni na območju [-400, 400].";
+    END IF;
+    IF (NEW.y < -400 OR NEW.y > 400) THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "Koordinata y ni na območju [-400, 400].";
+    END IF;
+    IF (NEW.population < 0) THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "Populacija naselja ne sme biti negativna.";
+    END IF;
+END $
+DELIMITER ;

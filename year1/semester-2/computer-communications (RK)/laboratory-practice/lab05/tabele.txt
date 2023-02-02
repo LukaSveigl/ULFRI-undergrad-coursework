@@ -1,0 +1,78 @@
+PC1:
+
+IPv4:
+default via 10.0.0.2 dev eth0
+10.0.0.0/30 dev eth0 scope link  src 10.0.0.1
+
+IPv6:
+2001:db8:e::/127 dev eth0  metric 256
+fe80::/64 dev eth0  metric 256
+default via 2001:db8:e::1 dev eth0  metric 1024
+ff00::/8 dev eth0  metric 256
+
+----------------------
+PC2:
+
+IPv4:
+default via 10.0.3.2 dev eth0
+10.0.3.0/30 dev eth0 scope link  src 10.0.3.1
+
+IPv6:
+2001:db8:3:f::/127 dev eth0  metric 256
+fe80::/64 dev eth0  metric 256
+default via 2001:db8:3:f::1 dev eth0  metric 1024
+ff00::/8 dev eth0  metric 256
+
+----------------------
+R1:
+
+IPv4:
+10.0.0.0/30 dev eth0  proto kernel  scope link  src 10.0.0.2
+10.0.3.0/30 via 192.168.0.2 dev eth1  proto zebra
+127.0.0.0/8 dev lo  proto kernel  scope link  src 127.0.0.1
+172.16.1.0/30 via 192.168.0.2 dev eth1  proto zebra
+192.168.0.0/30 dev eth1  proto kernel  scope link  src 192.168.0.1
+
+IPv6:
+2001:db8:1:ef::/127 via 2001:db8:ef::1 dev eth1  proto zebra  metric 1024
+2001:db8:3:f::/127 via 2001:db8:ef::1 dev eth1  proto zebra  metric 1024
+2001:db8:e::/127 dev eth0  proto kernel  metric 256
+2001:db8:ef::/127 dev eth1  proto kernel  metric 256
+fe80::/64 dev eth1  proto kernel  metric 256
+fe80::/64 dev eth0  proto kernel  metric 256
+
+----------------------
+R2:
+
+IPv4:
+10.0.0.0/30 via 192.168.0.1 dev eth0  proto zebra
+10.0.3.0/30 via 172.16.1.2 dev eth1  proto zebra
+127.0.0.0/8 dev lo  proto kernel  scope link  src 127.0.0.1
+172.16.1.0/30 dev eth1  proto kernel  scope link  src 172.16.1.1
+192.168.0.0/30 dev eth0  proto kernel  scope link  src 192.168.0.2
+
+IPv6:
+2001:db8:1:ef::/127 dev eth1  proto kernel  metric 256
+2001:db8:3:f::/127 via 2001:db8:1:ef::1 dev eth1  proto zebra  metric 1024
+2001:db8:e::/127 via 2001:db8:ef:: dev eth0  proto zebra  metric 1024
+2001:db8:ef::/127 dev eth0  proto kernel  metric 256
+fe80::/64 dev eth1  proto kernel  metric 256
+fe80::/64 dev eth0  proto kernel  metric 256
+
+-----------------------
+R3:
+
+IPv4:
+10.0.0.0/30 via 172.16.1.1 dev eth1  proto zebra
+10.0.3.0/30 dev eth0  proto kernel  scope link  src 10.0.3.2
+127.0.0.0/8 dev lo  proto kernel  scope link  src 127.0.0.1
+172.16.1.0/30 dev eth1  proto kernel  scope link  src 172.16.1.2
+192.168.0.0/30 via 172.16.1.1 dev eth1  proto zebra
+
+IPv6:
+2001:db8:1:ef::/127 dev eth1  proto kernel  metric 256
+2001:db8:3:f::/127 dev eth0  proto kernel  metric 256
+2001:db8:e::/127 via 2001:db8:1:ef:: dev eth1  proto zebra  metric 1024
+2001:db8:ef::/127 via 2001:db8:1:ef:: dev eth1  proto zebra  metric 1024
+fe80::/64 dev eth1  proto kernel  metric 256
+fe80::/64 dev eth0  proto kernel  metric 256

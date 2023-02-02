@@ -1,0 +1,68 @@
+var x : integer;
+
+fun f(x : integer) : integer = {
+    x = x + 1;
+    g();
+    (x + 1 where var x : number;);
+};
+
+typ integer = number;
+typ number = int;
+
+fun g() : integer = {
+    x = x + 1;
+};
+
+#{Should output: (locations might vary)
+  AstVarDecl(x) @(1.1-1.3)
+    AstTypeName(integer) @(1.9-1.15)
+      declaredAt: 9.1-9.3
+  AstFunDecl(f) @(3.1-3.3)
+    {Pars}
+      AstParDecl(x) @(3.7-3.7)
+        AstTypeName(integer) @(3.11-3.17)
+          declaredAt: 9.1-9.3
+    AstTypeName(integer) @(3.22-3.28)
+      declaredAt: 9.1-9.3
+    AstStmtExpr @(3.32-3.32)
+      {Stmts}
+          AstAssignStmt @(4.5-4.5)
+            AstNameExpr(x) @(4.5-4.5)
+              declaredAt: 3.7-3.7
+            AstBinExpr(ADD) @(4.11-4.11)
+              AstNameExpr(x) @(4.9-4.9)
+                declaredAt: 3.7-3.7
+              AstConstExpr(INT,1) @(4.13-4.13)
+          AstExprStmt @(5.5-5.5)
+            AstCallExpr(g) @(5.5-5.5)
+              declaredAt: 12.1-12.3
+              {Args}
+          AstExprStmt @(6.12-6.16)
+            AstWhereExpr @(6.12-6.16)
+              {Decls}
+                  AstVarDecl(x) @(6.18-6.20)
+                    AstTypeName(number) @(6.26-6.31)
+                      declaredAt: 10.1-10.3
+              AstBinExpr(ADD) @(6.8-6.8)
+                AstNameExpr(x) @(6.6-6.6)
+                  declaredAt: 6.18-6.20
+                AstConstExpr(INT,1) @(6.10-6.10)
+  AstTypDecl(integer) @(9.1-9.3)
+    AstTypeName(number) @(9.15-9.20)
+      declaredAt: 10.1-10.3
+  AstTypDecl(number) @(10.1-10.3)
+    AstAtomType(INT) @(10.14-10.16)
+  AstFunDecl(g) @(12.1-12.3)
+    {Pars}
+    AstTypeName(integer) @(12.11-12.17)
+      declaredAt: 9.1-9.3
+    AstStmtExpr @(12.21-12.21)
+      {Stmts}
+          AstAssignStmt @(13.5-13.5)
+            AstNameExpr(x) @(13.5-13.5)
+              declaredAt: 1.1-1.3
+            AstBinExpr(ADD) @(13.11-13.11)
+              AstNameExpr(x) @(13.9-13.9)
+                declaredAt: 1.1-1.3
+              AstConstExpr(INT,1) @(13.13-13.13)
+}#

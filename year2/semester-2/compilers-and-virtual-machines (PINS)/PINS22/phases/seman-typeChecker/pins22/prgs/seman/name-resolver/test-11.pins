@@ -1,0 +1,27 @@
+#{Name overlap test 1}#
+
+var x : int;
+
+fun y(x : char) : void = {
+    #{x should be of type char, declared as parameter}#
+    x = x + 1;
+};
+
+#{Should output: (locations might vary)
+  AstVarDecl(x) @(3.1-3.3)
+    AstAtomType(INT) @(3.9-3.11)
+  AstFunDecl(y) @(5.1-5.3)
+    {Pars}
+      AstParDecl(x) @(5.7-5.7)
+        AstAtomType(CHAR) @(5.11-5.14)
+    AstAtomType(VOID) @(5.19-5.22)
+    AstStmtExpr @(5.26-5.26)
+      {Stmts}
+          AstAssignStmt @(7.5-7.5)
+            AstNameExpr(x) @(7.5-7.5)
+              declaredAt: 5.7-5.7
+            AstBinExpr(ADD) @(7.11-7.11)
+              AstNameExpr(x) @(7.9-7.9)
+                declaredAt: 5.7-5.7
+              AstConstExpr(INT,1) @(7.13-7.13)
+}#
